@@ -1,0 +1,158 @@
+
+.header {
+	background-color:#66b3ff;
+	width: 99%;
+	height: 40px;
+	float: top;
+	position: fixed;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border:solid 7px #b3d9ff;
+}
+.header__navbar {
+	text-align: center;
+	list-style: none;
+	padding: 0;
+	margin:0;
+}
+.header__tab {
+	display: inline;
+    margin: 0 10px 0 0;
+    font-size: 30px;
+	border-radius: 10px;
+}
+.header__tabtext {
+	color: purple;
+	padding:0 10px;
+	text-decoration: none;
+}
+#active {
+    padding-bottom: 1px;
+    background: #1a8cff;
+}
+.right {
+	background-color:#3399ff;
+	width: 20%;
+	height: 1500px;
+	float: right;
+}
+.left {
+	background-color:#3399ff;
+	width: 20%;
+	height: 1500px;
+	float:left;
+}
+.footer {
+	background-color:#66b3ff;
+	width: 99.5%;
+	height: 75px;
+	clear:right;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+	border:solid 7px #bfbff2;
+}
+.footer__head {
+	text-align: center;
+	color: purple;
+}
+
+.content {
+	width: 60%;
+	height: 1500px;
+	float:left;
+	text-align: center;
+}
+.content__filler{
+	height: 50px
+}
+.content__header {
+	color:orange;
+	text-align: center;
+}
+.refresh {
+	margin-bottom: 30px
+}
+	.refresh__button {
+		width: 135px;
+		height: 45px;
+	}
+
+.time {
+	width: 200px;
+	height: 175px;
+	float:left;
+	border:9px solid  #bf40bf;
+	border-radius: 30px;
+	margin:0 auto;
+}
+.time__head {
+	text-align: center;
+	color: #c653c6;
+}
+#time__button {
+	width: 135px;
+	height: 45px;
+	margin-top: 1em;
+}
+#time__msg {
+	color: #c653c6;
+	text-align: center;
+	font-size: .9em;
+	font-style: bold;
+}
+
+.text {
+	margin:auto;
+	width: 300px;
+ 	border:solid 9px #e62e00;
+ 	border-radius: 30px;
+}
+.text__head {
+	text-align: center;
+	color:red;
+}
+.text__para {
+	text-align: center;
+	color: red;
+	font-size: 25px
+}
+#text__box {
+	margin-bottom: 15px;
+	height: 20px;
+}
+.text__button {
+	width: 135px;
+	height: 45px;
+}
+#text__div {
+	width: 300px;
+	text-align: center;
+	font-size: 20px;
+	color:red;
+	max-height: 500px;
+	overflow:hidden;
+}
+
+.count {
+	width: 200px;
+	height: 175px;
+	border: 9px solid #00ff55;
+	border-radius: 30px;
+	float:right;
+	margin: 0 auto;
+}
+.count__head {
+	text-align: center;
+	color:#00b33c;
+}
+.count__button {
+	width: 135px;
+	height: 45px;
+}
+#count__number {
+	color: #00b33c;
+	text-align: center;
+	font-size: 50px;
+	font-style: bold;
+	margin-top: 5px;
+}
