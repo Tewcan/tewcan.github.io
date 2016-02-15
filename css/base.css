@@ -17,6 +17,9 @@ html {
 }
 
 h1, h2, h3 { color: orange; }
+
+.navbar {width: 100%; height: 55px; background-color: teal; }
+.navbar ul { list-style-type: none; }
 .content {
 	width: 100%;
 	height: 1000px;
@@ -26,8 +29,6 @@ h1, h2, h3 { color: orange; }
 /*--------------*/
 /*   ¡BUTTON!   */
 /*--------------*/
-.navbar {width: 100%; height: 55px; background-color: teal; }
-.navbar ul { list-style-type: none; }
 .button {
 	display: block;
     padding: 15px;
