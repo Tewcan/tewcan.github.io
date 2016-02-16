@@ -1,0 +1,63 @@
+﻿body {
+    background-color:silver;
+}
+
+figcaption {
+    text-align:center;
+}
+
+#header {
+    height:100px;
+    padding-left:10%;
+    padding-right:10%;
+       
+}
+
+#menu_bar {
+    width:auto;
+    height:100px;
+    
+    padding-top:20px;
+    display:flex;
+    justify-content:center;
+    align-content:center;      
+}
+    
+    ul#button_list {
+        padding: 0;
+    }
+
+    ul#button_list li {
+        display:inline;
+    }
+
+    ul#button_list li a {        
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size:20px;
+        font-family:Rockwell;    
+    }
+
+    ul#button_list li a:hover {
+        background-color: black;
+        color: white;
+    }
+
+#body{
+    padding-left:20%;
+    padding-right:20%;    
+}
+
+    #body_content {
+        width:auto;
+        padding:5px;
+        background-color:gray;        
+    }
+
+#footer {
+    height:50px;
+    
+}
+
+

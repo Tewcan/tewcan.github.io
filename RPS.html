@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>William</title>
+    <link rel="stylesheet" type="text/css" href="css/wil_style.css">
+    <link rel="stylesheet" type="text/css" href="css/rps_style.css">
+    <script type="text/javascript" src="js/wil_java.js"></script>
+    <script type="text/javascript" src="js/rps_js.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="header">
+        <div id="menu_bar">
+            <ul id="button_list">
+                <li id="menu_button"><a href="index.html">Tewcan Home</a></li>
+                <li id="menu_button"><a href="wil.html">Me!</a></li>
+                <li id="menu_button"><a href="rps.html">Rock Paper Scissors</a></li>
+                <li id="menu_button"><a href="tic.html">Tic-Tac-Toe</a></li>
+                <li id="menu_button"><a href="obsidian.html">Obsidian</a></li>
+                <li id="menu_button"><a href="http://www.ellietew.com">Ellie</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="body">
+        <div id="body_content">
+            <div id="display" style="text-align:center">
+                <table>
+                    <tr>
+                        <td>You picked:</td>
+                        <td><div id="player"></div></td>
+                    </tr>
+                    <tr>
+                        <td>I picked:</td>
+                        <td><div id="computer"></div></td>
+                    </tr>
+                </table>
+                <br />
+                <div id="status"></div>
+
+
+            </div>
+            <br />
+            <table>
+                <tr>
+                    <td>Your Score:</td>
+                    <td><div id="pScore">0</div></td>
+                </tr>
+                <tr>
+                    <td>My Score:</td>
+                    <td><div id="cScore">0</div></td>
+                </tr>
+                <tr>
+                    <td>Ties:</td>
+                    <td><div id="tScore">0</div></td>
+                </tr>
+            </table>
+            <br />
+            <button class="button1" onclick="game(1)">Rock</button>
+            <button class="button1" onclick="game(2)">Paper</button>
+            <button class="button1" onclick="game(3)">Scissors</button>
+            <br />
+            <button class="button2" onclick="randomGame(1)">Random Game</button>
+            <br />
+            <button class="button2" onclick="randomGame(100)">100 Random Games</button>
+            <hr />
+            <button onclick="toggleDisplay()">Show Detailed Results</button>
+            <button onclick="clearAll()">Reset</button>
+            <br />
+            <br />
+
+            <div id="feed">
+                <table>
+                    <tr>
+                        <td>Total Games:</td>
+                        <td id="total">0</td>
+                    </tr>
+                    <tr>
+                        <td>Your win rate:</td>
+                        <td id="pWinRate">0</td>
+                    </tr>
+                    <tr>
+                        <td>My win rate:</td>
+                        <td id="cWinRate">0</td>
+                    </tr>
+                    <tr>
+                        <td>Tie rate:</td>
+                        <td id="tRate">0</td>
+                    </tr>
+                </table>
+                <ul id="feedlist"></ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

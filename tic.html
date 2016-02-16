@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>William</title>
+    <link rel="stylesheet" type="text/css" href="css/wil_style.css">
+    <link rel="stylesheet" type="text/css" href="css/tic_style.css">
+    <script type="text/javascript" src="css/wil_java.js"></script>
+    <script type="text/javascript" src="css/tic_js.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="header">
+        <div id="menu_bar">
+            <ul id="button_list">
+                <li id="menu_button"><a href="index.html">Tewcan Home</a></li>
+                <li id="menu_button"><a href="wil.html">Me!</a></li>
+                <li id="menu_button"><a href="rps.html">Rock Paper Scissors</a></li>
+                <li id="menu_button"><a href="tic.html">Tic-Tac-Toe</a></li>
+                <li id="menu_button"><a href="obsidian.html">Obsidian</a></li>
+                <li id="menu_button"><a href="http://www.ellietew.com">Ellie</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="body">
+        <div id="body_content">
+            <div id="board">
+                <table>
+                    <tr>
+                        <td><button onclick="tester('T1',1)" class="square" id="T1"></button></td>
+                        <td><button onclick="tester('T2',2)" class="square" id="T2"></button></td>
+                        <td><button onclick="tester('T3',3)" class="square" id="T3"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="tester('M1',4)" class="square" id="M1"></button></td>
+                        <td><button onclick="tester('M2',5)" class="square" id="M2"></button></td>
+                        <td><button onclick="tester('M3',6)" class="square" id="M3"></button></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="tester('B1',7)" class="square" id="B1"></button></td>
+                        <td><button onclick="tester('B2',8)" class="square" id="B2"></button></td>
+                        <td><button onclick="tester('B3',9)" class="square" id="B3"></button></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="blueScoreboard">0</div>
+            <div id="controlBoard">
+                <table>
+                    <tr><td><button class="controlButton" id="newGame" onclick="newGame()">New Game</button></td></tr>
+                    <tr><td><div id="status">Blue's Turn</div></td></tr>
+                    <tr><td><button class="controlButton" id="reset" onclick="reset()">Reset</button></td></tr>
+                </table>
+            </div>
+            <div id="redScoreboard">0</div> 
+            
+            Well Shabbidy Diggity Diggity!
+        </div>
+        
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

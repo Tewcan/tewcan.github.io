@@ -1,0 +1,29 @@
+﻿
+
+#display {
+    border-radius: 15px 50px 15px 50px;
+    background-color: lightblue;
+    padding: 20px; 
+    width: 150px;
+    height: 80px;    
+}
+
+#feed {
+    border-radius: 15px 50px 15px 50px;
+    background-color: lightblue;
+    width: 310px;  
+    padding: 5px;
+    display: none;  
+}
+
+.button1 {
+    width: 80px;
+    height: 30px;
+    margin: 2px;
+}
+
+.button2 {
+    width: 255px;
+    height: 30px;
+    margin: 2px;
+}
