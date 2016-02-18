@@ -1,11 +1,12 @@
-.circles {
+
+/*Targets*/
+#circles {
     width: 100px;
-    height: 100px;
+    height: 750px;
     position: fixed;
     animation-name: righttoleft;
     animation-duration: 3s;
     animation-timing-function: linear;
-    float: right;
 }
 
 @keyframes righttoleft {
@@ -15,5 +16,53 @@
 
 #circleDiv {
 	width:100%;
+	text-align: center;
+	background-color: grey;
+}
+.container {
+	width: 204px;
+	margin-left:45%;
+}
+.container__button {
+	width: 100px;
+	height: 40px;
+	border:none;
+	background-color: teal;
+	color: orange;
+	font-size: 20px;
+
+}
+.leftt {border-top-left-radius: 20px;}
+.rightt {border-top-right-radius: 20px}
+.rightb {border-bottom-left-radius: 20px}
+.leftb {border-bottom-right-radius: 20px}
+.container__button:hover {
+	background-color: blue;
+}
+#count {
+	font-size: 50px;
+	color: red;
+}
+
+
+/*Js Stuff*/
+.block {
+	width: 250px;
+	max-height: 400px;
+	overflow:hidden;
+	background-color: teal;
+	padding:20px;
 	clear:both;
+	float:right;
+}
+.block:hover {
+	background-color: blue;
+}
+#block__button {
+	width: 100px;
+	height: 40px;
+}
+#block__button:hover {background-color: lightgrey;}
+.content ul li {
+	
 }
