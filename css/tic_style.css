@@ -23,6 +23,11 @@
     justify-content:center;
 }
 
+#scoreBoard {
+    width:350px;
+    height:150px;
+}
+
 #controlBoard {
     float: left;    
     width:150px;
@@ -66,5 +71,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size:20px;
+    font-size: 20px;
 }

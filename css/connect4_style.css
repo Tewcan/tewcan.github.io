@@ -1,0 +1,70 @@
+﻿body {
+}
+
+.red {
+    fill:red;
+}
+
+.yellow {
+    fill:yellow;
+}
+
+.white {
+    fill:white;
+}
+
+.controlButton {
+    width: 120px;
+    height: 45px;
+    display: inline;
+}
+
+#scoreBoard {
+    width:700px;
+    height:200px;
+}
+
+#redScoreboard {
+    width:150px;
+    height:200px;
+    background-color:red;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New';
+    font-size: 80px;
+    color: white;
+}
+
+#yellowScoreboard {
+    width:150px;
+    height:200px;
+    background-color:yellow;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New';
+    font-size: 80px;
+    color: black;
+}
+
+#controlBoard {
+    width:400px;
+    height:200px;
+    background-color:brown;
+    float:left;
+    background-color:rosybrown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#status {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
