@@ -16,6 +16,13 @@
     display: none;  
 }
 
+#board {
+    width:320px;
+    border-radius:15px;
+    padding:5px;
+    background-color:lightcyan;
+}
+
 .button1 {
     width: 80px;
     height: 30px;
