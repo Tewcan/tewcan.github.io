@@ -1,0 +1,54 @@
+﻿.button1 {
+    width:283px;
+    height:100px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:20px;
+}
+
+.button2 {
+    width:570px;
+    height:100px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:20px;
+}
+
+#display {
+    background-color:green;
+    width:570px;
+    padding:10px;
+    
+}
+
+#gearDisplay {    
+    width:400px;
+    height:280px;
+    background-color:lightblue;
+    padding:5px;
+    float: left;
+}
+
+#lootDisplay {    
+    width:400px;
+    height:100px;
+    background-color:white;
+    padding:5px;
+    float:left;
+}
+
+#lootRarity {
+    text-align:center;
+    font-size:20px;
+}
+
+#itemDisplay {
+    text-align:center;
+    font-size:25px;
+}
+
+#statsDisplay {    
+    width: 150px;
+    height:280px;
+    background-color:antiquewhite;
+    float: left;
+    padding:5px;
+}
