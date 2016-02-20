@@ -1,9 +1,26 @@
+//do something about the quanity button
+//fix the hight issue
 var count = 0
 var color = 'red'
 var stage = '1'
+var gState = 0
 
+function gameState(state) {
+	if (state === 1) {
+		gState = 1
+		createCircle()
+	}
+	else {
+		gState = 0
+		count = 0
+		color = 'red'
+		stage = '1'
+		updateDisplay()
+		//removeCircle()   <--  why does this not work?
+ 	}
+}
 function createCircle() {
-
+	if (gState === 0) {return;}
 	var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svg.setAttribute("width", "100");
 	svg.setAttribute("height", "100");
@@ -20,17 +37,14 @@ function createCircle() {
 	circle.setAttribute("stroke", "black");
 	circle.setAttribute("stroke-width", "5px");
 	circle.setAttribute("fill", color);
-
 	svg.appendChild(circle);
 	circleTimer()
 
+	function circleTimer() {
+		var random = Math.floor((Math.random()* 1500 ) + 1000)
+		setTimeout(createCircle, random)
+	}
 };
-
-function circleTimer() {
-	var random = Math.floor((Math.random()* 1500 ) + 1000)
-	setTimeout(this.createCircle, random)
-}
-
 function removeTime () {
 	var svg = this
 	setTimeout(removeCircle, 2950)
@@ -39,15 +53,13 @@ function removeTime () {
 	}
 
 }
-
 function clickCheck() {
 	this.remove()
 	count++
-	checkstage()
+	stageCheck()
 	updateDisplay()
 }
-
-function checkstage() {
+function stageCheck() {
 	if (count === 10) {
 	stage++
 	color = 'green'}
@@ -64,7 +76,6 @@ function checkstage() {
 	stage++
 	color = 'black'}
 }
-
 function updateDisplay() {
 	document.getElementsByClassName('count')[0].innerHTML = count
 	document.getElementsByClassName('stagedisplay')[0].innerHTML = "Stage " + stage
@@ -73,5 +84,3 @@ function updateDisplay() {
 		stageClass[i].style.color = color
 	}
 }
-
-
