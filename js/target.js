@@ -1,45 +1,77 @@
-function random() {
-	var rand = Math.floor((Math.random()* 1500 ) + 1000)
-	setTimeout(circleFunction, rand)
-}
+var count = 0
+var color = 'red'
+var stage = '1'
 
-function circleFunction() {
-	var ran = Math.floor((Math.random()* 650 ) + 40)
+function createCircle() {
+
 	var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svg.setAttribute("width", "100");
 	svg.setAttribute("height", "100");
-	document.getElementById("circleDiv").appendChild(svg);
+	svg.setAttribute("id", "circles")
+	svg.onclick = clickCheck
+	svg.addEventListener("animationstart", removeTime)
+	document.getElementsByClassName("menudiv")[0].appendChild(svg);
 
-	var att = document.createAttribute("id");
-	att.value = "circles";
-	svg.setAttributeNode(att);
-
+	var random = Math.floor((Math.random()* 650 ) + 40)
 	var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 	circle.setAttribute("cx", "50");
-	circle.setAttribute("cy", ran);
+	circle.setAttribute("cy", random);
 	circle.setAttribute("r", "40");
 	circle.setAttribute("stroke", "black");
 	circle.setAttribute("stroke-width", "5px");
-	circle.setAttribute("fill", "red");
+	circle.setAttribute("fill", color);
 
 	svg.appendChild(circle);
-	random()
+	circleTimer()
 
-	var click = document.getElementById('circles');
-	click.onclick = function remove() {
-		document.getElementById('circles').remove();
-		count()
-	};
+};
+
+function circleTimer() {
+	var random = Math.floor((Math.random()* 1500 ) + 1000)
+	setTimeout(this.createCircle, random)
 }
 
+function removeTime () {
+	var svg = this
+	setTimeout(removeCircle, 2950)
+	function removeCircle () {
+		svg.remove()
+	}
 
-var c = 0
-function count() {
-	c++
-	document.getElementById('count').innerHTML = c
-	if (c === 10) {document.getElementById('level').innerHTML = 'Level 2'}
-	else if (c === 20) {document.getElementById('level').innerHTML = 'Level 3'}
-	else if (c === 30) {document.getElementById('level').innerHTML = 'Level 4'}
+}
+
+function clickCheck() {
+	this.remove()
+	count++
+	checkstage()
+	updateDisplay()
+}
+
+function checkstage() {
+	if (count === 10) {
+	stage++
+	color = 'green'}
+	else if (count === 20) {
+	stage++
+	color = 'purple'}
+	else if (count === 30) {
+	stage++
+	color = 'orange'}
+	else if (count === 50) {
+	stage++
+	color = '#ffff4d'}
+	else if (count === 100) {
+	stage++
+	color = 'black'}
+}
+
+function updateDisplay() {
+	document.getElementsByClassName('count')[0].innerHTML = count
+	document.getElementsByClassName('stagedisplay')[0].innerHTML = "Stage " + stage
+	var stageClass = document.getElementsByClassName('stage')
+	for (var i = 0; i < stageClass.length; i++) {
+		stageClass[i].style.color = color
+	}
 }
 
 
