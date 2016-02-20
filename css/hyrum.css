@@ -55,17 +55,16 @@
 	overflow:hidden;
 	background-color: teal;
 	padding:20px;
-	clear:both;
 	float:right;
 }
 .block:hover {
 	background-color: blue;
 }
-#block__button {
+.block__button {
 	width: 100px;
 	height: 40px;
 }
-#block__button:hover {background-color: lightgrey;}
+.block__button:hover {background-color: lightgrey;}
 .content ul li {
 	
 }

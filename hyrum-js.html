@@ -6,35 +6,43 @@
 	<link rel="stylesheet" type="text/css" href="css/hyrum.css">
 	<script src="js/js stuff.js"></script>
 	<title>Js Stuff</title>
+  <style>.background {background-image:url("images/hyrum-background.jpg")}</style>
 </head>
 <body>
 <div class="navbar">
-	<ul>
-		<li class="pull--right"><a class="button" href="index.html">Home</a></li>
-		<li class="pull--right"><a class="button" href="target.html">Targets!</a></li>
-		<li class="pull--right"><a class="button" href="hyrum.html">Hyrum</a></li>
+	 <ul>
+    <li class="pull--right"><a class="button" href="hyrum.html">Hyrum</a></li>
+		<li class="pull--left"><a class="button" href="index.html">Home</a></li>
+		<li class="pull--right"><a class="button navbar--active" href="hyrum-js.html">Js Stuff</a></li>
 	</ul>
 </div>
+<div class="background">
 <div class="content">
-	<div class="block" class="time">
-       	<h2 class="time__head">Times Square</h2>
-    	<button onclick="time()" id="block__button">The Date is</button>
-    	<h2 id="time__msg"></h2>
+    <div class="block clear"> <!--  Targets Block -->
+        <h2>Shoot the Targets!</h2>
+        <h3 class="pad">Who would of thought clicking circles could be so much  fun!</h3>
+        <button onclick="window.location.href='target.html'" class="  block__button">Enter<r/button>
     </div>
-    <div class="block">
-       	<h2 class="count__head">Count Things</h2>
-       	<button id="block__button" onclick="count()">Click</button>
-       	<h1 id="count__number"></h1>
-    </div>
-    <div class="block">
+    <div class="block"> <!--  Text Creator Block -->
         <h1 class="text__head">Text Creator</h1>
         <h3 class="text__para" >Type things in the box</h3>
         <form action="#">
-        <input type='text' id='text__box'>
-        <input type='submit' id="block__button" value="Submit" onclick="	textCreator()">
+        <input type='text' class='text__box'>
+        <input type='submit' class="block__button" value="Submit" onclick="textCreator()">
         </form>
-        <div id="text__div")></div>
+        <div class="text__div")></div>
     </div>
+    <div class="block clear" class="time">  <!--  Time Block -->
+        <h2 class="time__head">Times Square</h2>
+        <button onclick="time()" class="time__button block__button">The Date is </button>
+        <h2 class="time__msg"></h2>
+    </div>
+    <div class="block clear"> <!--  Count Block -->
+        <h2 class="count__head">Count Things</h2>
+        <button class="block__button" onclick="count()">Click</button>
+        <h2 class="count__number"></h2>
+    </div>
+</div>
 </div>
 </body>
 </html>
