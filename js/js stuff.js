@@ -27,6 +27,15 @@ function textCreator() {
 	var txt = document.getElementById('text__box').value;
 	var para = document.createElement('h3');
 	var text = document.createTextNode(txt);
+	para.onclick = strikeThrough
 	para.appendChild(text)
 	document.getElementById('text__div').insertBefore(para, document.getElementById('text__div').childNodes[0]);
+}
+
+function strikeThrough () {
+	if(this.style.textDecoration == 'none'){
+	this.style.textDecoration = 'line-through'
+	} else {
+	this.style.textDecoration = 'none'
+	}
 }
