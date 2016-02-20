@@ -17,7 +17,7 @@
 .menudiv {
 	width:100%;
 	text-align: center;
-	background-color: grey;
+	border: 5px solid rgba(255, 0, 0, .5);
 }
 .container {
 	width: 204px;
