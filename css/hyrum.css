@@ -1,3 +1,9 @@
+.imagediv {
+}
+.images {
+	width: 300px;
+	height: 200px;
+}
 
 /*Targets*/
 #circles {
