@@ -1,4 +1,12 @@
-﻿var myInventory = [
+﻿var myCharacter = {    
+    name: "",
+    gender: "",
+    race: "",
+    myClass: "",
+    level: 1,    
+}
+
+var myInventory = [
     { slot: "invHead", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
     { slot: "invChest", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
     { slot: "invLegs", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
@@ -38,6 +46,76 @@ var totalIlevel = 0
 
 var itemSold = 0
 
+function startGame() {
+    if (localStorage.getItem("savedCharacter") === null) {
+        document.getElementById("topBar").style.display = "none"
+        document.getElementById("gearDisplay").style.display = "none"
+        document.getElementById("statsDisplay").style.display = "none"
+        document.getElementById("lootDisplay").style.display = "none"
+        document.getElementById("buttonBar").style.display = "none"
+        document.getElementById("newMenu").style.display = "block"
+    }
+    else if (localStorage.getItem("savedCharacter") != null) {
+        loadGame()
+    }
+
+    updateInventory()
+}
+
+function closeNewMenu() {
+    document.getElementById("topBar").style.display = "block"
+    document.getElementById("gearDisplay").style.display = "block"
+    document.getElementById("statsDisplay").style.display = "block"
+    document.getElementById("lootDisplay").style.display = "block"
+    document.getElementById("buttonBar").style.display = "block"
+    document.getElementById("newMenu").style.display = "none"
+    updateInventory();
+}
+
+function newName() {
+    myCharacter.name = prompt("Enter your name", "Loot Hoarder")
+    previewNewCharacter()
+}
+
+function newGender(selectedButton, gender) {
+    myCharacter.gender = gender
+    document.getElementById("buttonMale").style = "background-color: orangered; color:black;"
+    document.getElementById("buttonFemale").style = "background-color: orangered; color:black;"
+    document.getElementById(selectedButton).style = "background-color: black; color:white;"
+    previewNewCharacter()
+}
+
+function newRace(selectedButton, char) {
+    myCharacter.race = char
+    document.getElementById("buttonHuman").style = "background-color: orangered; color:black;"
+    document.getElementById("buttonDwarf").style = "background-color: orangered; color:black;"
+    document.getElementById("buttonElf").style = "background-color: orangered; color:black;"
+    document.getElementById("buttonHalfling").style = "background-color: orangered; color:black;"
+    document.getElementById(selectedButton).style = "background-color: black; color:white;"
+    previewNewCharacter()
+}
+
+function newClass(selectedButton, newClass) {
+    myCharacter.myClass = newClass
+    document.getElementById("buttonWarrior").style = "background-color: orangered; color:black;"
+    document.getElementById("buttonMage").style = "background-color: orangered; color:black;"
+    document.getElementById("buttonRogue").style = "background-color: orangered; color:black;"
+    document.getElementById(selectedButton).style = "background-color: black; color:white;"
+    previewNewCharacter()
+}
+
+function previewNewCharacter() {
+    var tempCharacter = ""
+    document.getElementById("newCharacterName").innerHTML = "<h3>" + myCharacter.name + "</h3>"
+    document.getElementById("newCharacterClass").innerHTML = ""
+    if (myCharacter.gender != "") document.getElementById("newCharacterClass").innerHTML += myCharacter.gender + " "
+    if (myCharacter.race != "") document.getElementById("newCharacterClass").innerHTML += myCharacter.race + " "
+    if (myCharacter.myClass != "") document.getElementById("newCharacterClass").innerHTML += myCharacter.myClass
+    
+    
+    tempCharacter = myCharacter.gender + " " + myCharacter.race + " " + myCharacter.myClass
+    document.getElementById("newCharacterClass").innerHTML = tempCharacter
+}
 
 function getLoot() {    
     itemSold = 0    
@@ -120,12 +198,11 @@ function keepLoot() {
         myInventory[currentSlot] = newItem
         currentItem = newItem
         newItem = tempItem
-
-        
+                
         updateLootDisplay()
         updateInventory()
         statChangeMarkup()
-        
+        saveGame()        
     }
 }
 
@@ -145,6 +222,7 @@ function sellLoot() {
     document.getElementById("newItemDisplay").style.borderColor = "lightgray"
     updateInventory()
     changeButtons()
+    saveGame()
 }
 
 function updateLootDisplay() {
@@ -221,6 +299,8 @@ function updateStats() {
         totalIlevel += myInventory[i].ilevel
     }
 
+    document.getElementById("charDisplay").innerHTML = "<table><tr><td><h3>" + myCharacter.name + "</h3></td></tr><tr><td>Level " + myCharacter.level + " " + myCharacter.gender + " " + myCharacter.race + " " + myCharacter.myClass + "</td></tr></table>"
+
     document.getElementById("ilvlDisplay").innerHTML = totalIlevel
     document.getElementById("ilvlDisplay").style.color = "black"
     document.getElementById("armorDisplay").innerHTML = totalArmor
@@ -229,6 +309,43 @@ function updateStats() {
     document.getElementById("agiDisplay").innerHTML = totalAgi
     document.getElementById("intDisplay").innerHTML = totalInt
     document.getElementById("staDisplay").innerHTML = totalSta
-    
+}
 
+function saveGame() {
+    localStorage.setItem("savedCharacter", JSON.stringify(myCharacter))
+    localStorage.setItem("savedInventory", JSON.stringify(myInventory))
+    localStorage.setItem("savedGold", totalGold)
+}
+
+function loadGame() {    
+    myCharacter = JSON.parse(localStorage.getItem("savedCharacter"))
+    myInventory = JSON.parse(localStorage.getItem("savedInventory"))
+    totalGold = parseInt(localStorage.getItem("savedGold"))
+    
+    updateInventory()
+}
+
+function openSettings() {
+    document.getElementById("topBar").style.display = "none"
+    document.getElementById("gearDisplay").style.display = "none"
+    document.getElementById("statsDisplay").style.display = "none"
+    document.getElementById("lootDisplay").style.display = "none"
+    document.getElementById("buttonBar").style.display = "none"
+    document.getElementById("settingsMenu").style.display = "block"
+}
+
+function closeSettings() {
+    document.getElementById("topBar").style.display = "block"
+    document.getElementById("gearDisplay").style.display = "block"
+    document.getElementById("statsDisplay").style.display = "block"
+    document.getElementById("lootDisplay").style.display = "block"
+    document.getElementById("buttonBar").style.display = "block"
+    document.getElementById("settingsMenu").style.display = "none"
+}
+
+function resetGame() {
+    localStorage.removeItem("savedCharacter")
+    localStorage.removeItem("savedInventory")
+    localStorage.removeItem("savedGold")
+    location.reload()
 }

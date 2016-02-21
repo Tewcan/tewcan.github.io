@@ -7,7 +7,7 @@
     <script type="text/javascript" src="js/loothoard.js"></script>
     <meta charset="utf-8" />
 </head>
-<body onload="updateInventory()">
+<body onload="startGame()">
     <div id="header">
         <div id="menu_bar">
             <ul id="button_list">
@@ -24,6 +24,10 @@
     <div id="body">
         <div id="body_content">            
             <div id="display">
+                <div id="topBar">
+                    <div id="charDisplay"></div>
+                    <div id="settingsButton"><img onclick="openSettings()" class="middle" src="images/smallgear.svg" /></div>
+                </div>
                 <div id="gearDisplay">
                     <h3>Inventory</h3>
                     <table>
@@ -125,13 +129,64 @@
                     <div id="equippedItemDisplay"></div>                    
                     <div id="newItemDisplay"></div>                   
                 </div>
-                
-                <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
-                <button class="button1" id="sellLoot" onclick="sellLoot()">Sell</button>
-                <br />
-                <button class="button2" id="newLoot" onclick="getLoot()">New Loot</button>
-            </div>
-            
+                <div id="buttonBar">
+                    <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
+                    <button class="button1" id="sellLoot" onclick="sellLoot()">Sell</button>                    
+                    <button class="button2" id="newLoot" onclick="getLoot()">New Loot</button>
+                </div>
+
+
+                <div id="settingsMenu">
+                    <div id="settingsMenuTopbar">
+                        <div id="settingsTitle"><h3>Settings</h3></div>
+                        <div id="settingsClose" onclick="closeSettings()">X</div>
+                    </div>
+                    <div id="settingsOptions"></div>
+                    <button id="resetButton" onclick="resetGame()">Reset Data</button>
+                </div>
+
+                <div id="newMenu">
+                    
+                    <div id="newCharacterDisplay">
+                        <table>
+                            <tr><td align="center" id="newCharacterName"></td></tr>
+                            <tr><td align="center" id="newCharacterClass"></td></tr>
+                        </table>
+                    </div>
+                    <div id="newMenuButtons">
+                        <table>
+                            <tr>
+                                <td align="center" colspan="4"><img src="images/LootHoard.png" /></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="4"><button class="button3" onclick="newName()">Name</button></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2"><button id="buttonMale" class="button3" onclick="newGender(id,'Male')">Male</button></td>
+                                <td align="center" colspan="2"><button id="buttonFemale" class="button3" onclick="newGender(id,'Female')">Female</button></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><button id="buttonHuman" class="button3" onclick="newRace(id,'Human')">Human</button></td>
+                                <td align="center"><button id="buttonDwarf" class="button3" onclick="newRace(id,'Dwarf')">Dwarf</button></td>
+                                <td align="center"><button id="buttonElf" class="button3" onclick="newRace(id,'Elf')">Elf</button></td>
+                                <td align="center"><button id="buttonHalfling" class="button3" onclick="newRace(id,'Halfling')">Halfling</button></td>
+                            </tr>                     
+                            <tr>
+                                <td align="center" colspan="4"><button id="buttonWarrior" class="button3" onclick="newClass(id,'Warrior')">Warrior</button></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="4"><button id="buttonMage" class="button3" onclick="newClass(id,'Mage')">Mage</button></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="4"><button id="buttonRogue" class="button3" onclick="newClass(id,'Rogue')">Rogue</button></td>
+                            </tr>                        
+                            <tr>
+                                <td align="center" colspan="4"><img onclick="closeNewMenu()" src="images/create.png" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>                       
         </div>
     </div>
     <div id="footer"></div>
