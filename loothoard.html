@@ -24,115 +24,117 @@
     <div id="body">
         <div id="body_content">            
             <div id="display">
-                <div id="topBar">
-                    <div id="charDisplay"></div>
-                    <div id="settingsButton"><img onclick="openSettings()" class="middle" src="images/smallgear.svg" /></div>
-                </div>
-                <div id="gearDisplay">
-                    <h3>Inventory</h3>
-                    <table>
-                        <tr>
-                            <td>Head:</td>
-                            <td><div class="inv" id="invHead"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Chest:</td>
-                            <td><div class="inv" id="invChest"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Legs:</td>
-                            <td><div class="inv" id="invLegs"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Shoulders:</td>
-                            <td><div class="inv" id="invShoulders"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Wrists:</td>
-                            <td><div class="inv" id="invWrists"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Hands:</td>
-                            <td><div class="inv" id="invHands"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Feet:</td>
-                            <td><div class="inv" id="invFeet"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Waist:</td>
-                            <td><div class="inv" id="invWaist"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Neck:</td>
-                            <td><div class="inv" id="invNeck"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Finger:</td>
-                            <td><div class="inv" id="invFinger"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Main Hand:</td>
-                            <td><div class="inv" id="invMainHand"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Off Hand:</td>
-                            <td><div class="inv" id="invOffHand"></div></td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="statsDisplay">
-                    <h3>Stats</h3>
-                    <table>
-                        <tr>
-                            <td>Item Level:</td>
-                            <td><div id="ilvlDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Gold:</td>
-                            <td><div id="goldDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Armor:</td>
-                            <td><div id="armorDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Damage:</td>
-                            <td><div id="damDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>--</td>
-                        </tr>
-                        <tr>
-                            <td>Strength:</td>
-                            <td><div id="strDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Agility:</td>
-                            <td><div id="agiDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Intelligence:</td>
-                            <td><div id="intDisplay"></div></td>
-                        </tr>
-                        <tr>
-                            <td>Stamina:</td>
-                            <td><div id="staDisplay"></div></td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="lootDisplay">
-                    <div id="equippedItemDisplay"></div>                    
-                    <div id="newItemDisplay"></div>                   
-                </div>
-                <div id="buttonBar">
-                    <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
-                    <button class="button1" id="sellLoot" onclick="sellLoot()">Sell</button>                    
-                    <button class="button2" id="newLoot" onclick="getLoot()">New Loot</button>
+                <div id="inventoryDisplay">
+                    <div id="topBar">
+                        <div id="charDisplay"></div>
+                        <div id="settingsButton"><img onclick="openSettings()" class="middle" src="images/smallgear.svg" /></div>
+                    </div>
+                    <div id="gearDisplay">
+                        <h3>Inventory</h3>
+                        <table>
+                            <tr>
+                                <td>Head:</td>
+                                <td><div class="inv" id="invHead"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Chest:</td>
+                                <td><div class="inv" id="invChest"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Legs:</td>
+                                <td><div class="inv" id="invLegs"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Shoulders:</td>
+                                <td><div class="inv" id="invShoulders"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Wrists:</td>
+                                <td><div class="inv" id="invWrists"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Hands:</td>
+                                <td><div class="inv" id="invHands"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Feet:</td>
+                                <td><div class="inv" id="invFeet"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Waist:</td>
+                                <td><div class="inv" id="invWaist"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Neck:</td>
+                                <td><div class="inv" id="invNeck"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Finger:</td>
+                                <td><div class="inv" id="invFinger"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Main Hand:</td>
+                                <td><div class="inv" id="invMainHand"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Off Hand:</td>
+                                <td><div class="inv" id="invOffHand"></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="statsDisplay">
+                        <h3>Stats</h3>
+                        <table>
+                            <tr>
+                                <td>Item Level:</td>
+                                <td><div id="ilvlDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Gold:</td>
+                                <td><div id="goldDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>--</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Armor:</td>
+                                <td><div id="armorDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Damage:</td>
+                                <td><div id="damDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>Strength:</td>
+                                <td><div id="strDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Agility:</td>
+                                <td><div id="agiDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Intelligence:</td>
+                                <td><div id="intDisplay"></div></td>
+                            </tr>
+                            <tr>
+                                <td>Stamina:</td>
+                                <td><div id="staDisplay"></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="lootDisplay">
+                        <div id="equippedItemDisplay"></div>                    
+                        <div id="newItemDisplay"></div>                   
+                    </div>
+                    <div id="buttonBar">
+                        <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
+                        <button class="button1" id="sellLoot" onclick="sellLoot()">Sell</button>                    
+                        <button class="button2" id="newLoot" onclick="getLoot()">New Loot</button>
+                    </div>
                 </div>
 
 
