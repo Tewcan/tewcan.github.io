@@ -1,0 +1,17 @@
+.col {float: left;height:20px;}
+.col--10 {height:140px;width: 40%;}
+.col--20 {width: 60%;}
+.col--30 {width: 60%;}
+.col--40 {width: 60%;}
+.col--50 {width: 60%;}
+.col--60 {width: 60%;}
+.col--70 {width: 60%;}
+.col--80 {width: 60%;}
+.col--90 {width: 100%;}
+.col--100 {width: 100%;}
+.red {background-color: red;}
+.blue {background-color: blue;}
+.content {width:800px;}
+.content:hover .white {background-color:red;}
+.content:hover .red {background-color:white;}
+.content:hover .blue {background-color:#0000cc;}
