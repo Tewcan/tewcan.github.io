@@ -11,8 +11,12 @@
 <body class="background">
 <div class="menudiv">
 	<h1 class="stage">Shoot the Targets!</h1>
+	<button class="container__button pull--left" onclick="difficulty('easy')">Easy</button>
+	<button class="container__button pull--left" style="background-color: teal" onclick="difficulty('medium')">Medium</button>
+	<button class="container__button pull--left" onclick="difficulty('hard')">Hard</button>
 	<h1 class="stage stagedisplay pull--right clear push--right">Stage 1 of 8</h1>
 	<h1 class="stage lives pull--right clear push--right ">Lives 5</h1>
+	<h1 class="dead pull--right clear push--right "></h1>
 	<div class="container">
 	<button class='container__button' onclick="gameState(1)">Start</button>
 	<button class="container__button" onclick="gameState(0)">Reset</button>
