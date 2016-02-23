@@ -30,7 +30,8 @@ h1, h2, h3 { color: orange; }
   background-size: cover; 
   background-position: center;
 }
-
+.logo { height: 55px; float: left;}
+.logo:hover {background:rgba(0, 0, 0,0.1); }
 .content {
 	width: 80%;
   left:10%;
