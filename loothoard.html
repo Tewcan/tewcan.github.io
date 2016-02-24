@@ -27,56 +27,72 @@
                 <div id="inventoryDisplay">
                     <div id="topBar">
                         <div id="charDisplay"></div>
+                        <div id="resourceDisplay">
+                            <table>
+                                <tr>
+                                    <td>Health:</td>
+                                    <td id="healthDisplay">1000</td>
+                                </tr>
+                                <tr>
+                                    <td>Mana:</td>
+                                    <td id="manaDisplay">1000</td>
+                                </tr>
+                                <tr>
+                                    <td>Energy:</td>
+                                    <td id="energyDisplay">1000</td>
+                                </tr>
+                            </table>
+                        </div>
                         <div id="settingsButton"><img onclick="openSettings()" class="middle" src="images/smallgear.svg" /></div>
                     </div>
                     <div id="gearDisplay">
                         <h3>Inventory</h3>
-                        <table>
-                            <tr>
+                        <table cellspacing="0">
+                            <tr id="inventoryHeadDisplay" onmouseover="selectItem(id,0)" onmouseout="deselectItem(id)">
                                 <td>Head:</td>
-                                <td><div class="inv" id="invHead"></div></td>
-                            </tr>
-                            <tr>
+                                <td width="300"><div class="inv" id="invHead"></div></td>
+                            </tr> 
+                            <tr id="inventoryChestDisplay"onmouseover="selectItem(id,1)" onmouseout="deselectItem(id)">
                                 <td>Chest:</td>
                                 <td><div class="inv" id="invChest"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryLegsDisplay" onmouseover="selectItem(id,2)" onmouseout="deselectItem(id)">
                                 <td>Legs:</td>
                                 <td><div class="inv" id="invLegs"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryShouldersDisplay" onmouseover="selectItem(id,3)" onmouseout="deselectItem(id)">
                                 <td>Shoulders:</td>
                                 <td><div class="inv" id="invShoulders"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryWristsDisplay" onmouseover="selectItem(id,4)" onmouseout="deselectItem(id)">
                                 <td>Wrists:</td>
                                 <td><div class="inv" id="invWrists"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryHandsDisplay" onmouseover="selectItem(id,5)" onmouseout="deselectItem(id)">
                                 <td>Hands:</td>
                                 <td><div class="inv" id="invHands"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryFeetDisplay" onmouseover="selectItem(id,6)" onmouseout="deselectItem(id)">
                                 <td>Feet:</td>
                                 <td><div class="inv" id="invFeet"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryWaistDisplay" onmouseover="selectItem(id,7)" onmouseout="deselectItem(id)">
                                 <td>Waist:</td>
                                 <td><div class="inv" id="invWaist"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryNeckDisplay" onmouseover="selectItem(id,8)" onmouseout="deselectItem(id)">
                                 <td>Neck:</td>
                                 <td><div class="inv" id="invNeck"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryFingerDisplay" onmouseover="selectItem(id,9)" onmouseout="deselectItem(id)">
                                 <td>Finger:</td>
                                 <td><div class="inv" id="invFinger"></div></td>
                             </tr>
-                            <tr>
-                                <td>Main Hand:</td>
+                            <tr id="inventoryMainhandDisplay" onmouseover="selectItem(id,10)" onmouseout="deselectItem(id)">
+                                <td>Main Hand:&nbsp;&nbsp;</td>
                                 <td><div class="inv" id="invMainHand"></div></td>
                             </tr>
-                            <tr>
+                            <tr id="inventoryOffhandDisplay" onmouseover="selectItem(id,11)" onmouseout="deselectItem(id)">
                                 <td>Off Hand:</td>
                                 <td><div class="inv" id="invOffHand"></div></td>
                             </tr>
@@ -84,51 +100,168 @@
                     </div>
                     <div id="statsDisplay">
                         <h3>Stats</h3>
-                        <table>
+                        <hr />
+                        <table>                
                             <tr>
-                                <td>Item Level:</td>
-                                <td><div id="ilvlDisplay"></div></td>
+                                <td>Avg. Item Level:&nbsp;</td>
+                                <td align="right" id="ilvlDisplay"></td>
                             </tr>
                             <tr>
                                 <td>Gold:</td>
-                                <td><div id="goldDisplay"></div></td>
+                                <td align="right" id="goldDisplay"></td>
                             </tr>
+                            
                             <tr>
-                                <td>--</td>
+                                <td>---</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Armor:</td>
-                                <td><div id="armorDisplay"></div></td>
+                                <td align="right" id="armorDisplay"></td>
                             </tr>
                             <tr>
                                 <td>Damage:</td>
-                                <td><div id="damDisplay"></div></td>
+                                <td align="right" id="damDisplay"></td>
                             </tr>
                             <tr>
-                                <td>--</td>
+                                <td>---</td>
                             </tr>
                             <tr>
                                 <td>Strength:</td>
-                                <td><div id="strDisplay"></div></td>
+                                <td align="right" id="strDisplay"></td>
                             </tr>
                             <tr>
                                 <td>Agility:</td>
-                                <td><div id="agiDisplay"></div></td>
+                                <td align="right" id="agiDisplay"></td>
                             </tr>
                             <tr>
                                 <td>Intelligence:</td>
-                                <td><div id="intDisplay"></div></td>
+                                <td align="right" id="intDisplay"></td>
                             </tr>
                             <tr>
                                 <td>Stamina:</td>
-                                <td><div id="staDisplay"></div></td>
+                                <td align="right" id="staDisplay"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="selectedItemDisplay">
+                        <h3 id="selectedItemName"></h3>
+                        <hr />
+                        <table>
+                            <tr>
+                                <td>Armor:</td>
+                                <td id="selectedItemArmor"></td>
+                            </tr>
+                            <tr>
+                                <td>Damage:</td>
+                                <td id="selectedItemDam"></td>
+                            </tr>
+                            <tr>
+                                <td>Strength:</td>
+                                <td id="selectedItemStr"></td>
+                            </tr>
+                            <tr>
+                                <td>Agility:</td>
+                                <td id="selectedItemAgi"></td>
+                            </tr>
+                            <tr>
+                                <td>Intelligence:&nbsp;&nbsp;</td>
+                                <td id="selectedItemInt"></td>
+                            </tr>
+                            <tr>
+                                <td>Stamina:</td>
+                                <td id="selectedItemSta"></td>
+                            </tr>
+                            <tr>
+                                <td>Item Level:</td>
+                                <td id="selectedItemIlvl"></td>
                             </tr>
                         </table>
                     </div>
                     <div id="lootDisplay">
-                        <div id="equippedItemDisplay"></div>                    
-                        <div id="newItemDisplay"></div>                   
+                        <div id="equippedItemDisplay">
+                            <h3>Equipped</h3>
+                            <strong id="equippedItemName">test</strong>
+                            <table>
+                                <tr>
+                                    <td>Armor</td>
+                                    <td id="equippedItemArmor">0</td>
+                                    <td id="equippedItemSlot" style="width:180px;" align="right">head</td>
+                                </tr>
+                                <tr>
+                                    <td>Damage:</td>
+                                    <td id="equippedItemDam">0</td>
+                                    <td id="equippedItemRarity" style="width:180px;" align="right">common</td>
+                                </tr>
+                                <tr>
+                                    <td>Strength:</td>
+                                    <td id="equippedItemStr">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Agility:</td>
+                                    <td id="equippedItemAgi">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Intelligence:&nbsp;</td>
+                                    <td id="equippedItemInt">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Stamina:</td>
+                                    <td id="equippedItemSta">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Item Level:</td>
+                                    <td id="equippedItemIlvl">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Sell Price:</td>
+                                    <td id="equippedItemPrice">0</td>
+                                </tr>
+                            </table>
+                        </div>                    
+                        <div id="newItemDisplay">                            
+                            <h3>Loot</h3>
+                            <strong id="newItemName">test</strong>
+                            <table>
+                                <tr>
+                                    <td>Armor</td>
+                                    <td id="newItemArmor">0</td>
+                                    <td id="newItemSlot" style="width:180px;" align="right">head</td>
+                                </tr>
+                                <tr>
+                                    <td>Damage:</td>
+                                    <td id="newItemDam">0</td>
+                                    <td id="newItemRarity" style="width:180px;" align="right">common</td>
+                                </tr>
+                                <tr>
+                                    <td>Strength:</td>
+                                    <td id="newItemStr">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Agility:</td>
+                                    <td id="newItemAgi">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Intelligence:&nbsp;</td>
+                                    <td id="newItemInt">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Stamina:</td>
+                                    <td id="newItemSta">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Item Level:</td>
+                                    <td id="newItemIlvl">0</td>
+                                </tr>
+                                <tr>
+                                    <td>Sell Price:</td>
+                                    <td id="newItemPrice">0</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="itemSoldDisplay">
+                            <h1>Sold</h1>
+                        </div>                   
                     </div>
                     <div id="buttonBar">
                         <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
@@ -183,7 +316,7 @@
                                 <td align="center" colspan="4"><button id="buttonRogue" class="button3" onclick="newClass(id,'Rogue')">Rogue</button></td>
                             </tr>                        
                             <tr>
-                                <td align="center" colspan="4"><img onclick="closeNewMenu()" src="images/create.png" /></td>
+                                <td align="center" colspan="4"><img onclick="newCharacterStats()" src="images/create.png" /></td>
                             </tr>
                         </table>
                     </div>

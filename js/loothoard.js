@@ -1,11 +1,13 @@
 ﻿var Character = {
     name: "",
-    health: 0,
-    mana: 0,
-    energy: 0,
+    currentHealth: 0,
+    currentMana: 0,
+    currentEnergy: 0,
     gender: "",
     race: "",
     myClass: "",
+    primaryStat: "",
+    stats: { str: 0, agi: 0, int: 0, sta: 0, health: 0, mana: 0, energy: 0 },
     level: 1,
     gold: 0,
     Inventory: [
@@ -22,18 +24,17 @@
         { slot: "invMainHand", rarity: 0, price: 1, name: "Club", armor: 0, damage: 2, str: 0, agi: 0, int: 0, sta: 0, ilevel: 2 },
         { slot: "invOffHand", rarity: 0, price: 1, name: "Old Board", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
     ],
-    gameVersion: "1.2",
+    gameVersion: "1.3",
 }
 
-var itemType = ["Helm", "Chestpiece", "Greaves", "Pauldrons", "Bracers", "Gauntlets", "Boots", "Belt", "Amulet", "Ring", "Sword", "Shield"]
+gameVersion = 1.3
+updateNeeded = 0
+
+
 
 var itemTypes = [[["Cap","Tunic","Pants","Shawl","Cuffs","Gloves","Sandals","Cord","Amulet","Ring","Wand","Tome"],["Cowl","Robe","Leggings","Cloak","Bracer","Mitts","Boots","Belt","Talisman","Signet","Staff","Grimoire"]],
                  [["Skullcap", "Hauberk", "Leggings", "Spaulders", "Manacles", "Gloves", "Shoes", "Belt", "Necklace", "Band", "Knife", "Knife"], ["Sallet", "Brigandine", "Greaves", "Rerebraces", "Bracers", "Gauntlets", "Boots", "Harness", "Amulet", "Ring", "Dagger", "Dagger"]],
                  [["Helm","Chestpiece","Cuisses","Rerebraces","Vambraces","Gloves","Boots","Belt","Necklace","Band","Axe","Round Shield"],["Barbute","Breastplate","Greaves","Pauldrons","Bracers","Gauntlets","Sabatons","Girdle","Amulet","Ring","Sword","Kite Shield"]]]
-
-var materialType = [["Nothing", "Cloth", "Leather", "Chain", "Plate", "Mithril"],
-                    ["Nothing", "Wooden", "Copper", "Iron", "Steel", "Mithril"],
-                    ["Nothing", "Tin", "Copper", "Silver", "Gold", "Platinum"]]
 
 var materialTypes = [[["Junk", "Linen", "Mink", "Silk", "Shot Silk", "Samite", "Gemcloth", "Omnite"], ["Junk", "Broadcloth", "Velveteen", "Scarlet", "Satin Weave", "Damask", "Aetherweave", "Irasilk"]],
                      [["Junk", "Roughspun", "Corded Cotton", "Hide", "Worked Leather", "Boiled Leather", "Adamant Weave", "Nyxite"], ["Junk", "Calico", "Linen", "Hide", "Corded Wool", "Bamboo", "Lamellar", "Mithril Weave", "Sanguinite"]],
@@ -42,23 +43,32 @@ var materialTypes = [[["Junk", "Linen", "Mink", "Silk", "Shot Silk", "Samite", "
                      [["Junk", "Wooden", "Copper", "Iron", "Steel", "Adamantine", "Indilocite", "Thanatite"], ["Junk", "Ironwood", "Bronze", "Worked Iron", "Damascus Steel", "Mithril", "Embersteel", "Oblidite"]],
                      [["Junk", "Pine", "Cedar", "Bubinga", "Walnut", "Silver-Worked", "Mahogany", "Ebony"], ["Junk", "Oak", "Palm", "Kingwood", "Gold-Inlaid", "Ivory", "Lacewood", "Rosewood"]]]
 
+var maleStats = {
+    human: { str: 25, agi: 23, int: 25, sta: 27, health: 115, mana: 100, energy: 100 },
+    elf: { str: 22, agi: 27, int: 27, sta: 24, health: 90, mana: 115, energy: 110 },
+    dwarf: { str: 26, agi: 23, int: 24, sta: 27, health: 120, mana: 85, energy: 105 },
+    halfling: { str: 21, agi: 29, int: 25, sta: 25, health: 90, mana: 100, energy: 120 }
+}
 
+var femaleStats = {
+    human: { str: 24, agi: 28, int: 25, sta: 23, health: 100, mana: 100, energy: 115 },
+    elf: { str: 20, agi: 30, int: 27, sta: 23, health: 90, mana: 120, energy: 105 },
+    dwarf: { str: 25, agi: 24, int: 25, sta: 26, health: 120, mana: 80, energy: 110 },
+    halfling: { str: 20, agi: 30, int: 27, sta: 23, health: 85, mana: 105, energy: 120 }
+}
+
+var classStats = {
+    warrior: { str: 5, agi: 0, int: 0, sta: 5, health: 30, mana: 0, energy: 10 },
+    mage: { str: 0, agi: 3, int: 7, sta: 0, health: 0, mana: 40, energy: 0 },
+    rogue: { str: 0, agi: 7, int: 3, sta: 0, health: 5, mana: 0, energy: 35 }
+}
 
 var itemRarity = ["Junk", "Common", "Uncommon", "Rare", "Epic", "Legendary", "Celestial", "Divine"]
+var itemSlot = ["Head","Chest","Legs","Shoulders","Wrists","Hands","Feet","Waist","Neck","Finger","Main Hand","Off Hand"]
 var currentItem
 var newItem
 var currentSlot
-
 var tempItem
-
-var totalItemLevel = 0
-var totalArmor = 0
-var totalDam = 0
-var totalStr = 0
-var totalAgi = 0
-var totalInt = 0
-var totalSta = 0
-var totalIlevel = 0
 
 var itemSold = 0
 
@@ -74,10 +84,63 @@ function startGame() {
     updateInventory()
 }
 
+function newCharacterStats() {
+    var baseStats = {}
+    var classModifiers = {}
+    var characterRace = Character.race
+    if (Character.gender === "Female") baseStats = femaleStats
+    else if (Character.gender === "Male") baseStats = maleStats
+
+    switch (characterRace) {
+        case "Human":
+            baseStats = baseStats.human
+            break;
+        case "Elf":
+            baseStats = baseStats.elf
+            break;
+        case "Dwarf":
+            baseStats = baseStats.dwarf
+            break;
+        case "Halfling":
+            baseStats = baseStats.halfling
+            break;
+    }
+    Character.stats.str = baseStats.str
+    Character.stats.agi = baseStats.agi
+    Character.stats.int = baseStats.int
+    Character.stats.sta = baseStats.sta
+    Character.stats.health = baseStats.health
+    Character.stats.mana = baseStats.mana
+    Character.stats.energy = baseStats.energy
+
+    if (Character.myClass === "Warrior") {
+        classModifiers = classStats.warrior
+        Character.primaryStat = "str"
+    }
+    else if (Character.myClass === "Mage") {
+        classModifiers = classStats.mage
+        Character.primaryStat = "int"
+    }
+    else if (Character.myClass === "Rogue") {
+        classModifiers = classStats.rogue
+        Character.primaryStat = "agi"
+    }
+    Character.stats.str += classModifiers.str
+    Character.stats.agi += classModifiers.agi
+    Character.stats.int += classModifiers.int
+    Character.stats.sta += classModifiers.sta
+    Character.stats.health += classModifiers.health
+    Character.stats.mana += classModifiers.mana
+    Character.stats.energy += classModifiers.energy
+
+
+    updateInventory()
+    closeNewMenu()
+}
+
 function closeNewMenu() {
     document.getElementById("inventoryDisplay").style.display = "block"
-    document.getElementById("newMenu").style.display = "none"
-    updateInventory();
+    document.getElementById("newMenu").style.display = "none"    
 }
 
 function newName() {
@@ -118,9 +181,7 @@ function previewNewCharacter() {
     document.getElementById("newCharacterClass").innerHTML = ""
     if (Character.gender != "") document.getElementById("newCharacterClass").innerHTML += Character.gender + " "
     if (Character.race != "") document.getElementById("newCharacterClass").innerHTML += Character.race + " "
-    if (Character.myClass != "") document.getElementById("newCharacterClass").innerHTML += Character.myClass
-    
-    
+    if (Character.myClass != "") document.getElementById("newCharacterClass").innerHTML += Character.myClass    
     tempCharacter = Character.gender + " " + Character.race + " " + Character.myClass
     document.getElementById("newCharacterClass").innerHTML = tempCharacter
 }
@@ -162,7 +223,8 @@ function newLoot() {
     }
     else if (calcRarity > .9995) {
         rarity = 7        
-    }   
+    }
+
 
     if (currentSlot >= 0 && currentSlot <= 7) {
         newItem = createArmor(rarity,classSelector,itemTier)
@@ -382,18 +444,50 @@ function statChangeMarkup() {
 function sellLoot() {
     Character.gold += newItem.price
     itemSold = 1
-    document.getElementById("newItemDisplay").innerHTML = "<h1>Sold</h1>"
-    document.getElementById("newItemDisplay").style.borderColor = "lightgray"
+    document.getElementById("newItemDisplay").style.display = "none"
+    document.getElementById("itemSoldDisplay").style.display = "block"
     updateInventory()
     changeButtons()
     saveGame()
 }
 
 function updateLootDisplay() {
+    document.getElementById("newItemDisplay").style.display = "block"
+    document.getElementById("itemSoldDisplay").style.display = "none"
     document.getElementById("newItemDisplay").style.borderColor = rarityColor(newItem.rarity)
-    document.getElementById("newItemDisplay").innerHTML = "<h3>Loot</h3><strong>" + newItem.name + "</strong>" + "<table><tr><td>Armor</td><td>" + newItem.armor + "<tr><td>Damage</td><td>" + newItem.damage + "<tr><td>Strength</td><td>" + newItem.str + "</td></tr><tr><td>Agility</td><td>" + newItem.agi + "</td></tr><tr><td>Intelligence</td><td>" + newItem.int + "</td></tr><tr><td>Stamina</td><td>" + newItem.sta + "<tr><td>Sell Price</td><td>" + newItem.price + "</td></tr></table>"
-    document.getElementById("equippedItemDisplay").style.borderColor = rarityColor(currentItem.rarity)
-    document.getElementById("equippedItemDisplay").innerHTML = "<h3>Equipped</h3><strong>" + currentItem.name + "</strong>" + "<table><tr><td>Armor</td><td>" + currentItem.armor + "<tr><td>Damage</td><td>" + currentItem.damage + "<tr><td>Strength</td><td>" + currentItem.str + "</td></tr><tr><td>Agility</td><td>" + currentItem.agi + "</td></tr><tr><td>Intelligence</td><td>" + currentItem.int + "</td></tr><tr><td>Stamina</td><td>" + currentItem.sta + "<tr><td>Sell Price</td><td>" + currentItem.price + "</td></tr></table>"
+    document.getElementById("newItemName").innerHTML = newItem.name
+    document.getElementById("newItemArmor").innerHTML = newItem.armor
+    document.getElementById("newItemRarity").innerHTML = itemRarity[newItem.rarity]
+    document.getElementById("newItemRarity").style.color = rarityColor(newItem.rarity)
+    document.getElementById("newItemDam").innerHTML = newItem.damage
+    document.getElementById("newItemStr").innerHTML = newItem.str
+    document.getElementById("newItemSlot").innerHTML = itemSlot[currentSlot]
+    document.getElementById("newItemAgi").innerHTML = newItem.agi
+    document.getElementById("newItemInt").innerHTML = newItem.int
+    document.getElementById("newItemSta").innerHTML = newItem.sta
+    document.getElementById("newItemIlvl").innerHTML = newItem.ilevel
+    document.getElementById("newItemPrice").innerHTML = newItem.price
+
+    document.getElementById("equippedItemDisplay").style.display = "block"
+    document.getElementById("equippedItemDisplay").style.borderColor = rarityColor(currentItem.rarity)    
+    document.getElementById("equippedItemName").innerHTML = currentItem.name
+    document.getElementById("equippedItemArmor").innerHTML = currentItem.armor
+    document.getElementById("equippedItemRarity").innerHTML = itemRarity[currentItem.rarity]
+    document.getElementById("equippedItemRarity").style.color = rarityColor(currentItem.rarity)
+    document.getElementById("equippedItemDam").innerHTML = currentItem.damage
+    document.getElementById("equippedItemStr").innerHTML = currentItem.str
+    document.getElementById("equippedItemSlot").innerHTML = itemSlot[currentSlot]
+    document.getElementById("equippedItemAgi").innerHTML = currentItem.agi
+    document.getElementById("equippedItemInt").innerHTML = currentItem.int
+    document.getElementById("equippedItemSta").innerHTML = currentItem.sta
+    document.getElementById("equippedItemIlvl").innerHTML = currentItem.ilevel
+    document.getElementById("equippedItemPrice").innerHTML = currentItem.price    
+}
+
+function itemDisplayBox() {
+    this.equip = "",
+    this.itemName = "",
+    this.str = ""
 }
 
 function changeButtons() {
@@ -407,6 +501,39 @@ function changeButtons() {
         document.getElementById("sellLoot").style.display = "inline"
         document.getElementById("newLoot").style.display = "none"
     }
+}
+
+function selectItem(selectedElement,selectedItem) {
+    document.getElementById(selectedElement).style.backgroundColor = "steelblue"
+    document.getElementById("statsDisplay").style.display = "none"
+    document.getElementById("selectedItemDisplay").style.display = "block"
+    document.getElementById("selectedItemName").innerHTML = Character.Inventory[selectedItem].name
+    document.getElementById("selectedItemName").style.color = rarityColor(Character.Inventory[selectedItem].rarity)
+    document.getElementById("selectedItemArmor").innerHTML = Character.Inventory[selectedItem].armor
+    document.getElementById("selectedItemDam").innerHTML = Character.Inventory[selectedItem].damage
+    document.getElementById("selectedItemStr").innerHTML = Character.Inventory[selectedItem].str
+    document.getElementById("selectedItemAgi").innerHTML = Character.Inventory[selectedItem].agi
+    document.getElementById("selectedItemInt").innerHTML = Character.Inventory[selectedItem].int
+    document.getElementById("selectedItemSta").innerHTML = Character.Inventory[selectedItem].sta
+    document.getElementById("selectedItemIlvl").innerHTML = Character.Inventory[selectedItem].ilevel
+}
+
+function deselectItem(selectedElement) {
+    var baseColor = "lightblue"
+    document.getElementById("inventoryHeadDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryChestDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryLegsDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryShouldersDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryWristsDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryHandsDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryFeetDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryWaistDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryNeckDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryFingerDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryMainhandDisplay").style.backgroundColor = baseColor
+    document.getElementById("inventoryOffhandDisplay").style.backgroundColor = baseColor
+    document.getElementById("statsDisplay").style.display = "block"
+    document.getElementById("selectedItemDisplay").style.display = "none"
 }
 
 function rarityColor(x) {
@@ -446,18 +573,20 @@ function updateInventory() {
         document.getElementById(Character.Inventory[i].slot).innerHTML = Character.Inventory[i].name
     }
     document.getElementById("goldDisplay").innerHTML = Character.gold
-    updateStats()
-    
+    updateStats()    
 }
 
 function updateStats() {
-    totalArmor = 0
-    totalDam = 0
-    totalStr = 0
-    totalAgi = 0
-    totalInt = 0
-    totalSta = 0
-    totalIlevel = 0
+    var totalArmor = 0
+    var totalDam = 0
+    var totalStr = Character.stats.str
+    var totalAgi = Character.stats.agi
+    var totalInt = Character.stats.int
+    var totalSta = Character.stats.sta
+    var totalIlevel = 0
+    
+    document.getElementById("selectedItemDisplay").style.display = "none"
+    document.getElementById("statsDisplay").style.display = "block"
 
     for (i = 0; i < 12; i++) {
         totalArmor += Character.Inventory[i].armor
@@ -471,7 +600,7 @@ function updateStats() {
 
     document.getElementById("charDisplay").innerHTML = "<table><tr><td><h3>" + Character.name + "</h3></td></tr><tr><td>Level " + Character.level + " " + Character.gender + " " + Character.race + " " + Character.myClass + "</td></tr></table>"
 
-    document.getElementById("ilvlDisplay").innerHTML = totalIlevel
+    document.getElementById("ilvlDisplay").innerHTML = Math.floor(totalIlevel / 12)
     document.getElementById("ilvlDisplay").style.color = "black"
     document.getElementById("armorDisplay").innerHTML = totalArmor
     document.getElementById("damDisplay").innerHTML = totalDam
@@ -479,19 +608,26 @@ function updateStats() {
     document.getElementById("agiDisplay").innerHTML = totalAgi
     document.getElementById("intDisplay").innerHTML = totalInt
     document.getElementById("staDisplay").innerHTML = totalSta
+
+    updateResources()
+}
+
+function updateResources() {
+    Character.currentHealth = Character.stats.health
+    Character.currentMana = Character.stats.mana
+    Character.currentEnergy = Character.stats.energy
+    document.getElementById("healthDisplay").innerHTML = Character.currentHealth
+    document.getElementById("manaDisplay").innerHTML = Character.currentMana
+    document.getElementById("energyDisplay").innerHTML = Character.currentEnergy
+
 }
 
 function saveGame() {
-    localStorage.setItem("savedCharacter", JSON.stringify(Character))
-    
-    
+    localStorage.setItem("savedCharacter", JSON.stringify(Character))    
 }
 
 function loadGame() {    
-    Character = JSON.parse(localStorage.getItem("savedCharacter"))
-    
-    
-    
+    Character = JSON.parse(localStorage.getItem("savedCharacter"))    
     updateInventory()
 }
 
@@ -506,8 +642,6 @@ function closeSettings() {
 }
 
 function resetGame() {
-    localStorage.removeItem("savedCharacter")
-    localStorage.removeItem("savedInventory")
-    localStorage.removeItem("savedGold")
+    localStorage.removeItem("savedCharacter")    
     location.reload()
 }
