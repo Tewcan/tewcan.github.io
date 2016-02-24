@@ -9,6 +9,7 @@
     primaryStat: "",
     stats: { str: 0, agi: 0, int: 0, sta: 0, health: 0, mana: 0, energy: 0 },
     level: 1,
+    currentExp: 0,
     gold: 0,
     Inventory: [
         { slot: "invHead", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
@@ -24,10 +25,10 @@
         { slot: "invMainHand", rarity: 0, price: 1, name: "Club", armor: 0, damage: 2, str: 0, agi: 0, int: 0, sta: 0, ilevel: 2 },
         { slot: "invOffHand", rarity: 0, price: 1, name: "Old Board", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
     ],
-    gameVersion: "1.3",
+    gameVersion: 1.4,
 }
 
-gameVersion = 1.3
+gameVersion = 1.4
 updateNeeded = 0
 
 
@@ -69,6 +70,7 @@ var currentItem
 var newItem
 var currentSlot
 var tempItem
+var maxExp
 
 var itemSold = 0
 
@@ -446,9 +448,20 @@ function sellLoot() {
     itemSold = 1
     document.getElementById("newItemDisplay").style.display = "none"
     document.getElementById("itemSoldDisplay").style.display = "block"
+    Character.currentExp += newItem.price
     updateInventory()
     changeButtons()
-    saveGame()
+    saveGame()    
+}
+
+function updateExp() {
+    maxExp = (Character.level * 100)
+    if (Character.currentExp >= maxExp) {
+        Character.currentExp -= maxExp
+        Character.level ++
+    }
+    var levelPercent = (Character.currentExp / maxExp) * 100
+    document.getElementById("expBar").style.width = levelPercent+"%"
 }
 
 function updateLootDisplay() {
@@ -608,7 +621,7 @@ function updateStats() {
     document.getElementById("agiDisplay").innerHTML = totalAgi
     document.getElementById("intDisplay").innerHTML = totalInt
     document.getElementById("staDisplay").innerHTML = totalSta
-
+    updateExp()
     updateResources()
 }
 
