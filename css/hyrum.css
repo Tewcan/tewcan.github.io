@@ -14,16 +14,15 @@
 
 /*Targets*/
 #circles {
-	width: 100px;
-	height: 800px;
+	border:black 7px solid;
+	border-radius: 200px;
 	position: fixed;
     animation-name: righttoleft;
-    animation-duration: 3s;
     animation-timing-function: linear;
 }
 
 @keyframes righttoleft {
-	0%{right: -10%;}
+	0%{right: -5%;}
 	100%{right: 100%;}
 }
 
@@ -31,7 +30,6 @@
 	width:100%;
 	text-align: center;
 	border: 5px solid rgba(00, 00, 204, .5);
-	position: absolute;
 }
 .container {
 	width: 204px;
@@ -51,6 +49,7 @@
 .lifes {font-size: 50px; color: red;}
 .stage {color: red;}
 .dead {color: red;}
+.shootingField {width: 100%; height: 80%;}
 
 
 /*Js Stuff*/

@@ -9,9 +9,10 @@ var count = 0
 var color = 'red'
 var stage = '1'
 var gState = 0
-var speed = '3s'
+var speed = '4s'
 var spawnRate = 1000
-var circleSize = 40
+var circleSize = '80px'
+var hitTheThings
 //DOM variables
 var domButton = document.getElementsByClassName('container__button')
 
@@ -34,49 +35,41 @@ function gameState(state) {
  	}
 }
 function difficulty (diffi) {
-	console.log(diffi)
 	if (diffi === 'easy') {
 		domButton[0].style.backgroundColor = 'teal'
 		domButton[1].style.backgroundColor = 'blue'
 		domButton[2].style.backgroundColor = 'blue'
-		circleSize = 50
+		circleSize = '120px'
 	}
 	else if (diffi === 'medium') {
 		domButton[0].style.backgroundColor = 'blue'
 		domButton[1].style.backgroundColor = 'teal'
 		domButton[2].style.backgroundColor = 'blue'
-		circleSize = 40
+		circleSize = '80px'
 
 	}
 	else if (diffi === 'hard') {
 		domButton[0].style.backgroundColor = 'blue'
 		domButton[1].style.backgroundColor = 'blue'
 		domButton[2].style.backgroundColor = 'teal'
-		circleSize = 30
+		circleSize = '50px'
 
 	}
 }
 function createCircles() {
 	if (gState === 0) {return;}
 	else if (lives <= 0 ) {return;}
-	var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-	svg.setAttribute("width", "100");
-	svg.setAttribute("height", "100");
-	svg.style.animationDuration = speed;
-	svg.setAttribute("id", "circles")
-	svg.onmousedown = clickCheck
-	svg.addEventListener("animationend", endOfAnimation)
-	document.getElementsByClassName("menudiv")[0].appendChild(svg);
-
-	var randomHight = Math.floor((Math.random()* 630 ) + 60)
-	var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-	circle.setAttribute("cx", "50");
-	circle.setAttribute("cy", randomHight);
-	circle.setAttribute("r", circleSize);
-	circle.setAttribute("stroke", "black");
-	circle.setAttribute("stroke-width", "5px");
-	circle.setAttribute("fill", color);
-	svg.appendChild(circle);
+	var randomHight = Math.floor((Math.random()* 630 ) + 210) +'px'
+	var div = document.createElement('div')
+	div.style.width = circleSize
+	div.style.height = circleSize
+	div.style.backgroundColor = color
+	div.style.top = randomHight
+	div.style.animationDuration = speed;
+	div.setAttribute("id", "circles")
+	div.addEventListener("animationend", endOfAnimation)
+	div.onmousedown = clickCheck
+	document.getElementsByClassName("shootingField")[0].appendChild(div);
 	circleTimer()
 
 	function circleTimer() {
@@ -91,7 +84,7 @@ function clickCheck() {
 	updateDisplay()
 }
 function endOfAnimation () {
-	if (lives === 0) {document.getElementsByClassName('dead')[0].innerHTML = 'Dead'}
+	if (lives <= 0) {}
 	else {lives--}
 	updateDisplay()
 	this.remove()
@@ -100,32 +93,32 @@ function stageCheck() {
 	if (count === 10) {
 	stage++
 	color = 'orange'
-	speed = '2.8s'}
+	speed = '3.8s'}
 	else if (count === 20) {
 	stage++
 	color = '#ffff4d'
-	speed = '2.6s'}
+	speed = '3.6s'}
 	else if (count === 30) {
 	stage++
 	color = 'blue'
-	speed = '2.4s'}
+	speed = '3.4s'}
 	else if (count === 50) {
 	stage++
 	color = 'purple'
-	speed = '2.2s'
+	speed = '3.2s'
 	spawnRate = 700}
 	else if (count === 75) {
 	stage++
 	color = 'green'
-	speed = '2s'}
+	speed = '3s'}
 	else if (count === 100) {
 	stage++
 	color = 'lightgreen'
-	speed = '1.8s'}
+	speed = '2.8s'}
 	else if (count === 150) {
 	stage++
-	color = "lightblue"
-	speed = '1.6s'}
+	color = ""
+	speed = '2.6s'}
 }
 function updateDisplay() {
 	document.getElementsByClassName('lives')[0].innerHTML = "Lives " + lives
