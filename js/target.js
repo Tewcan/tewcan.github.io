@@ -67,8 +67,8 @@ function createCircles() {
 	div.style.top = randomHight
 	div.style.animationDuration = speed;
 	div.setAttribute("id", "circles")
-	div.addEventListener("animationend", endOfAnimation)
 	div.onmousedown = clickCheck
+	div.addEventListener("animationend", endOfAnimation)
 	document.getElementsByClassName("shootingField")[0].appendChild(div);
 	circleTimer()
 
