@@ -9,20 +9,24 @@
 	<style>.background {background-image:url("images/adventure/background.jpg")}</style>
 </head>
 <body class="background">
-	<div style='height: 600px;'></div>
+<button class='adventurebutton' onclick="window.location.href='hyrum-js.html'">Back</button>
     <div class="display">
-    	<div class="map"><h4 class="title">Map</h4><img class="mapimage" src="images/adventure/r1.jpg"></div>
+    	<div class="map"><img class="mapimage" src="images/adventure/r1.jpg"></div>
    		<div class="menu">
-   		  	<form action="#">
+   		  	<!--<form action="#">
        			<input type='text' class='textinput' autofocus="autofocus" >
        			<input type='submit' class="textbutton" value="Submit" onclick="textCreator()">
-    		</form>
+    		</form>-->
    			<h1 class="roomnum">Room 1</h1>
-   			<p style="color: lightgreen; font-size: 20px;">Type the room number to enter it</p>
-   			<button class='adventurebutton' onclick="window.location.href='hyrum-js.html'">Back</button>
+   			<h1 class="life">Life: 5</h1>
+   			<button class='firstroombutton adventurebutton pull--left' onclick="roomSelecter(2)">Room 2</button>
+   			<button class='secondroombutton adventurebutton pull--left' onclick="roomSelecter(3)">Room 3</button>
+   			<button class='attack adventurebutton pull--right' onclick="">Attack</button>
+   			<button class='flee	adventurebutton pull--right' onclick="roomSelecter('combat')">Flee</button>
+   			<button class='adventurebutton pull--right clear' onclick="combat()">Test</button>
+   			<button class='adventurebutton pull--right ' onclick="clearTextBox()">Clear</button>
    		</div>
-   		<div class="textbox--output textbox"><h1 class="title">Output</h1></div>
-   		<div class="textbox--input textbox" style="color: red;"><h1 class="title">Input</h1></div>
+   		<div class="textbox--output textbox"></div>
     </div>
 </body>
 </html>
