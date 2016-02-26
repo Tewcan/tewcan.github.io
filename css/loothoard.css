@@ -105,7 +105,7 @@ img.middle {
     width:0;
     height:20px;
     float:left;
-    background-color:orangered;      
+    background-color:orange;      
 }
 
 #display {
@@ -260,4 +260,41 @@ img.middle {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#combatDisplay {
+    height:600px;
+    width:570px;
+    background-color:darkgray;
+    display:none;
+}
+
+#combatMobDisplay {
+    height:120px;
+    width:570px;
+    background-color:red;
+}
+
+#combatLogDisplay {
+    height:300px;
+    width:570px;
+    background-color:blue;
+}
+
+#combatCharacterDisplay {
+    height:180px;
+    width:570px;
+    background-color:yellow;
+}
+
+#combatResourcesDisplay {
+    height:80px;
+    width:570px;
+    background-color:purple;
+}
+
+#combatButtonsDisplay {
+    height:100px;
+    width:570;
+    background-color:green;
 }
