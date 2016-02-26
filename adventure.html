@@ -6,25 +6,27 @@
 	<link rel="stylesheet" type="text/css" href="css/hyrum.css">
 	<script src="js/adventure.js"></script>
 	<title>Adventure Game</title>
-	<style>.background {background-image:url("images/adventure/background.jpg")}</style>
+	<style>.background {background-image:url("images/background.jpg")}</style>
 </head>
 <body class="background">
-<button class='adventurebutton' onclick="window.location.href='hyrum-js.html'">Back</button>
+<button class='adventurebutton pull--right' onclick="window.location.href='hyrum-js.html'">Back</button>
     <div class="display">
-    	<div class="map"><img class="mapimage" src="images/adventure/r1.jpg"></div>
+    	<div class="map"><img class="mapimage" src=""></div>
    		<div class="menu">
-   		  	<!--<form action="#">
-       			<input type='text' class='textinput' autofocus="autofocus" >
-       			<input type='submit' class="textbutton" value="Submit" onclick="textCreator()">
-    		</form>-->
-   			<h1 class="roomnum">Room 1</h1>
+   			<h1 class="roomnum">Inside the Barrow</h1>
    			<h1 class="life">Life: 5</h1>
-   			<button class='firstroombutton adventurebutton pull--left' onclick="roomSelecter(2)">Room 2</button>
-   			<button class='secondroombutton adventurebutton pull--left' onclick="roomSelecter(3)">Room 3</button>
-   			<button class='attack adventurebutton pull--right' onclick="">Attack</button>
-   			<button class='flee	adventurebutton pull--right' onclick="roomSelecter('combat')">Flee</button>
-   			<button class='adventurebutton pull--right clear' onclick="combat()">Test</button>
-   			<button class='adventurebutton pull--right ' onclick="clearTextBox()">Clear</button>
+        <div class="buttoncontainer">
+   			  <button class='adventurebutton pull--left' onclick="roomSelecter(room[1])">Narrow Tunnel</button>
+   			  <button class='otherroombutton adventurebutton pull--left' onclick=""></button>
+          <button class='otherroombutton adventurebutton pull--left' onclick=""></button>
+          <button class='otherroombutton adventurebutton pull--left' onclick=""></button>
+          </div>
+          <div class="buttoncontainer">
+   			  <button class='attack adventurebutton pull--right' onclick="">Attack</button>
+   			  <button class='flee	adventurebutton pull--right' onclick="flee()">Flee</button>
+   			  <!--<button class='adventurebutton pull--right clear' onclick="mathStuff(1197,862)">Test</button>-->
+          <button class='adventurebutton pull--right ' onclick="clearTextBox()">Clear Text</button>
+        </div>
    		</div>
    		<div class="textbox--output textbox"></div>
     </div>
