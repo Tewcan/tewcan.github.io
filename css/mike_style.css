@@ -1,0 +1,56 @@
+/* Bio Page */
+.text {
+	background-color: #8F836C;
+	margin: 0% 30% 0% 10%;
+	padding: 20px;
+	text-align: left;
+}
+
+.fig1 {
+	float: left;
+	padding: 10px;
+	text-align: center;
+}
+
+
+.fig1-img {
+    width:200px;
+    height: auto;
+    float: left;
+}
+
+.fig2 {
+	float: right;
+	padding: 10px;
+	text-align: center;
+}
+
+.fig2-img {
+	width: 450px;
+	height: auto;
+}
+
+/* Fact/Fib Page */
+.functions {
+	background-color: #99C68E;
+	border: solid;
+	margin: 3% 35% 35% 35%;
+	padding-bottom: 200px;
+}
+
+.fact {
+	color: black;
+}
+
+#facIter {
+	font-size: 150%;
+}
+
+.fib {
+	color: black;
+	padding-top: 100px;
+}
+
+#fibIter {
+	font-size: 150%;
+}
