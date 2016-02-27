@@ -1,101 +1,81 @@
 //Game Variables
-var life = 5
+var life = 10
 var monsterLife = 3
 var gameState
-//Other Variables
-var getMap = document.getElementsByClassName('mapimage')
+var currentRoom = 'Inside the Barrow'
 
+function restart() {
+	life = 10
+	gameState = 'started'
+	roomSelecter(room[0])
+	clearTextBox()
+	textBox(message[2])
+	updateDisplay()
+}
 //Room Functions
 function roomSelecter(input) {
+	console.log(room[7])
 	if (gameState === 'stopped') {return}
-	//if (life <= 0) {return}
-	if (input === room[0]) {firstRoom()}
-	else if (input === room[1]) {secondRoom()}
-	else if(input === room[2]) {thirdRoom()}
-	else if(input === room[3]) {fourthRoom()}
-	else if(input === room[4]) {room5()}
+	if (life <= 0) {return}
+	changeBackground("url('images/adventure-background.jpg')")
+	if (input === room[0]) {theRoomFunction(room[0],'-1115px -103px','','',room[1])}
+	else if (input === room[1]) {theRoomFunction(room[1],'-1115px -240px',message[1],'',room[2],room[0])}
+	else if(input === room[2]) {theRoomFunction(room[2],'-1115px -380px','','spawn',room[3],room[1])}
+	else if(input === room[3]) {theRoomFunction(room[3],'-1046px -550px',message[0],'',room[4],room[2])}
+	else if(input === room[4]) {theRoomFunction(room[4],'-972px -702px','','spawn',room[5],room[3])}
+	else if(input === room[5]) {theRoomFunction(room[5],'-900px -857px','','spawn',room[8],room[6],room[4])}
+	else if(input === room[6]) {theRoomFunction(room[6],'-950px -1015px',message[1],'spawn',room[7],room[5])}
+	else if(input === room[7]) {theRoomFunction(room[7],'-929px -1173px','','spawn',room[9],room[8],room[6])}
+	else if(input === room[8]) {theRoomFunction(room[8],'-771px -1175px','','spawn',room[10],room[7],room[5])}
+	else if(input === room[9]) {theRoomFunction(room[9],'-872px -1321px','','spawn',room[7],room[10])}
+	else if(input === room[10]) {theRoomFunction(room[10],'-617px -1332px','','',room[9],room[8])}
 }
-function firstRoom(text) {
-	currentRoom = room[0]
-	life = 5
-	//theRoomFunction(room[1],'','orange','-1115px -103')
-	roomButtonChanger(room[1])
-	textBox("",'orange')
-	changeMap('-1115px -103px')
+function theRoomFunction(room,position,text,spawn,r1,r2,r3,r4) {
+	currentRoom = room
+	changeMap(position)
+	textBox(text,'lightblue','25px')
+	if (text === 'Healing fountain') {life = 10}
+	if (spawn === 'spawn') {
 	var spawnChance = Math.floor((Math.random() * 10))
-}
-function secondRoom(text) {
-	currentRoom = room[1]
-	roomButtonChanger(room[2],room[0])
-	textBox("",'orange')
-	changeMap('-1125px -240px')
-	var spawnChance = Math.floor((Math.random() * 10))
-}
-function thirdRoom(text) {
-	currentRoom = room[2]
-	roomButtonChanger(room[3],room[1])
-	textBox("",'orange')
-	changeMap('-1115px -380px')
-	var spawnChance = Math.floor((Math.random() * 10))
-}
-function fourthRoom(text) {
-	currentRoom = room[3]
-	roomButtonChanger(room[4],room[2])
-	textBox("Careful of monsters",'lightblue')
-	changeMap('-1046px -550px')
-	var spawnChance = Math.floor((Math.random() * 10))
-	if (spawnChance <= 3) {
-		textBox('Entering combat','red','25px')
-		combat()
+		if (spawnChance <= 2) {
+			textBox('Entering combat','red','25px')
+			combat()
+		}
+
 	}
-}
-function room5(text) {
-	currentRoom = room[3]
-	roomButtonChanger(room[3])
-	textBox("We've almost made it",'lightblue')
-	changeMap('-972px -702px')
-	var spawnChance = Math.floor((Math.random() * 10))
-	if (spawnChance <= 3) {
-		textBox('Entering combat','red','25px')
-		combat()
-	}
-}
-function roomButtonChanger(button1,button2,button3,button4) {
+	buttonChanger(r1,r2,r3,r4)
 	updateDisplay()
+}
+function buttonChanger(b1,b2,b3,b4) {
 	var but1 = document.getElementsByClassName('adventurebutton')[1]
 	var but2 = document.getElementsByClassName('adventurebutton')[2]
 	var but3 = document.getElementsByClassName('adventurebutton')[3]
 	var but4 = document.getElementsByClassName('adventurebutton')[4]
-	if (button1 === undefined) {but1.style.display = 'none'}
+	if (b1 === undefined || b1 ==='1') {but1.style.display = 'none'}
 		else {
 			but1.style.display ='initial'
-			but1.onclick = function() {roomSelecter(button1)}
-			but1.innerHTML = button1
+			but1.onclick = function() {roomSelecter(b1)}
+			but1.innerHTML = b1
 		}
-	if (button2 === undefined) {but2.style.display = 'none'}
+	if (b2 === undefined || b1 ==='1') {but2.style.display = 'none'}
 		else {
 			but2.style.display ='initial'
-			but2.onclick = function() {roomSelecter(button2)}
-			but2.innerHTML = button2
+			but2.onclick = function() {roomSelecter(b2)}
+			but2.innerHTML = b2
 		}
-	if (button3 === undefined) {but3.style.display = 'none'}
+	if (b3 === undefined) {but3.style.display = 'none'}
 		else {
 			but3.style.display ='initial'
-			but3.onclick = function() {roomSelecter(button2)}
-			but3.innerHTML = button2
+			but3.onclick = function() {roomSelecter(b3)}
+			but3.innerHTML = b3
 		}
-	if (button4 === undefined) {but4.style.display = 'none'}
+	if (b4 === undefined) {but4.style.display = 'none'}
 		else {
 			but4.style.display ='initial'
-			but4.onclick = function() {roomSelecter(button2)}
-			but4.innerHTML = button2
+			but4.onclick = function() {roomSelecter(b4)}
+			but4.innerHTML = b4
 		}
 }
-/*function theRoomFunction(r1,r2,r3,r4,text,color,position) {
-	roomButtonChanger(r1,r2,r3,r4)
-	textBox(text,color)
-	changeMap(position)
-}*/
 
 //Other Functions
 function changeMap(position) {
@@ -104,6 +84,7 @@ function changeMap(position) {
 }
 function combat() {
 	gameState = 'stopped'
+	changeBackground("url('images/combat.jpg')")
 	document.getElementsByClassName('attack')[0].onclick = function() {combat()}
 	var playerAttack = Math.floor((Math.random() * 11))
 	var monsterAttack = Math.floor((Math.random() * 11))
@@ -118,6 +99,7 @@ function combat() {
 	}
 	else (textBox('You dodged','blue','15px'))
 	if (life <= 0) {
+		changeBackground("url(images/dead.jpg)")
 		textBox('You Died','red','30px')
 		updateDisplay('leftcombat')
 	}
@@ -126,11 +108,16 @@ function combat() {
 		updateDisplay('leftcombat')
 		gameState = 'started'
 		monsterLife = 3
+		changeBackground("url('images/adventure-background.jpg')")
 	}
 }
 //function flee () {
 //	gameState = 'started'
 //}
+function changeBackground(input) {
+	console.log(input)
+	document.getElementsByClassName('background')[0].style.backgroundImage = input
+}
 function updateDisplay(input) {
 	document.getElementsByClassName('life')[0].innerHTML = 'Life: ' + life
 	if (input === 'leftcombat') {
@@ -163,5 +150,6 @@ function mathStuff(width,height) {
 
 
 
-
-var room = ['Inside the Barrow','Narrow Tunnel','Foot Bridge','Great Cavern','Shallow Ford']
+//Text arrays
+var room = ['Inside the Barrow','Narrow Tunnel','Foot Bridge','Great Cavern','Shallow Ford','Dark Tunnel','North End of Garden','Formal Garden','Path Near Stream','Toplary','Carousel Room']
+var message = ['Careful of monsters','Healing fountain','Restarted']
