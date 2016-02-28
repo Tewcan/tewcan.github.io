@@ -34,7 +34,7 @@ function roomCreator(input) {
 	var spawnChance = Math.floor((Math.random() * 10))
 		if (spawnChance <= 2) {
 			textBox('Entering combat','red','25px')
-			//combat()
+			combat()
 		}
 
 	}
