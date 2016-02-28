@@ -7,7 +7,7 @@
 	<title>Adventure Game</title>
 	<style>.background {background-image:url("images/adventure-background.jpg")}</style>
 </head>
-<body class="background">
+<body  onload="myFunction()" class="background">
 <button class='adventurebutton pull--right' onclick="window.location.href='hyrum-js.html'">Back</button>
     <div class="display">
     	<div class="map"><img class="mapimage" src=""></div>
@@ -15,7 +15,7 @@
    			<h1 class="roomnum">Inside the Barrow</h1>
    			<h1 class="life">Life: 10</h1>
         <div class="buttoncontainer">
-   			  <button class='adventurebutton pull--left' onclick="roomSelecter(room[1])">Narrow Tunnel</button>
+   			  <button class='adventurebutton pull--left' onclick="roomSelecter('1')">Narrow Tunnel</button>
    			  <button class='otherroombutton adventurebutton pull--left' onclick=""></button>
           <button class='otherroombutton adventurebutton pull--left' onclick=""></button>
           <button class='otherroombutton adventurebutton pull--left' onclick=""></button>
@@ -23,13 +23,16 @@
           <div class="buttoncontainer">
    			  <button class='attack adventurebutton pull--right' onclick="">Attack</button>
    			  <button class='flee	adventurebutton pull--right' onclick="flee()">Flee</button>
-          <button class='adventurebutton pull--right ' onclick="mathStuff(842,1492)">Clear Text</button>
+          <button class='adventurebutton pull--right ' onclick="clearTextBox()">Clear Text</button>
           <button class='adventurebutton pull--right ' onclick="restart()">Restart</button>
         </div>
    		</div>
-   		<div class="textbox--output textbox"></div>
+   		<div class="textbox--output textbox"><h1 id="loadMessage"></h1></div>
     </div>
 </div>
     <script src="js/adventure.js"></script>
+
+
+
 </body>
 </html>
