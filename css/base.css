@@ -19,8 +19,17 @@ html {
 h1, h2, h3 { color: orange; }
 
 .navbar {width: 100%; height: 55px; background:rgba(0, 0, 0, 0.4);}
-.navbar--active{background:rgba(0,80,80,0.6)}
+.navbar--active{background:rgba(255, 102, 0,0.7)}
 .navbar ul { list-style-type: none; }
+.button {
+  display: block;
+    padding: 15px;
+    text-decoration: none;
+    color:white;
+    width: 100px;
+    text-align: center;
+}
+.button:hover { background:rgba(255, 102, 0,0.8); }
 .background{
   width: 100%;
   height: 900px;
@@ -31,7 +40,7 @@ h1, h2, h3 { color: orange; }
   background-position: center;
 }
 .logo { height: 55px; float: left;}
-.logo:hover {background:rgba(0, 0, 0,0.1); }
+.logo:hover {background:rgba(255, 102, 0,0.8); }
 .content {
 	width: 80%;
   left:10%;
@@ -43,17 +52,3 @@ h1, h2, h3 { color: orange; }
   background: rgba(0, 0, 0, 0.3);
 
  }
-
-/*--------------*/
-/*   ¡BUTTON!   */
-/*--------------*/
-.button {
-	display: block;
-    padding: 15px;
-    text-decoration: none;
-    color:white;
-    width: 100px;
-    text-align: center;
-}
-.button:hover { background:rgba(26, 26, 255,0.6); }
-
