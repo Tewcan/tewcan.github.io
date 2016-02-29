@@ -5,9 +5,9 @@
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<link rel="stylesheet" type="text/css" href="css/hyrum.css">
 	<title>Adventure Game</title>
-	<style>.background {background-image:url("images/adventure-background.jpg")}</style>
+	<style>.background {background-image:url("images/wing1.jpg")}</style>
 </head>
-<body  onload="myFunction()" class="background">
+<body  onload="loadFunction()" class="background">
 <button class='adventurebutton pull--right' onclick="window.location.href='hyrum-js.html'">Back</button>
     <div class="display">
     	<div class="map"><img class="mapimage" src=""></div>
@@ -22,7 +22,7 @@
           </div>
           <div class="buttoncontainer">
    			  <button class='attack adventurebutton pull--right' onclick="">Attack</button>
-   			  <button class='flee	adventurebutton pull--right' onclick="flee()">Flee</button>
+   			  <!--<button class='flee	adventurebutton pull--right' onclick="flee()">Flee</button>-->
           <button class='adventurebutton pull--right ' onclick="clearTextBox()">Clear Text</button>
           <button class='adventurebutton pull--right ' onclick="restart()">Restart</button>
         </div>
