@@ -31,8 +31,6 @@
 gameVersion = 1.4
 updateNeeded = 0
 
-
-
 var itemTypes = [[["Cap","Tunic","Pants","Shawl","Cuffs","Gloves","Sandals","Cord","Amulet","Ring","Wand","Tome"],["Cowl","Robe","Leggings","Cloak","Bracer","Mitts","Boots","Belt","Talisman","Signet","Staff","Grimoire"]],
                  [["Skullcap", "Hauberk", "Leggings", "Spaulders", "Manacles", "Gloves", "Shoes", "Belt", "Necklace", "Band", "Knife", "Knife"], ["Sallet", "Brigandine", "Greaves", "Rerebraces", "Bracers", "Gauntlets", "Boots", "Harness", "Amulet", "Ring", "Dagger", "Dagger"]],
                  [["Helm","Chestpiece","Cuisses","Rerebraces","Vambraces","Gloves","Boots","Belt","Necklace","Band","Axe","Round Shield"],["Barbute","Breastplate","Greaves","Pauldrons","Bracers","Gauntlets","Sabatons","Girdle","Amulet","Ring","Sword","Kite Shield"]]]
@@ -65,7 +63,13 @@ var classStats = {
 }
 
 var itemRarity = ["Junk", "Common", "Uncommon", "Rare", "Epic", "Legendary", "Celestial", "Divine"]
-var itemSlot = ["Head","Chest","Legs","Shoulders","Wrists","Hands","Feet","Waist","Neck","Finger","Main Hand","Off Hand"]
+var itemSlot = ["Head", "Chest", "Legs", "Shoulders", "Wrists", "Hands", "Feet", "Waist", "Neck", "Finger", "Main Hand", "Off Hand"]
+
+var mobsHumanoid = ["orc", "goblin", "kobold", "thief", "bandit"]
+var mobsBeast = ["rat", "snake", "beetle", "raven"]
+var mobsUndead = ["skeleton", "zombie", "mummy", "ghoul", "wraith"]
+
+var enemy
 var currentItem
 var newItem
 var currentSlot
@@ -74,13 +78,17 @@ var maxExp
 
 var itemSold = 0
 
-function startGame() {
+function startGame() {    
+
     if (localStorage.getItem("savedCharacter") === null) {
         document.getElementById("inventoryDisplay").style.display = "none"
         document.getElementById("newMenu").style.display = "block"
     }
     else if (localStorage.getItem("savedCharacter") != null) {
-        loadGame()
+        loadGame()    }
+
+    if (Character.gameVersion != gameVersion) {
+        alert("Loot Hoard updated to version " + gameVersion + ". Your character is out of date.  Reset required")
     }
 
     updateInventory()
@@ -134,7 +142,6 @@ function newCharacterStats() {
     Character.stats.health += classModifiers.health
     Character.stats.mana += classModifiers.mana
     Character.stats.energy += classModifiers.energy
-
 
     updateInventory()
     closeNewMenu()
@@ -461,7 +468,8 @@ function updateExp() {
         Character.level ++
     }
     var levelPercent = (Character.currentExp / maxExp) * 100
-    document.getElementById("expBar").style.width = levelPercent+"%"
+    document.getElementById("expBar").style.width = levelPercent + "%"
+    document.getElementById("expBarOverlay").innerHTML = Character.currentExp + " / " +maxExp
 }
 
 function updateLootDisplay() {
@@ -632,7 +640,6 @@ function updateResources() {
     document.getElementById("healthDisplay").innerHTML = Character.currentHealth
     document.getElementById("manaDisplay").innerHTML = Character.currentMana
     document.getElementById("energyDisplay").innerHTML = Character.currentEnergy
-
 }
 
 function saveGame() {
@@ -657,4 +664,70 @@ function closeSettings() {
 function resetGame() {
     localStorage.removeItem("savedCharacter")    
     location.reload()
+}
+
+function buildEnemy() {
+    var mobSelector = Math.floor(Math.random() * 2)
+    
+    var mobPicker
+    switch (mobSelector) {
+        case 0:
+            mobPicker = Math.floor(Math.random() * mobsHumanoid.length) - 1
+            enemy = new mobHumanoid(mobsHumanoid[mobPicker])
+            break;
+        case 1:
+            mobPicker = Math.floor(Math.random() * mobsBeast.length) - 1
+            enemy = new mobHumanoid(mobsBeast[mobPicker])
+            break;
+        case 2:
+            mobPicker = Math.floor(Math.random() * mobsUndead.length) - 1
+            enemy = new mobHumanoid(mobsUndead[mobPicker])
+            break;        
+    }
+
+    enemy.level = Character.level
+}
+
+function mobBeast(name) {
+    this.name = name
+    this.type = "beast"
+    this.level = 0
+    this.currentHealth = 0
+    this.maxHealth = 0
+    this.expModifier = .8
+}
+
+function mobHumanoid(name) {
+    this.name = name
+    this.type = "humanoid"
+    this.level = 0
+    this.currentHealth = 0
+    this.maxHealth = 0
+    this.expModifier = 1
+}
+
+function mobUndead(name) {
+    this.name = name
+    this.type = "undead"
+    this.level = 0
+    this.currentHealth = 0
+    this.maxHealth = 0
+    this.expModifier = .9
+}
+
+function updateCombatDisplay() {
+    var enemyHPPercent = (enemy.currentHealth / enemy.maxHealth) + "%"
+    var playerHPPercent = (Character.currentHealth / Character.stats.health) + "%"
+    var playerManaPercent = (Character.currentMana / Character.stats.mana) + "%"
+    var playerEnergyPercent = (Character.currentEnergy / Character.stats.energy) + "%"
+    
+    document.getElementById("combatMobStatsDisplay").innerHTML = "<h3>Level " + enemy.level + " " + enemy.name + "</h3>"
+    document.getElementById("combatMobHealthBarOverlay").innerHTML = enemy.currentHealth + " / " + enemy.maxHealth
+    document.getElementById("combatMobHealthBar").style.width = enemyHPPercent
+    document.getElementById("combatHealthBarOverlay").innerHTML = Character.currentHealth + " / " + Character.stats.health
+    document.getElementById("combatHealthBar").style.width = playerHPPercent
+    document.getElementById("combatManaBarOverlay").innerHTML = Character.currentMana + " / " + Character.stats.mana
+    document.getElementById("combatManaBar").style.width = playerManaPercent
+    document.getElementById("combatEnergyBarOverlay").innerHTML = Character.currentEnergy + " / " + Character.stats.energy
+    document.getElementById("combatManaBar").style.width = playerEnergyPercent
 }

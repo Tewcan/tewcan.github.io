@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
 </head>
 <body onload="startGame()">
+
     <div id="header">
         <div id="menu_bar">
             <ul id="button_list">
@@ -21,15 +22,37 @@
             </ul>
         </div>
     </div>
+
     <div id="body">
         <div id="body_content">            
             <div id="display">
                 <div id="combatDisplay">
-                    <div id="combatMobDisplay"></div>
+                    <div id="combatMobDisplay">
+                        <div id="combatMobStatsDisplay"></div>
+                        <div id="combatMobHealthDisplay">
+                            <div class="barOverlay" id="combatMobHealthBarOverlay"></div>
+                            <div id="combatMobHealthBar"></div>
+                        </div>
+                    </div>
                     <div id="combatLogDisplay"></div>
                     <div id="combatCharacterDisplay">
-                        <div id="combatResourcesDisplay"></div>
-                        <div id="combatButtonsDisplay"></div>
+                        <div id="combatResourcesDisplay">
+                            <div id="combatResouceHealthDisplay">
+                                <div class="barOverlay" id="combatHealthBarOverlay"></div>
+                                <div id="combatHealthBar"></div>
+                            </div>
+                            <div id="combatResourcesManaDisplay">
+                                <div class="barOverlay" id="combatManaBarOverlay"></div>
+                                <div id="combatManaBar"></div>
+                            </div>
+                            <div id="combatResourcesEnergyDisplay">
+                                <div class="barOverlay" id="combatEnergyBarOverlay"></div>
+                                <div id="combatEnergyBar"></div>
+                            </div>
+                        </div>
+                        <div id="combatButtonsDisplay">
+                            <button class="button2">Fight!</button>
+                        </div>
                     </div>
 
                 </div>
@@ -53,7 +76,8 @@
                     </div>
                     <div id="settingsButton"><img onclick="openSettings()" class="middle" src="images/smallgear.svg" /></div>
                     <div id="expDisplay">
-                        <div id="expBar"></div>
+                        <div class="barOverlay" id="expBarOverlay"></div>
+                        <div id="expBar"></div>                        
                     </div>
                 </div>
                 <div id="inventoryDisplay">                   
