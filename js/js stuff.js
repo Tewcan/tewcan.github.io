@@ -42,28 +42,15 @@ function strikeThrough () {
 }
 // Calculator
 var firstNumber = '',
-	operator,
-	changeNumber = true,
 	secondNumber = '',
-	comma,
-	total;
-
+	operator;
 function numberInput(input) {
-	if (changeNumber === true) {
 		firstNumber += input
 		numberDisplay(firstNumber)
-	}
-	if (changeNumber === false) {
-		secondNumber += input
-		numberDisplay(secondNumber)
-	}
 }
-function numberDisplay(input) {
-	document.getElementsByClassName('calculator__number--2')[0].innerHTML = input
-}
-function squareRoot() {
-	total = Math.sqrt(JSON.parse(firstNumber)).toFixed(2)
-	numberDisplay(total)
+function numberDisplay(input,which) {
+	if (which === 'top') {document.getElementsByClassName('calculator__number--1')[0].innerHTML = input}
+	else {document.getElementsByClassName('calculator__number--2')[0].innerHTML = input}
 }
 function chooseOperator(input) {
 	if (input === '+') {operator = '+'}
@@ -71,23 +58,28 @@ function chooseOperator(input) {
 	if (input === '*') {operator = '*'}
 	if (input === '/') {operator = '/'}
 	if (input === '^') {operator = '^'}
-	changeNumber = false
-	numberDisplay(secondNumber)
-	document.getElementsByClassName('calculator__number--1')[0].innerHTML = firstNumber + operator
+	secondNumber = firstNumber
+	firstNumber = ''
+	numberDisplay(firstNumber)
+	numberDisplay(secondNumber + operator,'top')
 }
 function operationFunction() {
-	if (operator === '+')total = JSON.parse(firstNumber) + JSON.parse(secondNumber)
-	if (operator === '-')total = JSON.parse(firstNumber) - JSON.parse(secondNumber)
-	if (operator === '*')total = JSON.parse(firstNumber) * JSON.parse(secondNumber)
-	if (operator === '/')total = JSON.parse(firstNumber) / JSON.parse(secondNumber)
-	if (operator === 'sqrt')total = Math.sqrt(firstNumber)
-	numberDisplay(total)
-	document.getElementsByClassName('calculator__number--1')[0].innerHTML = '<br>'
+	if (operator === '+')firstNumber = JSON.parse(firstNumber) + JSON.parse(secondNumber)
+	if (operator === '-')firstNumber = JSON.parse(firstNumber) - JSON.parse(secondNumber)
+	if (operator === '*')firstNumber = JSON.parse(firstNumber) * JSON.parse(secondNumber)
+	if (operator === '/')firstNumber = JSON.parse(firstNumber) / JSON.parse(secondNumber)
+	if (operator === '^')firstNumber = Math.pow(JSON.parse(firstNumber),JSON.parse(secondNumber))
+	numberDisplay(firstNumber.toFixed(2))
+	secondNumber = '<br>'
+	numberDisplay('<br>','top')
+}
+function squareRoot() {
+	firstNumber = Math.sqrt(JSON.parse(firstNumber)).toFixed(2)
+	numberDisplay(firstNumber)
 }
 function clearEverything() {
-	changeNumber = true
 	firstNumber = ''
 	secondNumber = ''
-	document.getElementsByClassName('calculator__number--1')[0].innerHTML = '<br>'
+	numberDisplay('<br>','top')
 	numberDisplay('')
 }
