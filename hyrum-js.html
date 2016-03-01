@@ -18,6 +18,36 @@
 <div>
 <div class="content">
     <div class="block"> <!--  Adventure Block -->
+        <h2>Calculator</h2>
+        <div class="calculator">
+            <div class="calculator__display">
+                <p class="calculator__number--1"><br></p>
+                <p class="calculator__number--2"></p>
+            </div>
+            <div class="calculator__container">
+                <button onclick='clearEverything()' class="calculator__button">C<r/button>
+                <button onclick="chooseOperator('^')" class="calculator__button">^<r/button>
+                <button onclick="squareRoot('sqrt')" class="calculator__button">sqrt<r/button>
+                <button onclick="chooseOperator('/')" class="calculator__button">/<r/button>
+                <button onclick="numberInput('1')" class="calculator__button">1<r/button>
+                <button onclick="numberInput('2')" class="calculator__button">2<r/button>
+                <button onclick="numberInput('3')" class="calculator__button">3<r/button>
+                <button onclick="chooseOperator('*')" class="calculator__button">*<r/button>
+                <button onclick="numberInput('4')" class="calculator__button">4<r/button>
+                <button onclick="numberInput('5')" class="calculator__button">5<r/button>
+                <button onclick="numberInput('6')" class="calculator__button">6<r/button>
+                <button onclick="chooseOperator('-')" class="calculator__button">-<r/button>
+                <button onclick="numberInput('7')" class="calculator__button">7<r/button>
+                <button onclick="numberInput('8')" class="calculator__button">8<r/button>
+                <button onclick="numberInput('9')" class="calculator__button">9<r/button>
+                <button onclick="chooseOperator('+')" class="calculator__button">+<r/button>
+                <button onclick="numberInput('.')" class="calculator__button">.<r/button>
+                <button onclick="numberInput('0')" class="calculator__button">0<r/button>
+                <button onclick='operationFunction()' class="calculator__button" style="width: 80px;">=<r/button>
+            </div>
+        </div>
+    </div>
+    <div class="block"> <!--  Adventure Block -->
         <h2>Adventure Game!</h2>
         <h3 class="pad">Find and slay the evil dragon</h3>
         <button onclick="window.location.href='adventure.html'" class="  block__button">Enter<r/button>

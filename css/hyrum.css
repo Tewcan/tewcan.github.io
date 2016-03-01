@@ -116,3 +116,14 @@ h6 {font-size: 25px; color: #991f00;}
 	height: 40px;
 }
 .block__button:hover {background-color: lightgrey;}
+.calculator {
+	width: 168px;
+	margin: auto;
+	border:4px ridge lightblue;
+}
+.calculator__display {height: 50px; width: 160px;background-color: white; overflow: hidden;}
+.calculator__number--1 {font-size: 12px; float: right; margin-right: 5px }
+.calculator__number--2 {font-size: 25px; float: right; clear:both; margin-right: 5px}
+.calculator__container {height:200px; width: 160px;}
+.calculator__button {height: 40px; width: 40px; border-style: groove;}
+.calculator__button:hover{background-color: lightblue;}

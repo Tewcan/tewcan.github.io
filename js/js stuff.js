@@ -40,3 +40,54 @@ function strikeThrough () {
 	this.style.textDecoration = 'none'
 	}
 }
+// Calculator
+var firstNumber = '',
+	operator,
+	changeNumber = true,
+	secondNumber = '',
+	comma,
+	total;
+
+function numberInput(input) {
+	if (changeNumber === true) {
+		firstNumber += input
+		numberDisplay(firstNumber)
+	}
+	if (changeNumber === false) {
+		secondNumber += input
+		numberDisplay(secondNumber)
+	}
+}
+function numberDisplay(input) {
+	document.getElementsByClassName('calculator__number--2')[0].innerHTML = input
+}
+function squareRoot() {
+	total = Math.sqrt(JSON.parse(firstNumber)).toFixed(2)
+	numberDisplay(total)
+}
+function chooseOperator(input) {
+	if (input === '+') {operator = '+'}
+	if (input === '-') {operator = '-'}
+	if (input === '*') {operator = '*'}
+	if (input === '/') {operator = '/'}
+	if (input === '^') {operator = '^'}
+	changeNumber = false
+	numberDisplay(secondNumber)
+	document.getElementsByClassName('calculator__number--1')[0].innerHTML = firstNumber + operator
+}
+function operationFunction() {
+	if (operator === '+')total = JSON.parse(firstNumber) + JSON.parse(secondNumber)
+	if (operator === '-')total = JSON.parse(firstNumber) - JSON.parse(secondNumber)
+	if (operator === '*')total = JSON.parse(firstNumber) * JSON.parse(secondNumber)
+	if (operator === '/')total = JSON.parse(firstNumber) / JSON.parse(secondNumber)
+	if (operator === 'sqrt')total = Math.sqrt(firstNumber)
+	numberDisplay(total)
+	document.getElementsByClassName('calculator__number--1')[0].innerHTML = '<br>'
+}
+function clearEverything() {
+	changeNumber = true
+	firstNumber = ''
+	secondNumber = ''
+	document.getElementsByClassName('calculator__number--1')[0].innerHTML = '<br>'
+	numberDisplay('')
+}
