@@ -34,24 +34,26 @@
                             <div id="combatMobHealthBar"></div>
                         </div>
                     </div>
-                    <div id="combatLogDisplay"></div>
+                    <div id="combatLogDisplay">
+                        <ul id="combatLog"></ul>
+                    </div>
                     <div id="combatCharacterDisplay">
                         <div id="combatResourcesDisplay">
-                            <div id="combatResouceHealthDisplay">
+                            <div class="combatResourcesDisplay" id="combatResoucesHealthDisplay">
                                 <div class="barOverlay" id="combatHealthBarOverlay"></div>
                                 <div id="combatHealthBar"></div>
                             </div>
-                            <div id="combatResourcesManaDisplay">
+                            <div class="combatResourcesDisplay" id="combatResourcesManaDisplay">
                                 <div class="barOverlay" id="combatManaBarOverlay"></div>
                                 <div id="combatManaBar"></div>
                             </div>
-                            <div id="combatResourcesEnergyDisplay">
+                            <div class="combatResourcesDisplay" id="combatResourcesEnergyDisplay">
                                 <div class="barOverlay" id="combatEnergyBarOverlay"></div>
                                 <div id="combatEnergyBar"></div>
                             </div>
                         </div>
                         <div id="combatButtonsDisplay">
-                            <button class="button2">Fight!</button>
+                            <button id="combatButton" class="button2" onclick="combat()">Fight!</button>
                         </div>
                     </div>
 
@@ -222,12 +224,12 @@
                                 <tr>
                                     <td>Armor</td>
                                     <td id="equippedItemArmor">0</td>
-                                    <td id="equippedItemSlot" style="width:180px;" align="right">head</td>
+                                    <td id="equippedItemSlot" style="width:50%;" align="right">head</td>
                                 </tr>
                                 <tr>
                                     <td>Damage:</td>
                                     <td id="equippedItemDam">0</td>
-                                    <td id="equippedItemRarity" style="width:180px;" align="right">common</td>
+                                    <td id="equippedItemRarity"  align="right">common</td>
                                 </tr>
                                 <tr>
                                     <td>Strength:</td>
@@ -262,12 +264,12 @@
                                 <tr>
                                     <td>Armor</td>
                                     <td id="newItemArmor">0</td>
-                                    <td id="newItemSlot" style="width:180px;" align="right">head</td>
+                                    <td id="newItemSlot" style="width:50%;" align="right">head</td>
                                 </tr>
                                 <tr>
                                     <td>Damage:</td>
                                     <td id="newItemDam">0</td>
-                                    <td id="newItemRarity" style="width:180px;" align="right">common</td>
+                                    <td id="newItemRarity" align="right">common</td>
                                 </tr>
                                 <tr>
                                     <td>Strength:</td>
@@ -302,7 +304,7 @@
                     <div id="buttonBar">
                         <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
                         <button class="button1" id="sellLoot" onclick="sellLoot()">Sell</button>                    
-                        <button class="button2" id="newLoot" onclick="getLoot()">New Loot</button>
+                        <button class="button2" id="newLoot" onclick="prepareCombat()">New Loot</button>
                     </div>
                 </div>
 

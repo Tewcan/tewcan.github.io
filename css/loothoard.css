@@ -69,8 +69,17 @@ img.middle {
     height:100%;
     position:absolute;
     top:0;
-    left:0;
-    text-align:center;
+    left:0;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.combatResourcesDisplay {
+    height:25px;
+    width:570px;
+    background-color:lightgray;
+    position:relative;
 }
 
 #charDisplay {
@@ -275,10 +284,10 @@ img.middle {
 }
 
 #combatDisplay {
-    height:600px;
+    height:730px;
     width:570px;
     background-color:darkgray;
-    display:none;    
+    display:none;   
 }
 
 #combatMobDisplay {
@@ -287,12 +296,16 @@ img.middle {
 }
 
 #combatMobStatsDisplay {
-    height:80px;    
+    height:80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
 }
 
 #combatMobHealthDisplay {
     height:40px;
     width:570px;
+    background-color:lightgray;
     position:relative;
 }
 
@@ -303,8 +316,11 @@ img.middle {
 }
 
 #combatLogDisplay {
-    height:305px;
-    width:570px;
+    height:415px;
+    width:550px;
+    padding:10px;
+    overflow:scroll;
+	overflow-x:hidden;
     
 }
 
@@ -320,23 +336,7 @@ img.middle {
 
 #combatButtonsDisplay {
     height:100px;
-    width:570;
-    
-}
-
-#combatResourceHealthDisplay {
-    height:30px;
-    width:570px;
-}
-
-#combatResourceManaDisplay {
-    height:30px;
-    width:570px;
-}
-
-#combatResourceEnergyDisplay {
-    height:30px;
-    width:570px;
+    width:570px;    
 }
 
 #combatHealthBar {
@@ -355,4 +355,9 @@ img.middle {
     background-color:yellow;
     height:25px;
     width:20%;
+}
+
+#combatLog {
+    list-style-type:none;
+    font-family:Rockwell;
 }
