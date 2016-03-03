@@ -17,6 +17,28 @@
 </div>
 <div>
 <div class="content">
+    <div class="block"> <!-- Wage Block -->
+        <h2>Wage Calulator</h2>
+        <h3 class="wagetext">example: <br> 40  $8.25</h3>
+        <h3 class="wagetext"></h3>
+        <form>
+            <input style="width: 40px;" type="text" class="hours" placeholder="Hours"></input>
+            <input style="margin-bottom: 5px; width: 50px;" type="text" class="rate" placeholder="Rate"></input>
+            <br>
+            <input type="button" class="block__button" value="Submit" onclick="wageFunction()"></input>
+        </form>
+    </div>
+    <div class="block"> <!-- Tip Block -->
+        <h2>Tip Calulator</h2>
+        <h3 class="tiptext">example: Waitress <br> $10   15%</h3>
+        <form>
+            <input style="width: 150px;" type="text"  class="occupation" placeholder="Server Occupation"></input>
+            <input style="width: 73.5px;" type="text"  class="bill" placeholder="Bill"></input>
+            <input style="margin-bottom: 5px; width: 45px;" type="text" class="tip" placeholder="Tip %"></input>
+            <input style="width: 25px;" type="text" placeholder="1" class="numpeople"></input>
+            <input type="button" class="block__button" value="Submit" onclick="tipFunction()"></input>
+        </form>
+    </div>
     <div class="block"> <!--  Age Block -->
         <h2>Age Calulator</h2>
         <h3 class="ageoutput">Input birthday <br> example: 5/20/2001</h3>
@@ -25,7 +47,7 @@
         <h3 class="ageoutput"></h3>
         <h3 class="ageoutput"></h3>
         <form>
-            <input type="text" class="agetext" placeholder="mm/dd/yyyy"></input>
+            <input style="width: 120px;" type="text" class="agetext" placeholder="mm/dd/yyyy"></input><br>
             <input type="button" class="block__button" value="Submit" onclick="inputText()"></input>
         </form>
     </div>

@@ -111,3 +111,32 @@ function inputText() {
 	dom[3].innerHTML = '<br>' + 'Time' + ageCheck + '50 ' + 'Y: ' + yearsLeft50 + ' D: ' + daysLeft
 	dom[4].innerHTML = 'Time' + ageCheck2 + '100 ' + 'Y: ' + yearsLeft100 + ' D: ' + daysLeft
 }
+//Tip calculator
+function tipFunction() {
+	var numPeople = document.getElementsByClassName('numpeople')[0].value
+	if (numPeople === '') {numPeople = 1}
+	var occupation = document.getElementsByClassName('occupation')[0].value
+	var bill = JSON.parse(document.getElementsByClassName('bill')[0].value.substr(1))
+	var tip = JSON.parse(document.getElementsByClassName('tip')[0].value.slice(0, -1))
+	if (occupation === '' || bill === '' || tip === '') {return}
+	var prcnt = tip * .01;
+	var tipAmount = bill * prcnt / numPeople
+	var total = tipAmount + bill / numPeople
+
+	document.getElementsByClassName('tiptext')[0].innerHTML =
+	'Tip the ' + occupation + ' $' + tipAmount.toFixed(2) + '<br>' + 'Total: $' + total.toFixed(2)
+}
+//Wage calculator
+function wageFunction() {
+	var payTotal
+	var overTime = ''
+	var hours = JSON.parse(document.getElementsByClassName('hours')[0].value)
+	var rate = JSON.parse(document.getElementsByClassName('rate')[0].value.substr(1))
+	payTotal = hours * rate
+	if (hours > 40) {
+		overTime = hours - 40
+		payTotal += overTime * (rate * .5)
+		document.getElementsByClassName('wagetext')[1].innerHTML = 'Overtime hours: ' + overTime
+	}
+	document.getElementsByClassName('wagetext')[0].innerHTML = 'Total: $' + payTotal.toFixed(2)
+}
