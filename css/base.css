@@ -16,7 +16,7 @@ html {
 	font-family: Oswald;
 }
 
-h1, h2, h3 { color: orange; }
+h1, h2, h3 { color: #ff8c1a }
 
 .navbar {width: 100%; height: 55px; background:rgba(0, 0, 0, 0.4);}
 .navbar--active{background:rgba(255, 102, 0,0.7)}

@@ -1,15 +1,15 @@
-.imagediv {
+ .imagediv {
 	width:400px;
 	padding: 0 20px 20px 20px;
 	background: rgba(0, 0, 0, 0.5);
 	align-self: center;
 	font-size: 100%;
 }
-.imagediv:hover{ background: rgba(0,0,0,0.6); }
+.imagediv:hover{ background: rgba(0, 0, 0,0.6); }
 .images {
 	width: 100%;
 	height: 100%;
-	border: 5px solid rgba(00, 80, 80, .8);
+	border: 5px solid rgba(0, 77, 77,0.8);
 }
 
 /*Targets*/
@@ -103,12 +103,12 @@ h6 {font-size: 25px; color: #991f00;}
 	width: 250px;
 	max-height: 400px;
 	overflow:hidden;
-	background: rgba(0,80,80,0.6);
+	background: rgba(0, 77, 77,0.8);
 	padding:20px;
 	margin: 10px;
 }
 .block:hover {
-	background:rgba(0,0,255,0.6);
+	background:rgba(0, 60, 60,0.8);
 }
 .block__button {
 	width: 100px;
