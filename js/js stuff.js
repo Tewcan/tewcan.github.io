@@ -83,3 +83,31 @@ function clearEverything() {
 	numberDisplay('<br>','top')
 	numberDisplay('')
 }
+//Age calculator
+var ageCheck
+var ageCheck2
+function inputText() {
+	if (document.getElementsByClassName('agetext')[0].value === '') {return}
+	var birthDay = new Date(document.getElementsByClassName('agetext')[0].value)
+	var today = new Date()
+	var difference = today - birthDay
+
+	var minutes = Math.floor(difference / 1000 / 60)
+	var days = Math.floor(difference / 1000 / 60 / 60 / 24)
+	var years = Math.floor(difference / 1000 / 60 / 60 / 24 / 365)
+
+	var daysLeft = days % 365
+	var yearsLeft50 = (Math.abs(years - 50))
+	if (years < 50 ) {ageCheck = ' before '}
+		else {ageCheck = ' since '}
+	if (years < 100 ) {ageCheck2 = ' before '}
+		else {ageCheck2 = ' since '}
+	var yearsLeft100 = (Math.abs(years - 100))
+
+	var dom = document.getElementsByClassName('ageoutput')
+	dom[0].innerHTML = '<br>' + 'Age in Minutes: ' + minutes
+	dom[1].innerHTML = 'Age in Days: ' + days
+	dom[2].innerHTML = 'Age in Years: ' + years
+	dom[3].innerHTML = '<br>' + 'Time' + ageCheck + '50 ' + 'Y: ' + yearsLeft50 + ' D: ' + daysLeft
+	dom[4].innerHTML = 'Time' + ageCheck2 + '100 ' + 'Y: ' + yearsLeft100 + ' D: ' + daysLeft
+}
