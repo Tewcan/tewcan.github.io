@@ -107,12 +107,14 @@ h6 {font-size: 25px; color: #991f00;}
 	padding:20px;
 	margin: 10px;
 }
+$ {color: orange}
 .block:hover {
 	background:rgba(0, 60, 60,0.8);
 }
 .block__button {
 	width: 100px;
 	height: 40px;
+	margin:5px;
 }
 .block__button:hover {background-color: lightgrey;}
 .calculator {
@@ -126,3 +128,14 @@ h6 {font-size: 25px; color: #991f00;}
 .calculator__container {height:200px; width: 160px;}
 .calculator__button {height: 40px; width: 40px; border-style: groove;}
 .calculator__button:hover{background-color: lightblue;}
+.multiTable table {margin: auto;}
+.multiTable tr td {color:orange;}
+.divFB {
+	max-width: 70px;
+}
+.formFB {
+	color: orange;
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: space-between;
+}

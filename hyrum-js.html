@@ -17,13 +17,36 @@
 </div>
 <div>
 <div class="content">
+    <div class="block"> <!-- FizzBuzz -->
+        <h2>FizzBuzz</h2>
+         <form class="formFB">
+            <div class="divFB">
+                Start:<input style="width: 28px;" type="text" class="startFB" value="1"></input>
+                Stop:<input style="width: 30px;" type="text" class="stopFB" value="50"></input>
+            </div>
+            <div class="divFB">
+                Fizz: <input style="width: 30px;" type="text" class="fizz" value="3"></input>
+                Buzz:<input style="width: 25px;" type="text" class="buzz" value="5"></input>
+            </div>
+            <div style="width: 40px">
+                Speed<input style="width: 30px;" type="text" class="speedFB" value="300"></input>
+            </div>
+        </form>
+        <input type="button" class="block__button" value="Start" onclick="fizzBuzz()"></input>
+         <div class="outputFB"></div>
+    </div>
+    <div class="block"> <!-- Multiplication Table Block -->
+        <h2>Multiplication Table</h2>
+         <button class="block__button" onclick='multiplicationTable()'>Create</button>
+         <div class="multiTable"></div>
+    </div>
     <div class="block"> <!-- Wage Block -->
         <h2>Wage Calulator</h2>
         <h3 class="wagetext">example: <br> 40  $8.25</h3>
         <h3 class="wagetext"></h3>
         <form>
             <input style="width: 40px;" type="text" class="hours" placeholder="Hours"></input>
-            <input style="margin-bottom: 5px; width: 50px;" type="text" class="rate" placeholder="Rate"></input>
+            <input style="width: 50px;" type="text" class="rate" placeholder="Rate"></input>
             <br>
             <input type="button" class="block__button" value="Submit" onclick="wageFunction()"></input>
         </form>
@@ -34,7 +57,7 @@
         <form>
             <input style="width: 150px;" type="text"  class="occupation" placeholder="Server Occupation"></input>
             <input style="width: 73.5px;" type="text"  class="bill" placeholder="Bill"></input>
-            <input style="margin-bottom: 5px; width: 45px;" type="text" class="tip" placeholder="Tip %"></input>
+            <input style="width: 45px;" type="text" class="tip" placeholder="Tip %"></input>
             <input style="width: 25px;" type="text" placeholder="1" class="numpeople"></input>
             <input type="button" class="block__button" value="Submit" onclick="tipFunction()"></input>
         </form>

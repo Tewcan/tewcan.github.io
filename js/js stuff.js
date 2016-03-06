@@ -133,10 +133,51 @@ function wageFunction() {
 	var hours = JSON.parse(document.getElementsByClassName('hours')[0].value)
 	var rate = JSON.parse(document.getElementsByClassName('rate')[0].value.substr(1))
 	payTotal = hours * rate
+	document.getElementsByClassName('wagetext')[1].innerHTML = ''
 	if (hours > 40) {
 		overTime = hours - 40
 		payTotal += overTime * (rate * .5)
 		document.getElementsByClassName('wagetext')[1].innerHTML = 'Overtime hours: ' + overTime
 	}
 	document.getElementsByClassName('wagetext')[0].innerHTML = 'Total: $' + payTotal.toFixed(2)
+}
+//Multiplicatiion table
+function multiplicationTable() {
+	var htmlTable, i, j;
+	htmlTable = "<table border='1'>"
+	for (i = 1; i <= 9; i++) {
+		htmlTable += '<tr>'
+		for (j = 1; j <= 9; j++) {
+			htmlTable += '<td>'+ (i*j).toFixed(0) +'</td>'
+		}
+		htmlTable += '</tr>'
+	}
+	htmlTable += '</table'
+	document.getElementsByClassName("multiTable")[0].innerHTML = htmlTable;
+}
+//FizzBuzz
+function fizzBuzz() {
+	var fizz = document.getElementsByClassName('fizz')[0].value
+	var buzz = document.getElementsByClassName('buzz')[0].value
+	var stopFB = JSON.parse(document.getElementsByClassName('stopFB')[0].value)
+	var startFB = JSON.parse(document.getElementsByClassName('startFB')[0].value)
+	var speed = document.getElementsByClassName('speedFB')[0].value
+	var brokenThings
+	(function next() {
+	    if (startFB++ >= stopFB) return;
+	    setTimeout(function() {
+	        if (startFB % fizz === 0 && startFB % buzz === 0) {outputFB('FizzBuzz')}
+			else if (startFB % fizz === 0) {outputFB('Fizz')}
+			else if (startFB % buzz === 0) {outputFB('Buzz')}
+			else {outputFB(startFB)}
+	        next();
+	    }, speed);
+	})();
+}
+function outputFB(input) {
+	var element = document.createElement('h3')
+	var textNode = document.createTextNode(input)
+	element.appendChild(textNode)
+	var output = document.getElementsByClassName('outputFB')[0]
+	output.insertBefore(element, output.childNodes[0])
 }
