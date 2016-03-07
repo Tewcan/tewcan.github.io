@@ -17,7 +17,15 @@
 </div>
 <div>
 <div class="content">
-    <div class="block"> <!-- FizzBuzz -->
+    <div class="block"> <!--  Password Block -->
+        <h2>Password Checker</h2>
+        <h3 class="passwordoutput"></h3>
+        <form action="#">
+        <input type='text' class='passwordinput'>
+        <input type='button' class="block__button" value="Submit" onclick="passwordFunction()">
+        </form>
+    </div>
+    <div class="block"> <!-- FizzBuzz Block -->
         <h2>FizzBuzz</h2>
          <form class="formFB">
             <div class="divFB">
@@ -69,7 +77,7 @@
         <h3 class="ageoutput"></h3>
         <h3 class="ageoutput"></h3>
         <h3 class="ageoutput"></h3>
-        <form>
+        <form action="#">
             <input style="width: 120px;" type="text" class="agetext" placeholder="mm/dd/yyyy"></input><br>
             <input type="button" class="block__button" value="Submit" onclick="inputText()"></input>
         </form>
@@ -115,11 +123,11 @@
         <button onclick="window.location.href='target.html'" class="  block__button">Enter<r/button>
     </div>
     <div class="block"> <!--  Text Creator Block -->
-        <h1 class="text__head">Text Creator</h1>
+        <h2 class="text__head">Text Creator</h2>
         <h3 class="text__para" >Type things in me</h3>
         <form action="#">
-        <input type='text' class='text__box' autofocus="autofocus">
-        <input type='submit' class="block__button" value="Submit" onclick="textCreator()">
+        <input type='text' class='text__box' onsubmit="textCreator()">
+        <input type='button' class="block__button" value="Submit" onclick="textCreator()">
         </form>
         <div class="text__div")></div>
     </div>

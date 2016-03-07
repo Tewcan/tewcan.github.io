@@ -181,3 +181,31 @@ function outputFB(input) {
 	var output = document.getElementsByClassName('outputFB')[0]
 	output.insertBefore(element, output.childNodes[0])
 }
+// Password Checker
+function passwordFunction() {
+	var password = document.getElementsByClassName('passwordinput')[0].value,
+	p1,p2,p3,p4,p5,p6;
+	if (/(?=.*[_!?@&])/.test(password)) {p6 = true}
+		else{outputMessage('Password must contain atleast 1 special character'+'<br>'+'( _ ! ? @ & )')
+			p6 = false}
+	if (/ /.test(password)) {outputMessage("Password can't contain spaces")
+		p5 = false}
+		else {p5 = true}
+	if (/[A-Z]/.test(password.slice(0))) {p3 = true}
+		else{outputMessage('First letter must be uppercase')
+		p3 = false}
+	if (/[a-z]/.test(password)) {p4 = true}
+		else{outputMessage('Need atleast 1 lowercase letter')
+		p4 = false}
+	if (/[0-9]/.test(password.slice(6) && password.slice(7)) && /[a-zA-z]/.test(password.slice(0) &&
+	password.slice(1) && password.slice(2) && password.slice(3) && password.slice(4) && password.slice(5))) {p2 = true}
+		else{outputMessage('Must be atleast 6 letters followed by 2 numbers')
+		p2 = false}
+	if (password.length >= 6) {p1 = true}
+		else{outputMessage('Password must be atleast 6 characters long')
+		p1 = false}
+	if (p1 && p2 && p3 && p4 && p5 && p6 === true) {outputMessage('You have a strong password')}
+	function outputMessage(input) {
+		document.getElementsByClassName('passwordoutput')[0].innerHTML = input
+	}
+}
