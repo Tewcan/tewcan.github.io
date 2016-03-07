@@ -116,8 +116,8 @@ function tipFunction() {
 	var numPeople = document.getElementsByClassName('numpeople')[0].value
 	if (numPeople === '') {numPeople = 1}
 	var occupation = document.getElementsByClassName('occupation')[0].value
-	var bill = JSON.parse(document.getElementsByClassName('bill')[0].value.substr(1))
-	var tip = JSON.parse(document.getElementsByClassName('tip')[0].value.slice(0, -1))
+	var bill = JSON.parse(document.getElementsByClassName('bill')[0].value)
+	var tip = JSON.parse(document.getElementsByClassName('tip')[0].value)
 	if (occupation === '' || bill === '' || tip === '') {return}
 	var prcnt = tip * .01;
 	var tipAmount = bill * prcnt / numPeople
@@ -131,7 +131,7 @@ function wageFunction() {
 	var payTotal
 	var overTime = ''
 	var hours = JSON.parse(document.getElementsByClassName('hours')[0].value)
-	var rate = JSON.parse(document.getElementsByClassName('rate')[0].value.substr(1))
+	var rate = JSON.parse(document.getElementsByClassName('rate')[0].value)
 	payTotal = hours * rate
 	document.getElementsByClassName('wagetext')[1].innerHTML = ''
 	if (hours > 40) {
