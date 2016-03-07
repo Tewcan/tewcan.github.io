@@ -1,0 +1,18 @@
+.dropDown > li {
+
+}
+
+.sub-menu {
+	position: absolute;
+	right: 0px;
+	top: 53px;
+	z-index: 1;
+	opacity: 1;
+	transition: opacity linear 0.15s;
+	background: #2e2728;
+}
+
+.projects {
+	white-space: nowrap;
+	width: 125px;
+}
