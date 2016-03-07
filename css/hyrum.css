@@ -101,12 +101,13 @@ h6 {font-size: 25px; color: #991f00;}
 /*Js Stuff*/
 .block {
 	width: 250px;
-	max-height: 400px;
+	height: 400px;
 	overflow:hidden;
 	background: rgba(0, 77, 77,0.8);
-	padding:20px;
+	padding:10px;
 	margin: 10px;
 }
+.halfblock {height: 195px;}
 $ {color: orange}
 .block:hover {
 	background:rgba(0, 60, 60,0.8);

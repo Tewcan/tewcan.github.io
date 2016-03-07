@@ -17,7 +17,7 @@
 </div>
 <div>
 <div class="content">
-    <div class="block"> <!--  Password Block -->
+    <div class="halfblock block"> <!--  Password Block -->
         <h2>Password Checker</h2>
         <h3 class="passwordoutput"></h3>
         <form action="#">
@@ -44,31 +44,35 @@
          <div class="outputFB"></div>
     </div>
     <div class="block"> <!-- Multiplication Table Block -->
+        <br>
         <h2>Multiplication Table</h2>
          <button class="block__button" onclick='multiplicationTable()'>Create</button>
          <div class="multiTable"></div>
     </div>
-    <div class="block"> <!-- Wage Block -->
-        <h2>Wage Calulator</h2>
-        <h3 class="wagetext">example: <br> 40  $8.25</h3>
-        <h3 class="wagetext"></h3>
-        <form>
-            <input style="width: 40px;" type="text" class="hours" placeholder="Hours"></input>
-            <input style="width: 50px;" type="text" class="rate" placeholder="Rate"></input>
-            <br>
-            <input type="button" class="block__button" value="Submit" onclick="wageFunction()"></input>
-        </form>
-    </div>
-    <div class="block"> <!-- Tip Block -->
-        <h2>Tip Calulator</h2>
-        <h3 class="tiptext">example: Waitress <br> $10   15%</h3>
-        <form>
-            <input style="width: 150px;" type="text"  class="occupation" placeholder="Server Occupation"></input>
-            <input style="width: 73.5px;" type="text"  class="bill" placeholder="Bill"></input>
-            <input style="width: 45px;" type="text" class="tip" placeholder="Tip %"></input>
-            <input style="width: 25px;" type="text" placeholder="1" class="numpeople"></input>
-            <input type="button" class="block__button" value="Submit" onclick="tipFunction()"></input>
-        </form>
+    <div>
+        <div class="halfblock block"> <!-- Wage Block -->
+            <h2>Wage Calulator</h2>
+            <h3 class="wagetext">example: <br> 40  $8.25</h3>
+            <h3 class="wagetext"></h3>
+            <form>
+                <input style="width: 40px;" type="text" class="hours" placeholder="Hours"></input>
+                <input style="width: 50px;" type="text" class="rate" placeholder="Rate"></input>
+                <br>
+                <input type="button" class="block__button" value="Submit" onclick="wageFunction()"></   input>
+            </form>
+        </div>
+        <div class="halfblock block" style="padding-top: 2px"> <!-- Tip Block -->
+            <h2>Tip Calulator</h2>
+            <h3 class="tiptext">example: Waitress <br> $10   15%</h3>
+            <form>
+                <input style="width: 148px;" type="text"  class="occupation" placeholder="Server    Occupation"></input>
+                <br>
+                <input style="width: 80px;" type="text"  class="bill" placeholder="Bill"></input>
+                <input style="width: 45px;" type="text" class="tip" placeholder="Tip %"></input>
+                <input style="width: 20px;" type="text" placeholder="1" class="numpeople"></input>
+                <input type="button" class="block__button" value="Submit" onclick="tipFunction()"></    input>
+            </form>
+        </div>
     </div>
     <div class="block"> <!--  Age Block -->
         <h2>Age Calulator</h2>
@@ -83,6 +87,7 @@
         </form>
     </div>
     <div class="block"> <!--  Calculator Block -->
+        <br>
         <h2>Calculator</h2>
         <div class="calculator">
             <div class="calculator__display">
@@ -112,34 +117,40 @@
             </div>
         </div>
     </div>
-    <div class="block"> <!--  Adventure Block -->
-        <h2>Adventure Game!</h2>
-        <h3 class="pad">Find and slay the evil dragon</h3>
-        <button onclick="window.location.href='adventure.html'" class="  block__button">Enter<r/button>
-    </div>
-    <div class="block"> <!--  Targets Block -->
-        <h2>Shoot the Targets!</h2>
-        <h3 class="pad">Who would of thought clicking circles could be so much  fun!</h3>
-        <button onclick="window.location.href='target.html'" class="  block__button">Enter<r/button>
+    <div>
+        <div class="halfblock block"> <!--  Adventure Block -->
+            <h2>Adventure Game!</h2>
+            <h3 class="pad">Find and slay the dragon</h3>
+            <button onclick="window.location.href='adventure.html'" class="  block__button">Enter<r/button>
+        </div>
+        <div class="halfblock block"> <!--  Targets Block -->
+            <h2>Shoot the Targets!</h2>
+            <h3 class="pad">Click some circles!</h3>
+            <button onclick="window.location.href='target.html'" class="  block__button">Enter<r/button>
+        </div>
     </div>
     <div class="block"> <!--  Text Creator Block -->
         <h2 class="text__head">Text Creator</h2>
-        <h3 class="text__para" >Type things in me</h3>
+        <h3 class="text__para" >Type things in the box</h3>
         <form action="#">
         <input type='text' class='text__box' onsubmit="textCreator()">
         <input type='button' class="block__button" value="Submit" onclick="textCreator()">
         </form>
         <div class="text__div")></div>
     </div>
-    <div class="block " class="time">  <!--  Time Block -->
-        <h2 class="time__head">Times Square</h2>
-        <button onclick="time()" class="time__button block__button">The Date is </button>
-        <h2 class="time__msg"></h2>
-    </div>
-    <div class="block "> <!--  Count Block -->
-        <h2 class="count__head">Count Things</h2>
-        <button class="block__button" onclick="count()">Click</button>
-        <h2 class="count__number"></h2>
+    <div>
+        <div class="halfblock block" class="time">  <!--    Time Block -->
+            <br>
+            <h2 class="time__head">Times Square</h2>
+            <button onclick="time()" class="time__button    block__button">The Date is </button>
+            <h2 class="time__msg"></h2>
+        </div>
+        <div class="halfblock block"> <!--  Count Block -->
+            <br>
+            <h2 class="count__head">Count Things</h2>
+            <button class="block__button" onclick="count()">    Click</button>
+            <h2 class="count__number"></h2>
+        </div>
     </div>
 </div>
 </div>
