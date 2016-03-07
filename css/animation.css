@@ -1,0 +1,38 @@
+body {
+	margin: 48px;
+	background: #000;
+	font-family:  Arial, Helvetica, sans-serif;
+}
+
+div#banner {
+	width: 1000px;
+	height: 200px;
+	margin: 0px auto;
+	border: #639 1px solid;
+	overflow: hidden;
+}
+
+div#banner > #banner_backdrop {
+	position: relative;
+	background: url(../images/repeater.jpg) repeat-x;
+	width: 1320px;
+	height: 200px;
+	-webkit-animation: backdrop_roll linear 15s infinite;
+	-moz-animation: backdrop_roll linear 15s infinite;
+	-o-animation: backdrop_roll linear 15s infinite;
+	animation: backdrop_roll linear 15s infinite;
+}
+
+@-webkit-keyframes backdrop_roll { from { right: 0px; }	to { right: 320px; } }
+@-moz-keyframes backdrop_roll { from { right: 0px; } to { right: 320px; } }
+@-o-keyframes backdrop_roll { from { right: 0px; } to { right: 320px; } }
+@keyframes backdrop_roll { from { right: 0px; }	to { right: 320px; } }
+
+div#banner > #banner_content {
+	position: relative;
+	width: 96%;
+	height: 160px;
+	margin: 20px auto;
+	top: -200px;
+	color: #FFF;
+}

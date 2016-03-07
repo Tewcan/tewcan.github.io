@@ -1,0 +1,360 @@
+html, body {
+	width: 100%
+	height: 100%;
+    background-image: url("../images/mike/star_background.jpg");
+}
+
+.title {
+    margin: 30px;
+    font-size: 85px;
+    color: #eee5a2;
+    position: fixed;
+    left: 50px;
+    font-family: "Courier New", cursive;
+    text-shadow: 8px 8px black;
+    cursor: pointer;   
+}
+
+.system {
+    position: absolute;
+    color: white;
+    top: 150px;
+    width: 450px;
+    background-color: black;
+}
+
+.title:hover+p {
+    background-color: black;
+    opacity: 0.9;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.planet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-radius: 50%;
+}
+
+.sun {
+    z-index: 2;
+	position: absolute;
+	top: 50%;
+	left: -360px;
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	margin-top:-30px;
+	margin-left: -30px;
+    background: radial-gradient(#f62817, #f88017 , #ffd801);
+}
+
+.sun-glow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 140px;
+    margin-top: -70px;
+    margin-left: -70px;
+    background: radial-gradient(yellow, yellow, black, black);
+    opacity: 0.2;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.mercury-orbit {
+    position: absolute;
+    left: -360px;
+    width: 150px;
+    height: 150px;
+    margin-top: -75px;
+    margin-left: -75px;
+    -webkit-animation: spin-right 2s linear infinite;
+    -moz-animation: spin-right 2s linear infinite;
+    -ms-animation: spin-right 2s linear infinite;
+    -o-animation: spin-right 2s linear infinite;
+    animation: spin-right 2s linear infinite;
+}
+
+.mercury {
+    height: 8px;
+    width: 8px;
+    margin-left: -4px;
+    margin-top: -4px;
+    background-color: #b6bac5;
+}
+
+.venus-orbit {
+    left: -360px;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;    
+    -webkit-animation: spin-right 4.9s linear infinite;
+    -moz-animation: spin-right 4.9s linear infinite;
+    -ms-animation: spin-right 4.9s linear infinite;
+    -o-animation: spin-right 4.9s linear infinite;
+    animation: spin-right 4.9s linear infinite;
+}
+
+.venus {
+    height: 12px;
+    width: 12px;
+    margin-left: -6px;
+    margin-top: -6px;
+    background-color: #bf8639;
+}
+
+
+.earth-orbit {
+    left: -360px;
+    width: 250px;
+    height: 250px;
+    margin-top: -125px;
+    margin-left: -125px;
+    -webkit-animation: spin-right 8s linear infinite;
+    -moz-animation: spin-right 8s linear infinite;
+    -ms-animation: spin-right 8s linear infinite;
+    -o-animation: spin-right 8s linear infinite;
+    animation: spin-right 8s linear infinite;
+}
+
+.earth {
+    height: 14px;
+    width: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background-color: #06c;
+}
+
+.mars-orbit {
+    left: -360px;
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    -webkit-animation: spin-right 15s linear infinite;
+    -moz-animation: spin-right 15s linear infinite;
+    -ms-animation: spin-right 15s linear infinite;
+    -o-animation: spin-right 15s linear infinite;
+    animation: spin-right 15s linear infinite;
+}
+
+.mars {
+    height: 12px;
+    width: 12px;
+    margin-left: -6px;
+    margin-top: -6px;
+    background-color: #aa4200;
+}
+
+.asteroids {
+    left: -360px;
+    border-width: 0px;
+    height: 440px;
+    width: 440px;
+    margin-left: -220px;
+    margin-top: -220px;
+    background: url("../images/mike/asteroid_belt.gif");
+    -webkit-animation: spin-right 40s linear infinite;
+    -moz-animation: spin-right 40s linear infinite;
+    -ms-animation: spin-right 40s linear infinite;
+    -o-animation: spin-right 40s linear infinite;
+    animation: spin-right 40s linear infinite;
+}
+
+
+.jupiter-orbit {
+    left: -360px;
+    width: 440px;
+    height: 440px;
+    margin-top: -220px;
+    margin-left: -220px;
+    -webkit-animation: spin-right 95s linear infinite;
+    -moz-animation: spin-right 95s linear infinite;
+    -ms-animation: spin-right 95s linear infinite;
+    -o-animation: spin-right 95s linear infinite;
+    animation: spin-right 95s linear infinite;
+}
+
+.jupiter {
+    height: 40px;
+    width: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
+    background-color: #e0ae6f;
+}
+
+.saturn-orbit {
+    left: -360px;
+    width: 510px;
+    height: 510px;
+    margin-top: -255px;
+    margin-left: -255px;
+    -webkit-animation: spin-right 235s linear infinite;
+    -moz-animation: spin-right 235s linear infinite;
+    -ms-animation: spin-right 235s linear infinite;
+    -o-animation: spin-right 235s linear infinite;
+    animation: spin-right 235s linear infinite;
+}
+
+.saturn {
+    height: 34px;
+    width: 34px;
+    margin-left: -17px;
+    margin-top: -17px;
+    background-color: #dfd3a9;
+}
+
+.uranus-orbit {
+    left: -360px;
+    width: 580px;
+    height: 580px;
+    margin-top: -290px;
+    margin-left: -290px;
+    -webkit-animation: spin-right 672s linear infinite;
+    -moz-animation: spin-right 672s linear infinite;
+    -ms-animation: spin-right 672s linear infinite;
+    -o-animation: spin-right 672s linear infinite;
+    animation: spin-right 672s linear infinite;
+}
+
+.uranus {
+    height: 20px;
+    width: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    background-color: #82b3d1;
+}
+
+.neptune-orbit {
+    left: -360px;
+    width: 650px;
+    height: 650px;
+    margin-top: -325px;
+    margin-left: -325px;
+    -webkit-animation: spin-right 1320s linear infinite;
+    -moz-animation: spin-right 1320s linear infinite;
+    -ms-animation: spin-right 1320s linear infinite;
+    -o-animation: spin-right 1320s linear infinite;
+    animation: spin-right 1320s linear infinite;
+}
+
+.neptune {
+    height: 20px;
+    width: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    background-color: #77c2ec;
+}
+
+
+
+@keyframes spin-right {
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.description h2 {
+    white-space: nowrap;
+    color: #9e7bff;
+    -webkit-transition: all 0.15s ease-in;
+    -moz-transition: all 0.15s ease-in;
+    -o-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+    cursor: pointer;
+}
+
+.description {
+    width: 0px;
+    float: right;
+    position: relative;
+    list-style: none;
+    right: 590px;
+    top: 225px;
+    font-size: 80%;
+    padding: 0px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    padding: 0px;
+    overflow: visible;
+}
+
+ul.description h2:hover {
+    color: #56a5ec;
+    transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+    -ms-transform: scale(1.08);
+    -o-transform: scale(1.08);
+}
+
+ul.description li p {
+    position: absolute;
+}
+
+ul.description h2:hover+p {
+    visibility: visible;
+    opacity: 0.85;
+    transform: translate(60px,0px);
+    -webkit-transform: translate(60px,0px);
+    -moz-transform: translate(60px,0px);
+    -ms-transform: translate(60px,0px);
+    -o-transform: translate(60px,0px);
+}
+
+p {
+    color: white;
+    line-height: 1.8;
+    width: 300px;
+    padding-bottom: 5px;
+    border: 1px solid #151b54;
+    border-radius: 8px;
+    position: relative;
+    top: 0px;
+    font-family: sans-serif;
+    padding: 10px;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    background: #0f132c;
+    left: 100px;
+}
+
+a {
+    height: 25px;
+    width: 50px;
+    float: right;
+    opacity: 0.9;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px;
+    font-family: Oswald;
+
+}
+
+a:hover { background:rgba(26, 26, 255,0.6); }

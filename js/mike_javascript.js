@@ -1,4 +1,4 @@
-//factorial function
+// factorial function
 function factDos() {  
 	document.getElementById('facIter').innerHTML = '';
 	var no = Number(document.getElementById('n').value);
@@ -25,5 +25,4 @@ function fib() {
 	document.getElementById('fibAnswer').value = h;
 	document.getElementById('fibIter').innerHTML = f + ' + ' + g + ' = ' + h;
 }
-
 
