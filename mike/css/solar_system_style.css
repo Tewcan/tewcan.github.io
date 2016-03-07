@@ -1,7 +1,7 @@
 html, body {
 	width: 100%
 	height: 100%;
-    background-image: url("../images/mike/star_background.jpg");
+    background-image: url("../images/star_background.jpg");
 }
 
 .title {
@@ -172,7 +172,7 @@ html, body {
     width: 440px;
     margin-left: -220px;
     margin-top: -220px;
-    background: url("../images/mike/asteroid_belt.gif");
+    background: url("../images/asteroid_belt.gif");
     -webkit-animation: spin-right 40s linear infinite;
     -moz-animation: spin-right 40s linear infinite;
     -ms-animation: spin-right 40s linear infinite;
