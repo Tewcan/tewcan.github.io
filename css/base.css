@@ -16,44 +16,42 @@ html {
 	font-family: Oswald;
 }
 
-h1, h2, h3 { color: orange; }
+h1, h2, h3 { color: #ff8c1a }
 
 .navbar {width: 100%; height: 55px; background:rgba(0, 0, 0, 0.4);}
-.navbar--active{background:rgba(0,80,80,0.6)}
+.navbar--active{background:rgba(255, 102, 0,0.7)}
 .navbar ul { list-style-type: none; }
-.background{
-  width: 100%;
-  height: 900px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  background-size: cover; 
-  background-position: center;
-}
-.logo { height: 55px; float: left;}
-.logo:hover {background:rgba(0, 0, 0,0.1); }
-.content {
-	width: 80%;
-  left:10%;
-	height: 800px;
-  bottom:5px;
- 	text-align: center;
-  position: absolute;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.3);
-
- }
-
-/*--------------*/
-/*   ¡BUTTON!   */
-/*--------------*/
 .button {
-	display: block;
+  display: block;
     padding: 15px;
     text-decoration: none;
     color:white;
     width: 100px;
     text-align: center;
 }
-.button:hover { background:rgba(26, 26, 255,0.6); }
-
+.button:hover { background:rgba(255, 102, 0,0.8); }
+.background{
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+.logo { height: 55px; float: left;}
+.logo:hover {background:rgba(255, 102, 0,0.8); }
+.content {
+  padding: 10px;
+	width: 80%;
+	height: 91%;
+  left:10%;
+  top:8%;
+  position: absolute;
+  overflow: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap row-reverse;
+  align-content: flex-start;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.4);
+ }

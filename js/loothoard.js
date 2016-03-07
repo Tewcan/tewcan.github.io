@@ -1,5 +1,7 @@
 ﻿var Character = {
     name: "",
+    maxDamage: 10,
+    minDamage: 8,
     currentHealth: 0,
     currentMana: 0,
     currentEnergy: 0,
@@ -12,26 +14,24 @@
     currentExp: 0,
     gold: 0,
     Inventory: [
-        { slot: "invHead", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invChest", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invLegs", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invShoulders", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invWrists", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invHands", rarity: 0, price: 1, name: "Rags", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invFeet", rarity: 0, price: 1, name: "Sandals", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invWaist", rarity: 0, price: 1, name: "Twine", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invNeck", rarity: 0, price: 1, name: "Twine", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invFinger", rarity: 0, price: 1, name: "String", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-        { slot: "invMainHand", rarity: 0, price: 1, name: "Club", armor: 0, damage: 2, str: 0, agi: 0, int: 0, sta: 0, ilevel: 2 },
-        { slot: "invOffHand", rarity: 0, price: 1, name: "Old Board", armor: 1, damage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
-    ],
-    gameVersion: 1.4,
+        { slot: "invHead", rarity: 0, price: 1, name: "Rags", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invChest", rarity: 0, price: 1, name: "Rags", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invLegs", rarity: 0, price: 1, name: "Rags", armor: 1, maxDamage: 0, minDamage: 0, str:0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invShoulders", rarity: 0, price: 1, name: "Rags", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invWrists", rarity: 0, price: 1, name: "Rags", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invHands", rarity: 0, price: 1, name: "Rags", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invFeet", rarity: 0, price: 1, name: "Sandals", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invWaist", rarity: 0, price: 1, name: "Twine", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invNeck", rarity: 0, price: 1, name: "Twine", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invFinger", rarity: 0, price: 1, name: "String", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+        { slot: "invMainHand", rarity: 0, price: 1, name: "Club", armor: 0, maxDamage: 2, minDamage: 1, str: 0, agi: 0, int: 0, sta: 0, ilevel: 2 },
+        { slot: "invOffHand", rarity: 0, price: 1, name: "Old Board", armor: 1, maxDamage: 0, minDamage: 0, str: 0, agi: 0, int: 0, sta: 0, ilevel: 1 },
+    ],    
+    gameVersion: 2.0,
 }
 
-gameVersion = 1.4
+gameVersion = 2.0
 updateNeeded = 0
-
-
 
 var itemTypes = [[["Cap","Tunic","Pants","Shawl","Cuffs","Gloves","Sandals","Cord","Amulet","Ring","Wand","Tome"],["Cowl","Robe","Leggings","Cloak","Bracer","Mitts","Boots","Belt","Talisman","Signet","Staff","Grimoire"]],
                  [["Skullcap", "Hauberk", "Leggings", "Spaulders", "Manacles", "Gloves", "Shoes", "Belt", "Necklace", "Band", "Knife", "Knife"], ["Sallet", "Brigandine", "Greaves", "Rerebraces", "Bracers", "Gauntlets", "Boots", "Harness", "Amulet", "Ring", "Dagger", "Dagger"]],
@@ -65,7 +65,14 @@ var classStats = {
 }
 
 var itemRarity = ["Junk", "Common", "Uncommon", "Rare", "Epic", "Legendary", "Celestial", "Divine"]
-var itemSlot = ["Head","Chest","Legs","Shoulders","Wrists","Hands","Feet","Waist","Neck","Finger","Main Hand","Off Hand"]
+var itemSlot = ["Head", "Chest", "Legs", "Shoulders", "Wrists", "Hands", "Feet", "Waist", "Neck", "Finger", "Main Hand", "Off Hand"]
+
+var mobsHumanoid = ["orc", "goblin", "kobold", "thief", "bandit"]
+var mobsBeast = ["rat", "snake", "beetle", "raven"]
+var mobsUndead = ["skeleton", "zombie", "mummy", "ghoul", "wraith"]
+
+var enemy
+var enemyAlive = 0
 var currentItem
 var newItem
 var currentSlot
@@ -74,15 +81,18 @@ var maxExp
 
 var itemSold = 0
 
-function startGame() {
+function startGame() {    
+
     if (localStorage.getItem("savedCharacter") === null) {
         document.getElementById("inventoryDisplay").style.display = "none"
         document.getElementById("newMenu").style.display = "block"
     }
     else if (localStorage.getItem("savedCharacter") != null) {
-        loadGame()
-    }
+        loadGame()    }
 
+    if (Character.gameVersion != gameVersion) {
+        alert("Loot Hoard updated to version " + gameVersion + ". Your character is out of date.  Reset required")
+    }
     updateInventory()
 }
 
@@ -134,7 +144,6 @@ function newCharacterStats() {
     Character.stats.health += classModifiers.health
     Character.stats.mana += classModifiers.mana
     Character.stats.energy += classModifiers.energy
-
 
     updateInventory()
     closeNewMenu()
@@ -204,6 +213,7 @@ function newLoot() {
     var calcRarity = Math.random()
     var itemTier = Math.floor(Math.random() * 2)    
     var classSelector = Math.floor(Math.random() * 3)
+    var ilvl 
 
     if (calcRarity >= 0 && calcRarity <= .8) {
         rarity = 1           
@@ -227,25 +237,27 @@ function newLoot() {
         rarity = 7        
     }
 
+    ilvl = (Character.level * 10) + (Character.level * rarity)
 
     if (currentSlot >= 0 && currentSlot <= 7) {
-        newItem = createArmor(rarity,classSelector,itemTier)
+        newItem = createArmor(rarity, classSelector, itemTier, ilvl)
     }
     if (currentSlot >= 8 && currentSlot <= 9) {
-        newItem = createJewelry(rarity, classSelector, itemTier)
+        newItem = createJewelry(rarity, classSelector, itemTier, ilvl)
     }
     else if (currentSlot >= 10) {
-        newItem = createWeapon(rarity, classSelector, itemTier)
+        newItem = createWeapon(rarity, classSelector, itemTier, ilvl)
     }     
 }
 
-function item(name, slot, rarity, price, armor, damage, str, agi, int, sta, ilevel) {
+function item(name, slot, rarity, price, armor, minDamage, maxDamage, str, agi, int, sta, ilevel) {
     this.name = name
     this.slot = slot
     this.rarity = rarity
     this.price = price
     this.armor = armor
-    this.damage = damage
+    this.minDamage = minDamage
+    this.maxDamage = maxDamage
     this.str = str
     this.agi = agi
     this.int = int
@@ -253,55 +265,106 @@ function item(name, slot, rarity, price, armor, damage, str, agi, int, sta, ilev
     this.ilevel = ilevel
 }
 
-function createArmor(rarity, classType, tier) {
+function distributeStats(ilvl) {
+    var statSelector
+    for (i = 0; i < ilvl; i++) {
+        statSelector = Math.floor(Math.random() * 3)
+        switch (statSelector) {
+            case 0:
+                newItemStr++
+                break;
+            case 1:
+                newItemAgi++
+                break;
+            case 2:
+                newItemInt++
+                break;
+            case 3:
+                newItemSta++
+                break;
+        }
+    }
+}
+
+function createArmor(rarity, classType, tier, ilvl) {
     var armorMaterial = materialTypes[classType][tier][rarity]
     var armorType = itemTypes[classType][tier][currentSlot]
     var newItemName = armorMaterial + " " + armorType
     var sellPrice = getPrice(rarity, tier)
-    var newItemArmor = rollStats(rarity)
-    var newItemDam = 0
-    var newItemStr = rollStats(rarity)
-    var newItemAgi = rollStats(rarity)
-    var newItemInt = rollStats(rarity)
-    var newItemSta = rollStats(rarity)
+    var newItemArmor = Math.floor((ilvl / 10) * (classType + 1))
+    var newItemMinDam = 0
+    var newItemMaxDam = 0
+    var newItemStr = 0
+    var newItemAgi = 0
+    var newItemInt = 0
+    var newItemSta = 0
+    var statSelector
+
+    for (i = 0; i < ilvl; i++) {
+        statSelector = Math.floor(Math.random() * 4)
+        switch (statSelector) {
+            case 0:
+                newItemStr++
+                break;
+            case 1:
+                newItemAgi++
+                break;
+            case 2:
+                newItemInt++
+                break;
+            case 3:
+                newItemSta++
+                break;
+        }
+    }
     switch (classType) {
-        case 0:
-            newItemStr = Math.floor(newItemStr / 2)
-            newItemAgi = Math.floor(newItemAgi / 2)
-            newItemInt = Math.floor(newItemInt * 1.3)
-            newItemSta = Math.floor(newItemSta / 2)
+        case 0:            
+            newItemInt = Math.floor(newItemInt * 1.3)            
             break;
-        case 1:
-            newItemArmor = Math.floor(newItemArmor * 1.5)
-            newItemStr = Math.floor(newItemStr / 2)
-            newItemAgi = Math.floor(newItemAgi * 1.3)
-            newItemInt = Math.floor(newItemInt / 2)
+        case 1:                      
+            newItemAgi = Math.floor(newItemAgi * 1.3)            
             newItemSta = Math.floor(newItemSta * 1.3)
             break;
-        case 2:
-            newItemArmor = Math.floor(newItemArmor * 2)
-            newItemStr = Math.floor(newItemStr * 1.3)
-            newItemAgi = Math.floor(newItemAgi / 2)
-            newItemInt = Math.floor(newItemInt / 2)
+        case 2:            
+            newItemStr = Math.floor(newItemStr * 1.3)            
             newItemSta = Math.floor(newItemSta * 1.5)
             break;
     }
-    var newItemIlvl = Math.floor(((newItemArmor / 10) + newItemDam + newItemStr + newItemAgi + newItemInt + newItemSta) / 2)
-    newArmor = new item(newItemName, Character.Inventory[currentSlot].slot, rarity, sellPrice, newItemArmor, newItemDam, newItemStr, newItemAgi, newItemInt, newItemSta, newItemIlvl)
+    
+    newArmor = new item(newItemName, Character.Inventory[currentSlot].slot, rarity, sellPrice, newItemArmor, newItemMinDam, newItemMaxDam, newItemStr, newItemAgi, newItemInt, newItemSta, ilvl)
     return newArmor
 }
 
-function createJewelry(rarity, classType, tier) {
+function createJewelry(rarity, classType, tier, ilvl) {
     var jewelryMaterial = materialTypes[3][tier][rarity]
     var jewelryType = itemTypes[classType][tier][currentSlot]
     var newItemName = jewelryMaterial + " " + jewelryType
     var sellPrice = getPrice(rarity, tier)
     var newItemArmor = 0
-    var newItemDam = 0
-    var newItemStr = rollStats(rarity)
-    var newItemAgi = rollStats(rarity)
-    var newItemInt = rollStats(rarity)
-    var newItemSta = rollStats(rarity)
+    var newItemMinDam = 0
+    var newItemMaxDam = 0
+    var newItemStr = 0
+    var newItemAgi = 0
+    var newItemInt = 0
+    var newItemSta = 0
+
+    for (i = 0; i < ilvl; i++) {
+        statSelector = Math.floor(Math.random() * 4)
+        switch (statSelector) {
+            case 0:
+                newItemStr++
+                break;
+            case 1:
+                newItemAgi++
+                break;
+            case 2:
+                newItemInt++
+                break;
+            case 3:
+                newItemSta++
+                break;
+        }
+    }
     switch (classType) {
         case 0:
             newItemInt = newItemInt * 2
@@ -314,12 +377,12 @@ function createJewelry(rarity, classType, tier) {
             newItemStr = newItemStr * 2
             newItemSta = newItemSta * 2
     }
-    var newItemIlvl = Math.floor(((newItemArmor / 10) + newItemDam + newItemStr + newItemAgi + newItemInt + newItemSta) / 2)
-    newJewelry = new item(newItemName, Character.Inventory[currentSlot].slot, rarity, sellPrice, newItemArmor, newItemDam, newItemStr, newItemAgi, newItemInt, newItemSta, newItemIlvl)
+    
+    newJewelry = new item(newItemName, Character.Inventory[currentSlot].slot, rarity, sellPrice, newItemArmor, newItemMinDam, newItemMaxDam, newItemStr, newItemAgi, newItemInt, newItemSta, ilvl)
     return newJewelry
 }
 
-function createWeapon(rarity, classType, tier) {
+function createWeapon(rarity, classType, tier, ilvl) {
     var weaponMaterial
     switch (classType) {
         case 0:
@@ -336,11 +399,30 @@ function createWeapon(rarity, classType, tier) {
     var newItemName = weaponMaterial + " " + weaponType
     var sellPrice = getPrice(rarity, tier)
     var newItemArmor = 0
-    var newItemDam = rollStats(rarity)
-    var newItemStr = rollStats(rarity)
-    var newItemAgi = rollStats(rarity)
-    var newItemInt = rollStats(rarity)
-    var newItemSta = rollStats(rarity)
+    var newItemMinDam = Math.floor((ilvl / 20) + (Character.level * classType))
+    var newItemMaxDam = Math.floor(((ilvl / 20) * 2) + (Character.level * classType))
+    var newItemStr = 0
+    var newItemAgi = 0
+    var newItemInt = 0
+    var newItemSta = 0
+
+    for (i = 0; i < ilvl; i++) {
+        statSelector = Math.floor(Math.random() * 4)
+        switch (statSelector) {
+            case 0:
+                newItemStr++
+                break;
+            case 1:
+                newItemAgi++
+                break;
+            case 2:
+                newItemInt++
+                break;
+            case 3:
+                newItemSta++
+                break;
+        }
+    }
     switch (classType) {
         case 0:
             newItemInt = newItemInt * 2
@@ -353,8 +435,8 @@ function createWeapon(rarity, classType, tier) {
             newItemStr = newItemStr * 2
             newItemSta = newItemSta * 2
     }
-    var newItemIlvl = Math.floor(((newItemArmor / 10) + newItemDam + newItemStr + newItemAgi + newItemInt + newItemSta) / 2)
-    newWeapon = new item(newItemName, Character.Inventory[currentSlot].slot, rarity, sellPrice, newItemArmor, newItemDam, newItemStr, newItemAgi, newItemInt, newItemSta, newItemIlvl)
+    
+    newWeapon = new item(newItemName, Character.Inventory[currentSlot].slot, rarity, sellPrice, newItemArmor, newItemMinDam, newItemMaxDam, newItemStr, newItemAgi, newItemInt, newItemSta, ilvl)
     return newWeapon
 }
 
@@ -384,42 +466,6 @@ function getPrice(rarity, tier) {
     }
 }
 
-function rollStats(rarity) {
-    var firstMod = 0
-    var secondMod = 0
-    switch (rarity) {
-        case 1:
-            firstMod = 1
-            secondMod = 2
-            break;
-        case 2:
-            firstMod = 2
-            secondMod = 10
-            break;
-        case 3:
-            firstMod = 3
-            secondMod = 25
-            break;
-        case 4:
-            firstMod = 4
-            secondMod = 50
-            break;
-        case 5:
-            firstMod = 5
-            secondMod = 100
-            break;
-        case 6:
-            firstMod = 6
-            secondMod = 200
-            break;
-        case 7:
-            firstMod = 7
-            secondMod = 300
-            break;
-    }
-    return Math.floor(((Math.random() * 10) + 1) * firstMod) + secondMod
-}
-
 function keepLoot() {
     if (itemSold === 0) {
         tempItem = Character.Inventory[currentSlot]
@@ -447,8 +493,7 @@ function sellLoot() {
     Character.gold += newItem.price
     itemSold = 1
     document.getElementById("newItemDisplay").style.display = "none"
-    document.getElementById("itemSoldDisplay").style.display = "block"
-    Character.currentExp += newItem.price
+    document.getElementById("itemSoldDisplay").style.display = "block"    
     updateInventory()
     changeButtons()
     saveGame()    
@@ -461,7 +506,8 @@ function updateExp() {
         Character.level ++
     }
     var levelPercent = (Character.currentExp / maxExp) * 100
-    document.getElementById("expBar").style.width = levelPercent+"%"
+    document.getElementById("expBar").style.width = levelPercent + "%"
+    document.getElementById("expBarOverlay").innerHTML = Character.currentExp + " / " +maxExp
 }
 
 function updateLootDisplay() {
@@ -472,7 +518,7 @@ function updateLootDisplay() {
     document.getElementById("newItemArmor").innerHTML = newItem.armor
     document.getElementById("newItemRarity").innerHTML = itemRarity[newItem.rarity]
     document.getElementById("newItemRarity").style.color = rarityColor(newItem.rarity)
-    document.getElementById("newItemDam").innerHTML = newItem.damage
+    document.getElementById("newItemDam").innerHTML = newItem.minDamage + "-" + newItem.maxDamage
     document.getElementById("newItemStr").innerHTML = newItem.str
     document.getElementById("newItemSlot").innerHTML = itemSlot[currentSlot]
     document.getElementById("newItemAgi").innerHTML = newItem.agi
@@ -487,7 +533,7 @@ function updateLootDisplay() {
     document.getElementById("equippedItemArmor").innerHTML = currentItem.armor
     document.getElementById("equippedItemRarity").innerHTML = itemRarity[currentItem.rarity]
     document.getElementById("equippedItemRarity").style.color = rarityColor(currentItem.rarity)
-    document.getElementById("equippedItemDam").innerHTML = currentItem.damage
+    document.getElementById("equippedItemDam").innerHTML = currentItem.minDamage + "-" + currentItem.maxDamage
     document.getElementById("equippedItemStr").innerHTML = currentItem.str
     document.getElementById("equippedItemSlot").innerHTML = itemSlot[currentSlot]
     document.getElementById("equippedItemAgi").innerHTML = currentItem.agi
@@ -523,7 +569,7 @@ function selectItem(selectedElement,selectedItem) {
     document.getElementById("selectedItemName").innerHTML = Character.Inventory[selectedItem].name
     document.getElementById("selectedItemName").style.color = rarityColor(Character.Inventory[selectedItem].rarity)
     document.getElementById("selectedItemArmor").innerHTML = Character.Inventory[selectedItem].armor
-    document.getElementById("selectedItemDam").innerHTML = Character.Inventory[selectedItem].damage
+    document.getElementById("selectedItemDam").innerHTML = Character.Inventory[selectedItem].minDamage + "-" + Character.Inventory[selectedItem].maxDamage
     document.getElementById("selectedItemStr").innerHTML = Character.Inventory[selectedItem].str
     document.getElementById("selectedItemAgi").innerHTML = Character.Inventory[selectedItem].agi
     document.getElementById("selectedItemInt").innerHTML = Character.Inventory[selectedItem].int
@@ -591,32 +637,52 @@ function updateInventory() {
 
 function updateStats() {
     var totalArmor = 0
-    var totalDam = 0
+    var totalMinDam = 0
+    var totalMaxDam = 0
     var totalStr = Character.stats.str
     var totalAgi = Character.stats.agi
     var totalInt = Character.stats.int
     var totalSta = Character.stats.sta
     var totalIlevel = 0
+    var mainStat = ""
     
     document.getElementById("selectedItemDisplay").style.display = "none"
     document.getElementById("statsDisplay").style.display = "block"
 
     for (i = 0; i < 12; i++) {
         totalArmor += Character.Inventory[i].armor
-        totalDam += Character.Inventory[i].damage
+        totalMinDam += Character.Inventory[i].minDamage
+        totalMaxDam += Character.Inventory[i].maxDamage
         totalStr += Character.Inventory[i].str
         totalAgi += Character.Inventory[i].agi
         totalInt += Character.Inventory[i].int
         totalSta += Character.Inventory[i].sta
         totalIlevel += Character.Inventory[i].ilevel
     }
+    switch (Character.primaryStat) {
+        case "str":
+            mainStat = totalStr
+            break;
+        case "agi":
+            mainStat = totalAgi
+            break;
+        case "int":
+            mainStat = totalInt
+            break;
+    }
+    totalMaxDam += Math.floor(mainStat / 10)
+    totalMinDam += Math.floor(mainStat / 10)
 
     document.getElementById("charDisplay").innerHTML = "<table><tr><td><h3>" + Character.name + "</h3></td></tr><tr><td>Level " + Character.level + " " + Character.gender + " " + Character.race + " " + Character.myClass + "</td></tr></table>"
+
+    Character.maxDamage = totalMaxDam
+    Character.minDamage = totalMinDam
+    Character.stats.health = totalSta * 2
 
     document.getElementById("ilvlDisplay").innerHTML = Math.floor(totalIlevel / 12)
     document.getElementById("ilvlDisplay").style.color = "black"
     document.getElementById("armorDisplay").innerHTML = totalArmor
-    document.getElementById("damDisplay").innerHTML = totalDam
+    document.getElementById("damDisplay").innerHTML = totalMinDam + "-" + totalMaxDam
     document.getElementById("strDisplay").innerHTML = totalStr
     document.getElementById("agiDisplay").innerHTML = totalAgi
     document.getElementById("intDisplay").innerHTML = totalInt
@@ -632,7 +698,6 @@ function updateResources() {
     document.getElementById("healthDisplay").innerHTML = Character.currentHealth
     document.getElementById("manaDisplay").innerHTML = Character.currentMana
     document.getElementById("energyDisplay").innerHTML = Character.currentEnergy
-
 }
 
 function saveGame() {
@@ -657,4 +722,124 @@ function closeSettings() {
 function resetGame() {
     localStorage.removeItem("savedCharacter")    
     location.reload()
+}
+
+function prepareCombat() {
+    document.getElementById("combatDisplay").style.display = "block"
+    document.getElementById("inventoryDisplay").style.display = "none"
+    document.getElementById("topBar").style.display = "none"
+    enemyAlive = 1
+    buildEnemy()
+    document.getElementById("combatLog").innerHTML = ""
+    document.getElementById("combatLog").innerHTML = "<li>A level " + enemy.level + " " + enemy.name + " approaches!</li>"
+    updateCombatDisplay()
+}
+
+function combat() {
+    hitDamage = randomBetween(Character.minDamage, Character.maxDamage)    
+    var node = document.createElement("Li");
+    var textnode = document.createTextNode("You hit the " + enemy.name + " for " + hitDamage + " damage!");
+    node.appendChild(textnode);
+    document.getElementById("combatLog").insertBefore(node, document.getElementById("combatLog").childNodes[0]);    
+    
+    enemy.currentHealth -= hitDamage
+    if (enemy.currentHealth <= 0) {
+        document.getElementById("combatDisplay").style.display = "none"
+        document.getElementById("inventoryDisplay").style.display = "block"
+        document.getElementById("topBar").style.display = "block"
+        enemyAlive = 0
+        Character.currentExp += Math.floor((enemy.level * 10) * enemy.expModifier)
+        updateExp()
+        getLoot()
+    }
+    else {
+        hitDamage = randomBetween(enemy.minDamage, enemy.maxDamage)        
+        var node = document.createElement("Li");
+        var textnode = document.createTextNode("The " + enemy.name + " hits you for " + hitDamage + " damage!");
+        node.appendChild(textnode);
+        node.style.color = "red"
+        document.getElementById("combatLog").insertBefore(node, document.getElementById("combatLog").childNodes[0]);        
+        Character.currentHealth -= hitDamage
+    }
+    updateCombatDisplay()
+}
+
+function buildEnemy() {
+    var mobSelector = Math.floor(Math.random() * 3)
+    console.log(mobSelector)
+    var mobPicker
+    switch (mobSelector) {
+        case 0:
+            mobPicker = Math.floor(Math.random() * mobsHumanoid.length)
+            enemy = new mobHumanoid(mobsHumanoid[mobPicker])
+            break;
+        case 1:
+            mobPicker = Math.floor(Math.random() * mobsBeast.length)
+            enemy = new mobBeast(mobsBeast[mobPicker])
+            break;
+        case 2:
+            mobPicker = Math.floor(Math.random() * mobsUndead.length)
+            enemy = new mobUndead(mobsUndead[mobPicker])
+            break;        
+    }
+
+    enemy.level = Character.level
+    enemy.maxHealth = (100 * enemy.level) * enemy.expModifier
+    enemy.currentHealth = enemy.maxHealth
+    enemy.minDamage = enemy.minDamage * enemy.level
+    enemy.maxDamage = enemy.maxDamage * enemy.level
+}
+
+function mobBeast(name) {    
+    this.name = name
+    this.type = "beast"
+    this.minDamage = 1
+    this.maxDamage = 2
+    this.level = 0
+    this.currentHealth = 0
+    this.maxHealth = 0
+    this.expModifier = .8
+}
+
+function mobHumanoid(name) {
+    this.name = name
+    this.type = "humanoid"
+    this.minDamage = 2
+    this.maxDamage = 3
+    this.level = 0
+    this.currentHealth = 0
+    this.maxHealth = 0
+    this.expModifier = 1
+}
+
+function mobUndead(name) {
+    this.name = name
+    this.type = "undead"
+    this.minDamage = 1
+    this.maxDamage = 4
+    this.level = 0
+    this.currentHealth = 0
+    this.maxHealth = 0
+    this.expModifier = .9
+}
+
+function updateCombatDisplay() {
+    var enemyHPPercent = ((enemy.currentHealth / enemy.maxHealth) * 100) + "%"
+    var playerHPPercent = ((Character.currentHealth / Character.stats.health) * 100)+ "%"
+    var playerManaPercent = ((Character.currentMana / Character.stats.mana) * 100) + "%"
+    var playerEnergyPercent = ((Character.currentEnergy / Character.stats.energy) * 100) + "%"
+    
+    document.getElementById("combatMobStatsDisplay").innerHTML = "<h3>Level " + enemy.level + " " + enemy.name + "</h3>"
+    document.getElementById("combatMobHealthBarOverlay").innerHTML = enemy.currentHealth + " / " + enemy.maxHealth
+    document.getElementById("combatMobHealthBar").style.width = enemyHPPercent
+    document.getElementById("combatHealthBarOverlay").innerHTML = Character.currentHealth + " / " + Character.stats.health
+    document.getElementById("combatHealthBar").style.width = playerHPPercent
+    document.getElementById("combatManaBarOverlay").innerHTML = Character.currentMana + " / " + Character.stats.mana
+    document.getElementById("combatManaBar").style.width = playerManaPercent
+    document.getElementById("combatEnergyBarOverlay").innerHTML = Character.currentEnergy + " / " + Character.stats.energy
+    document.getElementById("combatEnergyBar").style.width = playerEnergyPercent
+}
+
+function randomBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
 }

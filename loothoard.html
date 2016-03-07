@@ -8,22 +8,57 @@
     <meta charset="utf-8" />
 </head>
 <body onload="startGame()">
+
     <div id="header">
         <div id="menu_bar">
             <ul id="button_list">
-                <li id="menu_button"><a href="index.html">Tewcan Home</a></li>
-                <li id="menu_button"><a href="wil.html">Me!</a></li>
-                <li id="menu_button"><a href="rps.html">Rock Paper Scissors</a></li>
                 <li id="menu_button"><a href="tic.html">Tic-Tac-Toe</a></li>
-                <li id="menu_button"><a href="connect4.html">Connect 4</a></li>
-                <li id="menu_button"><a href="loothoard.html">Loot Hoard</a></li>
-                <li id="menu_button"><a href="http://www.ellietew.com">Ellie</a></li>
+                <li class="menu_button ib"><a href="index.html" class="navigation-link">Tewcan Home</a></li>
+                <li class="menu_button ib"><a href="wil.html" class="navigation-link">Me!</a></li>
+                <li class="menu_button ib"><a href="rps.html" class="navigation-link">Rock Paper Scissors</a></li>
+                <li class="menu_button ib"><a href="tic.html" class="navigation-link">Tic-Tac-Toe</a></li>
+                <li class="menu_button ib"><a href="connect4.html" class="navigation-link">Connect 4</a></li>
+                <li class="menu_button ib"><a href="loothoard.html" class="navigation-link">Loot Hoard</a></li>
+                <li class="menu_button ib"><a href="http://www.ellietew.com" class="navigation-link">Ellie</a></li>
             </ul>
         </div>
     </div>
+
     <div id="body">
         <div id="body_content">            
             <div id="display">
+                <div id="combatDisplay">
+                    <div id="combatMobDisplay">
+                        <div id="combatMobStatsDisplay"></div>
+                        <div id="combatMobHealthDisplay">
+                            <div class="barOverlay" id="combatMobHealthBarOverlay"></div>
+                            <div id="combatMobHealthBar"></div>
+                        </div>
+                    </div>
+                    <div id="combatLogDisplay">
+                        <ul id="combatLog"></ul>
+                    </div>
+                    <div id="combatCharacterDisplay">
+                        <div id="combatResourcesDisplay">
+                            <div class="combatResourcesDisplay" id="combatResoucesHealthDisplay">
+                                <div class="barOverlay" id="combatHealthBarOverlay"></div>
+                                <div id="combatHealthBar"></div>
+                            </div>
+                            <div class="combatResourcesDisplay" id="combatResourcesManaDisplay">
+                                <div class="barOverlay" id="combatManaBarOverlay"></div>
+                                <div id="combatManaBar"></div>
+                            </div>
+                            <div class="combatResourcesDisplay" id="combatResourcesEnergyDisplay">
+                                <div class="barOverlay" id="combatEnergyBarOverlay"></div>
+                                <div id="combatEnergyBar"></div>
+                            </div>
+                        </div>
+                        <div id="combatButtonsDisplay">
+                            <button id="combatButton" class="button2" onclick="combat()">Fight!</button>
+                        </div>
+                    </div>
+
+                </div>
                 <div id="topBar">
                     <div id="charDisplay"></div>
                     <div id="resourceDisplay">
@@ -44,12 +79,11 @@
                     </div>
                     <div id="settingsButton"><img onclick="openSettings()" class="middle" src="images/smallgear.svg" /></div>
                     <div id="expDisplay">
-                        <div id="expBar"></div>
+                        <div class="barOverlay" id="expBarOverlay"></div>
+                        <div id="expBar"></div>                        
                     </div>
                 </div>
-                <div id="inventoryDisplay">
-                    
-                    
+                <div id="inventoryDisplay">                   
                     <div id="gearDisplay">
                         <h3>Inventory</h3>
                         <table cellspacing="0">
@@ -191,12 +225,12 @@
                                 <tr>
                                     <td>Armor</td>
                                     <td id="equippedItemArmor">0</td>
-                                    <td id="equippedItemSlot" style="width:180px;" align="right">head</td>
+                                    <td id="equippedItemSlot" style="width:50%;" align="right">head</td>
                                 </tr>
                                 <tr>
                                     <td>Damage:</td>
                                     <td id="equippedItemDam">0</td>
-                                    <td id="equippedItemRarity" style="width:180px;" align="right">common</td>
+                                    <td id="equippedItemRarity"  align="right">common</td>
                                 </tr>
                                 <tr>
                                     <td>Strength:</td>
@@ -231,12 +265,12 @@
                                 <tr>
                                     <td>Armor</td>
                                     <td id="newItemArmor">0</td>
-                                    <td id="newItemSlot" style="width:180px;" align="right">head</td>
+                                    <td id="newItemSlot" style="width:50%;" align="right">head</td>
                                 </tr>
                                 <tr>
                                     <td>Damage:</td>
                                     <td id="newItemDam">0</td>
-                                    <td id="newItemRarity" style="width:180px;" align="right">common</td>
+                                    <td id="newItemRarity" align="right">common</td>
                                 </tr>
                                 <tr>
                                     <td>Strength:</td>
@@ -271,7 +305,7 @@
                     <div id="buttonBar">
                         <button class="button1" id="keepLoot" onclick="keepLoot()">Equip</button>
                         <button class="button1" id="sellLoot" onclick="sellLoot()">Sell</button>                    
-                        <button class="button2" id="newLoot" onclick="getLoot()">New Loot</button>
+                        <button class="button2" id="newLoot" onclick="prepareCombat()">New Loot</button>
                     </div>
                 </div>
 
@@ -326,6 +360,7 @@
                         </table>
                     </div>
                 </div>
+                
             </div>                       
         </div>
     </div>
