@@ -1,0 +1,60 @@
+.map {
+	position: relative;
+	background-color: green;
+	height: 500px;
+	width: 700px;
+}
+
+.hero {
+	position: absolute;
+	background: url("../images/hero.png");
+	top: 50%;
+	right: 50%;
+	height: 50px;
+	width: 50px;
+}
+
+.enemy {
+	position: absolute;
+	background: url("../images/enemy.png");
+	height: 50px;
+	width: 50px;
+	top: 40%;
+	right: 20%;
+}
+
+.bush {
+	background: url("../images/bush.png");
+	height: 50px;
+	width: 50px;
+	top: 100px;
+}
+
+.bushTopRow {
+	background: url("../images/bush.png");
+	height: 50px;
+	width: 700px;
+}
+
+.bushBottomRow {
+	position: absolute;
+	background: url("../images/bush.png");
+	height: 50px;
+	width: 700px;
+	bottom: 0%;
+}
+
+.bushLeftRow {
+	position: absolute;
+	background: url("../images/bush.png");
+	height: 400px;
+	width: 50px;
+}
+
+.bushRightRow {
+	position: absolute;
+	background: url("../images/bush.png");
+	height: 400px;
+	width: 50px;
+	right: 0%;
+}
