@@ -8,8 +8,8 @@
 .hero {
 	position: absolute;
 	background: url("../images/hero.png");
-	top: 50%;
-	right: 50%;
+	top: 250px;
+	left: 250px;
 	height: 50px;
 	width: 50px;
 }
