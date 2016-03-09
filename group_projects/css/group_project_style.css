@@ -8,8 +8,6 @@
 .hero {
 	position: absolute;
 	background: url("../images/hero.png");
-	top: 250px;
-	left: 250px;
 	height: 50px;
 	width: 50px;
 }
@@ -19,8 +17,6 @@
 	background: url("../images/enemy.png");
 	height: 50px;
 	width: 50px;
-	top: 40%;
-	right: 20%;
 }
 
 .bush {
