@@ -24,37 +24,6 @@
 .bush {
 	background: url("../images/bush.png");
 	position: absolute;
-	height: 50px;
-	width: 400px;
 	top: 200px;
 	left: 200px;
-}
-
-.bushTopRow {
-	background: url("../images/bush.png");
-	height: 50px;
-	width: 700px;
-}
-
-.bushBottomRow {
-	position: absolute;
-	background: url("../images/bush.png");
-	height: 50px;
-	width: 700px;
-	bottom: 0%;
-}
-
-.bushLeftRow {
-	position: absolute;
-	background: url("../images/bush.png");
-	height: 400px;
-	width: 50px;
-}
-
-.bushRightRow {
-	position: absolute;
-	background: url("../images/bush.png");
-	height: 400px;
-	width: 50px;
-	right: 0%;
 }
