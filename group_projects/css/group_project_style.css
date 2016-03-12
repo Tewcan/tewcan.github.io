@@ -10,6 +10,8 @@
 	background: url("../images/hero.png");
 	height: 50px;
 	width: 50px;
+	top:250px;
+	left:250px;
 }
 
 .enemy {
@@ -21,9 +23,11 @@
 
 .bush {
 	background: url("../images/bush.png");
+	position: absolute;
 	height: 50px;
-	width: 50px;
-	top: 100px;
+	width: 400px;
+	top: 200px;
+	left: 200px;
 }
 
 .bushTopRow {
