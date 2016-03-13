@@ -56,7 +56,8 @@ function gameUpdate() {
     if (hero.x <= (enemy.x + 25) && enemy.x <= (hero.x + 25) &&
         hero.y <= (enemy.y + 25) && enemy.y <= (hero.y + 25) ) {
         stopTimer()
-        alert('combat') }
+        beginCombat()
+    }
     if (hero.x <= (exit.x + 25) && exit.x <= (hero.x + 25) &&
         hero.y <= (exit.y + 25) && exit.y <= (hero.y + 25) ) {
         document.getElementsByTagName('body')[0].style.backgroundColor = 'red' }
