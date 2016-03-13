@@ -68,17 +68,12 @@ function gameUpdate() {
     //player and monster collide
     if (hero.x <= (enemy.x + 25) && enemy.x <= (hero.x + 25) &&
         hero.y <= (enemy.y + 25) && enemy.y <= (hero.y + 25) ) {
-<<<<<<< HEAD
         stopGameTimer()
-        alert('combat') }
-=======
-        stopTimer()
         beginCombat()
     }
     if (hero.x <= (exit.x + 25) && exit.x <= (hero.x + 25) &&
         hero.y <= (exit.y + 25) && exit.y <= (hero.y + 25) ) {
         document.getElementsByTagName('body')[0].style.backgroundColor = 'red' }
->>>>>>> origin/master
 
     document.getElementsByClassName('enemy')[0].style.left = enemy.x + 'px'
     document.getElementsByClassName('enemy')[0].style.top = enemy.y + 'px'
