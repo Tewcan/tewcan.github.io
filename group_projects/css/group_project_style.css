@@ -20,10 +20,12 @@
 	height: 50px;
 	width: 50px;
 }
-
-.bush {
-	background: url("../images/bush.png");
+.tile {
 	position: absolute;
 	top: 200px;
 	left: 200px;
 }
+.bush {background: url("../images/bush.png");}
+.water {background: url("../images/water.png");}
+.exit {background: url("../images/exit.png");}
+.entrance {background: url("../images/entrance.png");}
