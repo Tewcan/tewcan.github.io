@@ -31,6 +31,7 @@
 /* Combat Display */
 /*----------------*/
 #combatDisplay {
+    box-sizing: border-box;
     background-color: black;
     height:500px;
     width:700px;
@@ -40,38 +41,83 @@
 
 .button {
 	position: relative;
-	height: 15%;
-	background-color: gray;
+	height: 75%;
+	width: 25%;
 	border: 2px solid black;
+	margin: 10px;
+	font-size: 200%;
+	border-radius: 10px;
 }
 
-.enemy-name {
+#enemy-level {
 	height: 15%;
-	background-color: gray;
+	background-color: #656565;
+	position: relative;
+	border: 1px solid black;
+	font-weight: 900;
+
 }
 
-.enemy-health {
+#enemy-name {
+	font-weight: 900;
+	text-align: right;
+	font-size: 150%;
+	margin: 10px 40% 0px 0px;
+}
+
+#flee {
+	float: right;
+	background-color: #ffff4d;
+}
+
+#enemy-health {
+    box-sizing: border-box;
 	height: 5%;
 	background-color: red;
+	border: 1px solid black;
+	text-align: center;
+	font-weight: 900;
 }
 
-.combat-text {
+#combat-text {
 	height: 57%;
 	overflow: auto;
-	background-color: purple;
+	background-color: lightgrey;
+	border: 1px solid black;
 }
 
-.hero-health {
+#hero-health {
 	height: 4%;
 	background-color: red;
+	border: 1px solid black;
+	text-align: center;
+	font-weight: 900;
 }
 
-.hero-mana {
+#hero-mana {
 	height: 4%;
-	background-color: blue;
+	background-color: #0080ff;
+	border: 1px solid black;
+	text-align: center;
+	font-weight: 900;
 }
 
 .combat-buttons {
 	height: 15%;
-	background-color: green;
+	background-color: #656565;
+	border: 1px solid black;
+}
+
+#attack {
+	background-color: red;
+}
+
+#special1 {
+	float: right;
+	background-color: #269900;
+}
+
+#special2 {
+	float: right;
+	background-color: #269900;
 }
