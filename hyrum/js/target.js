@@ -91,39 +91,39 @@ function endOfAnimation () {
 }
 function stageCheck() {
 	if (count >= 10 && count < 20) {
-	stage = 1
+	stage = 2
 	color = 'orange'
 	speed = '3.8s'}
 	else if (count >= 20 && count < 30) {
-	stage = 2
+	stage = 3
 	color = '#ffff4d'
 	speed = '3.6s'}
 	else if (count >= 30 && count < 50) {
-	stage = 3
+	stage = 4
 	color = 'blue'
 	speed = '3.4s'}
 	else if (count >= 50 && count < 75) {
-	stage = 4
+	stage = 5
 	color = 'purple'
 	speed = '3.2s'
 	spawnRate = 700}
 	else if (count >= 75 && count < 100) {
-	stage = 5
+	stage = 6
 	color = 'green'
 	speed = '3s'}
 	else if (count >= 100 && count < 150) {
-	stage = 6
+	stage = 7
 	color = 'lightgreen'
 	speed = '2.8s'}
 	else if (count >= 150) {
-	stage = 7
+	stage = 8
 	color = ""
 	speed = '2.6s'}
 }
 function updateDisplay() {
 	document.getElementsByClassName('lives')[0].innerHTML = "Lives " + lives
 	document.getElementsByClassName('count')[0].innerHTML = count
-	document.getElementsByClassName('stagedisplay')[0].innerHTML = "Stage " + stage + " of 7"
+	document.getElementsByClassName('stagedisplay')[0].innerHTML = "Stage " + stage + " of 8"
 	var stageClass = document.getElementsByClassName('stage')
 	for (var i = 0; i < stageClass.length; i++) {
 		stageClass[i].style.color = color
