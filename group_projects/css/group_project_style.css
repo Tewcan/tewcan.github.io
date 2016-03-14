@@ -22,13 +22,56 @@
 .exit {background: url("../images/exit.png");}
 .entrance {background: url("../images/entrance.png");}
 
-#combatDisplay {
-    background-color:darkgray;
-    height:500px;
-    width:700px;
-    display:none;
-}
 
 #gameDisplay {
 
+}
+
+/*----------------*/
+/* Combat Display */
+/*----------------*/
+#combatDisplay {
+    background-color: black;
+    height:500px;
+    width:700px;
+    position: absolute;
+    display: none;
+}
+
+.button {
+	position: relative;
+	height: 15%;
+	background-color: gray;
+	border: 2px solid black;
+}
+
+.enemy-name {
+	height: 15%;
+	background-color: gray;
+}
+
+.enemy-health {
+	height: 5%;
+	background-color: red;
+}
+
+.combat-text {
+	height: 57%;
+	overflow: auto;
+	background-color: purple;
+}
+
+.hero-health {
+	height: 4%;
+	background-color: red;
+}
+
+.hero-mana {
+	height: 4%;
+	background-color: blue;
+}
+
+.combat-buttons {
+	height: 15%;
+	background-color: green;
 }
