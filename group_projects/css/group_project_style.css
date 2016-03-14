@@ -10,21 +10,13 @@
 	background: url("../images/hero.png");
 	height: 50px;
 	width: 50px;
-	top:250px;
-	left:250px;
 }
 
 .enemy {
 	position: absolute;
 	background: url("../images/enemy.png");
-	height: 50px;
-	width: 50px;
 }
-.tile {
-	position: absolute;
-	top: 200px;
-	left: 200px;
-}
+.tile {position: absolute;}
 .bush {background: url("../images/bush.png");}
 .water {background: url("../images/water.png");}
 .exit {background: url("../images/exit.png");}
