@@ -1,9 +1,10 @@
 ﻿character = {
-    name: "",
+    name: "Test Testerson",
     level: 1,
-    currentHP: 0,
-    maxHP: 0,
-    currentMana: 0,
-    maxMana: 0,
+    currentHP: 80,
+    maxHP: 100,
+    currentMana: 100,
+    maxMana: 100,
     currentExp: 0,
+    gold: 0
 }
