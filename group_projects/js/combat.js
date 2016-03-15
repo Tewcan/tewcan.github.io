@@ -15,7 +15,8 @@ function updateCombatDisplay() {
 }
 
 function flee() {
-    endCombat()    
+    endCombat()
+    mapFunction()
 }
 
 function endCombat() {
