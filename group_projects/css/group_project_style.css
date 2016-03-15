@@ -1,8 +1,19 @@
-.map {
+
+body {
+	background-image: url("../images/parchment.jpg");
+	background-repeat: no-repeat;
+	background-size: 1920px 1000px;
+	background-color: black;
 	position: relative;
+	overflow: hidden;
+}
+
+.map {
 	background-color: green;
 	height: 500px;
 	width: 700px;
+	float: left;
+	position: absolute;
 }
 
 .character {
@@ -26,7 +37,9 @@
 
 
 #gameDisplay {
-
+	position: relative;
+	left: 440px;
+	top: 200px;
 }
 
 /*----------------*/
@@ -35,14 +48,13 @@
 #combatDisplay {
     box-sizing: border-box;
     background-color: black;
-    height:500px;
+    height:490px;
     width:700px;
     position: absolute;
     display: none;
 }
 
 .button {
-	position: relative;
 	height: 75%;
 	width: 25%;
 	border: 2px solid black;
@@ -98,6 +110,7 @@
 	border: 1px solid black;
 	text-align: center;
 	font-weight: 900;
+	width: 90%;
 }
 
 #hero-mana {
@@ -126,4 +139,90 @@
 #special2 {
 	float: right;
 	background-color: #269900;
+}
+
+/*----------------*/
+/* Stats  Display */
+/*----------------*/
+#stats-display {
+	position: relative;
+	height: 500px;
+	width: 300px;
+	background-color: lightgray;
+	left: 700px;
+	box-sizing: border-box;
+	border: 2px solid gray;
+	padding: 10px;
+	font-size: 150%;
+}
+
+table {
+}
+
+#player-name {
+	font-size: 125%;
+	float: left;
+	font-style: oblique;
+}
+
+.lv {
+	font-size: 125%;
+	float: right;
+}
+
+#player-level {
+}
+
+#stats-health {
+	font-weight: 900;
+	color: red;
+}
+
+#stats-mana {
+	font-weight: 900;
+	color: blue;
+}
+
+#player-damage {
+	float: right;
+}
+
+.stats {
+	padding-top: 40px;
+}
+
+.stats tr td:last-child {
+	padding-left: 125px;
+}
+
+.exp-bar-background {
+	height: 22px;
+	width: 200px;
+	background-color: black;
+	bottom: 60px;
+	position: absolute;
+	border-radius: 20px;
+}
+
+#exp-bar {
+	height: 20px;
+	width: 75%;
+	background-color: yellow;
+	bottom: 60px;
+	border-radius: 20px;
+}
+
+.exp-div {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	right: 0;
+	padding: 0px 10px 20px 0px;
+	font-size: 85%;
+	font-style: oblique;
+
+}
+
+.exp-div span {
+	font-style: normal;
 }
