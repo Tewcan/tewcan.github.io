@@ -85,7 +85,11 @@
 	height: 57%;
 	overflow: auto;
 	background-color: lightgrey;
-	border: 1px solid black;
+	border: 1px solid black;    
+}
+
+#combat-text.li {
+    list-style-type: none;
 }
 
 #hero-health {
