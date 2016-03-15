@@ -1,8 +1,4 @@
 function mapFunction() {
-var hero = {
-    x: 75,
-    y: 50
-}
 var gameLoop = setInterval(function(){
     gameUpdate()
 }, 20);
@@ -17,34 +13,39 @@ addEventListener('keyup', function(input) {
 },false);
 
 function gameUpdate() {
-    if (37 in keysDown || 65 in keysDown) { //left
-        if (collisionFunciton(3,0,0,0) === true) {}
-        else {hero.x -= 3}}
-    if (39 in keysDown || 68 in keysDown) { //right
-        if (collisionFunciton(0,3,0,0) === true) {}
-        else {hero.x += 3}}
+    var charDom = document.getElementsByClassName('character')[0]
     if (38 in keysDown || 87 in keysDown) { //up
+        charDom.style.backgroundPosition = '-64px -64px'
         if (collisionFunciton(0,0,3,0) === true) {}
-        else {hero.y -= 3}}
+        else {character.y -= 3}}
     if (40 in keysDown || 83 in keysDown) { //down
+        charDom.style.backgroundPosition = '-4px -4px'
         if (collisionFunciton(0,0,0,3) === true) {}
-        else {hero.y += 3}}
+        else {character.y += 3}}
+    if (37 in keysDown || 65 in keysDown) { //left
+        charDom.style.backgroundPosition = '-64px -4px'
+        if (collisionFunciton(3,0,0,0) === true) {}
+        else {character.x -= 3}}
+    if (39 in keysDown || 68 in keysDown) { //right
+        charDom.style.backgroundPosition = '-4px -64px'
+        if (collisionFunciton(0,3,0,0) === true) {}
+        else {character.x += 3}}
     function collisionFunciton(left,right,up,down) {
         for (var i = 0; i < rooms[currentRoom].length; i++) {
-            if (hero.x <= (rooms[currentRoom][i].x + (rooms[currentRoom][i].w - 20) + left) &&
-                rooms[currentRoom][i].x <= (hero.x + 30 + right) &&
-                hero.y <= (rooms[currentRoom][i].y + (rooms[currentRoom][i].h - 35) + up) &&
-                rooms[currentRoom][i].y <= (hero.y + 45 + down)) {
+            if (character.x <= (rooms[currentRoom][i].x + (rooms[currentRoom][i].w - 10) + left) &&
+                rooms[currentRoom][i].x <= (character.x + 40 + right) &&
+                character.y <= (rooms[currentRoom][i].y + (rooms[currentRoom][i].h - 5) + up) &&
+                rooms[currentRoom][i].y <= (character.y + 45 + down)) {
                 if (rooms[currentRoom][i].name === 'entrance') { //Entrance
                     currentRoom = rooms[currentRoom][0].r
-                    hero.x = rooms[currentRoom][1].nx
-                    hero.y = rooms[currentRoom][1].ny
+                    character.x = rooms[currentRoom][1].nx
+                    character.y = rooms[currentRoom][1].ny
                     mapUpdate()
                     return false}
                 if (rooms[currentRoom][i].name === 'exit') { //Exit
                     currentRoom = rooms[currentRoom][1].r
-                    hero.x = rooms[currentRoom][0].nx
-                    hero.y = rooms[currentRoom][0].ny
+                    character.x = rooms[currentRoom][0].nx
+                    character.y = rooms[currentRoom][0].ny
                     mapUpdate()
                     return false}
                 if (rooms[currentRoom][i].name === 'enemy') { //player and monster collide
@@ -56,8 +57,8 @@ function gameUpdate() {
             }
         }
     }
-    document.getElementsByClassName('hero')[0].style.left = hero.x + 'px'
-    document.getElementsByClassName('hero')[0].style.top = hero.y + 'px'
+    charDom.style.left = character.x + 'px'
+    charDom.style.top = character.y + 'px'
 };
 
 function mapUpdate() {

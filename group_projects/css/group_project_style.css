@@ -5,9 +5,10 @@
 	width: 700px;
 }
 
-.hero {
+.character {
 	position: absolute;
-	background: url("../images/hero.png");
+	background: url("../images/character.png");
+	background-position:-4px -4px;
 	height: 50px;
 	width: 50px;
 }

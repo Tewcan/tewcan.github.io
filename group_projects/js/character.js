@@ -6,5 +6,7 @@
     currentMana: 100,
     maxMana: 100,
     currentExp: 0,
-    gold: 0
+    gold: 0,
+    x: 75,
+    y: 50
 }
