@@ -1,4 +1,14 @@
+function updateStatsDisplay() {
+    document.getElementById('player-name').innerHTML = character.name
+    document.getElementById('stats-health').innerHTML = character.maxHP + '/' + character.currentHP
+    document.getElementById('stats-mana').innerHTML = character.maxMana + '/' + character.currentMana
+    document.getElementById('player-level').innerHTML = character.level
+    document.getElementById('exp').innerHTML = character.currentExp + '<br>'
+    document.getElementById('exp-bar').style.width = character.currentExp + '%'//not done
+    document.getElementById('next-lv').innerHTML = character.level + 1
+}
 function mapFunction() {
+    updateStatsDisplay()
     var gameLoop = setInterval(function(){
         movementUpdate()
     }, 20);
