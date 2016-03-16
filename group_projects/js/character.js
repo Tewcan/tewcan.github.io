@@ -5,7 +5,7 @@
     maxHP: 100,
     currentMana: 75,
     maxMana: 100,
-    currentExp: 0,
+    currentExp: 1,
     gold: 0,
     x: 75,
     y: 50
