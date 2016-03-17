@@ -29,6 +29,7 @@ body {
 .bush {background: url("../images/bush.png");}
 .water {background: url("../images/water.png");}
 .exit {background: url("../images/exit.png");}
+.fountain {background-color: red;}
 .entrance {background: url("../images/entrance.png");}
 /*monster images*/
 .humanoid {background: url("../images/humanoid.png");}

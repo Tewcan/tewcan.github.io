@@ -1,17 +1,17 @@
 function updateStatsDisplay() {
     document.getElementById('player-name').innerHTML = character.name
-    document.getElementById('stats-health').innerHTML = character.maxHP + '/' + character.currentHP
-    document.getElementById('stats-mana').innerHTML = character.maxMana + '/' + character.currentMana
+    document.getElementById('stats-health').innerHTML = character.currentHP + '/' + character.maxHP
+    document.getElementById('stats-mana').innerHTML = character.currentMana + '/' + character.maxMana
     document.getElementById('player-level').innerHTML = character.level
     document.getElementById('exp').innerHTML = character.currentExp + '<br>'
     document.getElementById('exp-bar').style.width = character.currentExp + '%'//not done
     document.getElementById('next-lv').innerHTML = character.level + 1
 }
-function mapFunction() {
+function mapFunction(gameState) {
     updateStatsDisplay()
     var gameLoop = setInterval(function(){
-        movementUpdate()
-    }, 20);
+            movementUpdate()
+        }, 20);
     function stopGameLoop() { clearInterval(gameLoop) }
 
     var keysDown = {}
@@ -43,41 +43,47 @@ function mapFunction() {
         charDom.style.left = character.x + 'px'
         charDom.style.top = character.y + 'px'
     };
+
     function collisionFunciton(input,left,right,up,down) {
         for (var i = 0; i < rooms[currentRoom].length; i++) {
             if (input.x <= (rooms[currentRoom][i].x + (rooms[currentRoom][i].w - 20) + left) &&
                 rooms[currentRoom][i].x <= (input.x + 30 + right) &&
                 input.y <= (rooms[currentRoom][i].y + (rooms[currentRoom][i].h - 40) + up) &&
                 rooms[currentRoom][i].y <= (input.y + 48 + down)) {
-                if (rooms[currentRoom][i].type === 'entrance') { //Entrance
+                if (rooms[currentRoom][i].type === 'enemy') { //player and monster collide
+                    stopGameLoop()
+                    beginCombat(rooms[currentRoom][i])
+                    return false    }
+                if (rooms[currentRoom][i].name === 'entrance') { //Entrance
                     currentRoom = rooms[currentRoom][0].r
                     character.x = rooms[currentRoom][1].nx
                     character.y = rooms[currentRoom][1].ny
                     mapUpdate()
-                    return false}
-                if (rooms[currentRoom][i].type === 'exit') { //Exit
+                    return false    }
+                if (rooms[currentRoom][i].name === 'exit') { //Exit
                     currentRoom = rooms[currentRoom][1].r
                     character.x = rooms[currentRoom][0].nx
                     character.y = rooms[currentRoom][0].ny
                     mapUpdate()
-                    return false}
-                if (rooms[currentRoom][i].type === 'enemy') { //player and monster collide
-                    stopGameLoop()
-                    beginCombat(rooms[currentRoom][i])
-                    return false
-                }
+                    return false    }
+                if (rooms[currentRoom][i].name === 'fountain') {
+                    updateStatsDisplay()
+                    character.currentHP = character.maxHP
+                    character.currentMana = character.maxMana
+                    return false    }
                 if (input.type === 'enemy') { //positioning monster
                     if (input.x < 50) {input.x += 40}
                         else {input.x -= 40}
                     if (input.y < 50) {input.y += 40}
                         else {input.y -= 40}
-                    collisionFunciton(input,0,0,0,0)
-                }
+                    collisionFunciton(input,0,0,0,0)    }
                 else {return true}
             }
         }
     }
-    function enemyCreation(numberOfEnemys,level) {
+
+
+function enemyCreation(numberOfEnemys,level) {
        for (var i = 0; i < rooms[currentRoom].length; i++) { //deletes old enemys
             if (rooms[currentRoom][i].type === 'enemy') {rooms[currentRoom].splice(i, 3)}}
         function mob(name,health,damage,exp,gold) {
@@ -104,6 +110,9 @@ function mapFunction() {
         var expMod = Math.floor(1.5 * level)
         var goldMod = Math.floor(1.3 * level)
         function mobCreation() {
+            function randomBetween(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min
+            }
             var typeOf = Math.floor((Math.random()* 3) + 1)
             if (typeOf === 1) {rooms[currentRoom].push(new mob ('humanoid',9,10,5,1))}
             if (typeOf === 2) {rooms[currentRoom].push(new mob ('beast',10,11,6,2))}
@@ -114,6 +123,8 @@ function mapFunction() {
     }
 
     function mapUpdate() {
+        document.getElementsByClassName('map')[0].className = 'map'
+        document.getElementsByClassName('map')[0].className += rooms[currentRoom][0].tileset
         var tile = document.getElementsByClassName('tile')
         var mapDiv = document.getElementsByClassName('map__tiles')[0]
         while (mapDiv.firstChild) {
@@ -131,5 +142,5 @@ function mapFunction() {
             tile[i].className += classImage
         }
     }
-    mapUpdate()
+if (gameState === 'start') {mapUpdate()}
 }
