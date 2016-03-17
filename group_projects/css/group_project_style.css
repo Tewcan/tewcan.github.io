@@ -100,7 +100,10 @@ body {
 	border: 1px solid black;    
 }
 
-#combat-text.li {
+#combat-text ul {
+    margin:0;
+    padding-left:10px;
+    padding-top:5px;
     list-style-type: none;
 }
 

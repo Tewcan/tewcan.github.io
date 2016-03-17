@@ -16,13 +16,15 @@
         		<div id="enemy-name">Enemy Name</div>
         	</div>
         	<div id="enemy-health">100/100</div>
-        	<div id="combat-text"></div>
+        	<div id="combat-text">
+                <ul id="combat-log"></ul>
+            </div>
         	<div id="hero-health">100/100</div>
         	<div id="hero-mana">100/100</div>
         	<div class="combat-buttons">
-        		<button id="attack" class="button">Attack</button>
-        		<button id="special2" class="button">Special 2</button>
-        		<button id="special1" class="button">Special 1</button>
+        		<button id="attack" class="button" onclick="combat(0)">Attack</button>
+        		<button id="special2" class="button" onclick="combat(2)">Special 2</button>
+        		<button id="special1" class="button" onclick="combat(1)">Special 1</button>
         	</div>
         </div>
         <div id="stats-display">
