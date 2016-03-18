@@ -244,9 +244,6 @@ body {
 	background: -o-linear-gradient(45deg, #697072 0%,#afc5db 100%);
 }
 
-table {
-}
-
 #player-name {
 	font-size: 125%;
 	float: left;
@@ -271,16 +268,35 @@ table {
 	color: blue;
 }
 
+#race {
+	position: absolute;
+	top: 60px;
+	right: 0px;
+	height: 30px;
+	width: 70px;
+	text-align: center;
+}
+
+#gender {
+	position: absolute;
+	top: 90px;
+	right: 0px;
+	height: 30px;
+	width: 70px;
+	float: right;
+	text-align: center;
+}
+
 #player-damage {
 	float: right;
 }
 
 .stats {
-	padding-top: 40px;
+	padding-top: 20px;
 }
 
 .stats tr td:last-child {
-	padding-left: 125px;
+	padding-left: 150px;
 	float: right;
 	white-space: nowrap;
 }
@@ -315,4 +331,73 @@ table {
 
 .exp-div span {
 	font-style: normal;
+}
+
+/*----------------------------*/
+/* Character Creation Display */
+/*----------------------------*/
+.creation-display {
+	height: 500px;
+	width: 700px;
+	background-color: red;
+	position: relative;
+	top: -500px;
+	display: none;
+}
+
+.create-character {
+	margin: 0px;
+	left: 30%;
+	height: 45px;
+	width: 280px;
+	background-color: green;
+	position: absolute;
+}
+
+.gender-name-div {
+	position: absolute;
+	width: 250px;
+	height: 320px;
+	background-color: green;
+	margin: 100px 0px 0px 10px;
+}
+
+.create-gender {
+	position: absolute;
+	width: 200px;
+	height: 120px;
+	background-color: blue;
+	margin: 20px 0px 0px 30px;
+}
+
+.create-name {
+	position: absolute;
+	width: 200px;
+	height: 120px;
+	background-color: blue;
+	margin: 0px 0px 20px 30px;
+	bottom: 0px;
+}
+
+.race-button {
+	height: 70px;
+	width: 120px;
+	margin: 5px;
+}
+
+.class-div {
+	width: 130px;
+	height: 240px;
+	background-color: green;
+	float: right;
+	margin: 100px 10px 0px 0px;
+}
+
+.race-div {
+	width: 130px;
+	height: 240px;
+	background-color: green;
+	float: right;
+	margin: 100px 10px 0px 0px;
+
 }
