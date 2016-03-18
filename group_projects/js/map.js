@@ -2,11 +2,17 @@ function updateStatsDisplay() {
     document.getElementById('player-name').innerHTML = character.name
     document.getElementById('stats-health').innerHTML = character.currentHP + '/' + character.maxHP
     document.getElementById('stats-mana').innerHTML = character.currentMana + '/' + character.maxMana
+    document.getElementById('strength').innerHTML = character.stats.str
+    document.getElementById('dexterity').innerHTML = character.stats.dex
+    // document.getElementById('').innerHTML = character.stats.int
+    document.getElementById('player-damage').innerHTML = character.minDamage + '/' + character.maxDamage
+    document.getElementById('stamina').innerHTML = character.stats.sta
     document.getElementById('player-level').innerHTML = character.level
     document.getElementById('exp').innerHTML = character.currentExp + '<br>'
     document.getElementById('exp-bar').style.width = character.currentExp + '%'//not done
     document.getElementById('next-lv').innerHTML = character.level + 1
 }
+var currentRoom = 0
 function mapFunction(gameState) {
     updateStatsDisplay()
     var gameLoop = setInterval(function(){
@@ -50,27 +56,36 @@ function mapFunction(gameState) {
                 rooms[currentRoom][i].x <= (input.x + 30 + right) &&
                 input.y <= (rooms[currentRoom][i].y + (rooms[currentRoom][i].h - 40) + up) &&
                 rooms[currentRoom][i].y <= (input.y + 48 + down)) {
-                if (rooms[currentRoom][i].type === 'enemy') { //player and monster collide
-                    stopGameLoop()
-                    beginCombat(rooms[currentRoom][i])
-                    return false    }
                 if (rooms[currentRoom][i].name === 'entrance') { //Entrance
                     currentRoom = rooms[currentRoom][0].r
-                    character.x = rooms[currentRoom][1].nx
-                    character.y = rooms[currentRoom][1].ny
+                    if (character.x < 100) {character.x = 590}
+                    if (character.x > 595) {character.x = 40}
+                    if (character.y > 395) {character.y = 20}
+                    if (character.y < 15) {character.y = 390}
                     mapUpdate()
                     return false    }
-                if (rooms[currentRoom][i].name === 'exit') { //Exit
-                    currentRoom = rooms[currentRoom][1].r
-                    character.x = rooms[currentRoom][0].nx
-                    character.y = rooms[currentRoom][0].ny
-                    mapUpdate()
+                if(rooms[currentRoom][i].name === 'exit') { //Exit
+                    var whichDoor = 1
+                    if (rooms[currentRoom][i].type === 'door1') {whichDoor = 1}
+                    if (rooms[currentRoom][i].type === 'door2') {whichDoor = 2}
+                    if (rooms[currentRoom][i].type === 'door3') {whichDoor = 3}
+                    currentRoom = rooms[currentRoom][whichDoor].r
+                    if (character.x < 100) {character.x = 590}
+                    if (character.x > 595) {character.x = 40}
+                    if (character.y > 395) {character.y = 20}
+                    if (character.y < 15) {character.y = 390}
+                    mapUpdate() }
+                if (rooms[currentRoom][i].type === 'enemy') { //player and monster collide
+                    stopGameLoop()
+                    rooms[currentRoom][i].x = 2000
+                    if (document.getElementsByClassName('tile')[i] === undefined) {}
+                    else { document.getElementsByClassName('tile')[i].style.left = rooms[currentRoom][i].x + 'px'}
+                    beginCombat(rooms[currentRoom][i])
                     return false    }
-                if (rooms[currentRoom][i].name === 'fountain') {
+                if (rooms[currentRoom][i].name === 'fountain') { //fountain
                     updateStatsDisplay()
                     character.currentHP = character.maxHP
-                    character.currentMana = character.maxMana
-                    return false    }
+                    character.currentMana = character.maxMana   }
                 if (input.type === 'enemy') { //positioning monster
                     if (input.x < 50) {input.x += 40}
                         else {input.x -= 40}
@@ -110,13 +125,24 @@ function enemyCreation(numberOfEnemys,level) {
         var expMod = Math.floor(1.5 * level)
         var goldMod = Math.floor(1.3 * level)
         function mobCreation() {
-            function randomBetween(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min
-            }
-            var typeOf = Math.floor((Math.random()* 3) + 1)
+            var min,max
+            if (rooms[currentRoom][0].tileset === ' forest') {max = 3,min = 1}
+            if (rooms[currentRoom][0].tileset === ' deadforest') {max = 3,min = 7}
+            if (rooms[currentRoom][0].tileset === ' castle') {max = 6,min = 10}
+            if (rooms[currentRoom][0].tileset === ' fireland') {max = 10,min = 14}
+            var typeOf = Math.floor(Math.random() * (max - min + 1)) + min
             if (typeOf === 1) {rooms[currentRoom].push(new mob ('humanoid',9,10,5,1))}
             if (typeOf === 2) {rooms[currentRoom].push(new mob ('beast',10,11,6,2))}
             if (typeOf === 3) {rooms[currentRoom].push(new mob ('slime',11,12,7,3))}
+            if (typeOf === 4) {rooms[currentRoom].push(new mob ('monster1',9,10,5,1))}
+            if (typeOf === 5) {rooms[currentRoom].push(new mob ('monster2',10,11,6,2))}
+            if (typeOf === 6) {rooms[currentRoom].push(new mob ('monster3',11,12,7,3))}
+            if (typeOf === 7) {rooms[currentRoom].push(new mob ('monster4',9,10,5,1))}
+            if (typeOf === 8) {rooms[currentRoom].push(new mob ('monster5',10,11,6,2))}
+            if (typeOf === 9) {rooms[currentRoom].push(new mob ('monster6',11,12,7,3))}
+            if (typeOf === 10) {rooms[currentRoom].push(new mob ('monster7',9,10,5,1))}
+            if (typeOf === 11) {rooms[currentRoom].push(new mob ('monster8',10,11,6,2))}
+            if (typeOf === 12) {rooms[currentRoom].push(new mob ('monster9',11,12,7,3))}
         }
     //-------------------------------------end of monster stats----------------------------------------------//
         for (var j = 1; j <= numberOfEnemys; j++) {mobCreation()}
