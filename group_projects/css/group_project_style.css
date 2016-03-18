@@ -22,7 +22,6 @@ body {
 .logo:hover {background:rgba(255, 102, 0,0.8); }
 
 .map {
-	background-color: green;
 	height: 500px;
 	width: 700px;
 	float: left;
@@ -38,15 +37,36 @@ body {
 }
 
 .tile {position: absolute;}
-/*tile images*/
+.exit {background: url("../images/exit.png");}
+.fountain {background-color: red;}
+.entrance {background: url("../images/entrance.png");}
+/*forest*/
+.forest {background-color: green;}
 .bush {background: url("../images/bush.png");}
 .water {background: url("../images/water.png");}
-.exit {background: url("../images/exit.png");}
-.entrance {background: url("../images/entrance.png");}
-/*monster images*/
 .humanoid {background: url("../images/humanoid.png");}
 .beast {background: url("../images/beast.png");}
 .slime {background: url("../images/slime.png");}
+/*deadforest*/
+.deadforest {background-color: darkgreen;}
+.deadbush {background-color: green;}
+.posionwater {background-color: lightgreen;}
+.monster4 {background-color: pink;}
+.monster5 {background-color: purple;}
+.monster6 {background-color: orange;}
+/*caste*/
+.castle {background-color: grey;}
+.wall {background-color: black;}
+.monster1 {background-color: pink;}
+.monster2 {background-color: purple;}
+.monster3 {background-color: orange;}
+/*fireland*/
+.fireland {background-color: darkred;}
+.firebush {background-color: darkgreen;}
+.lava {background-color: red;}
+.monster7 {background-color: pink;}
+.monster8 {background-color: purple;}
+.monster9 {background-color: orange;}
 
 
 #gameDisplay {
@@ -135,7 +155,10 @@ body {
 	box-sizing: border-box;   
 }
 
-#combat-text.li {
+#combat-text ul {
+    margin:0;
+    padding-left:10px;
+    padding-top:5px;
     list-style-type: none;
 }
 

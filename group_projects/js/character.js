@@ -1,12 +1,19 @@
 ﻿character = {
     name: "Test Testerson",
     level: 1,
-    currentHP: 80,
+    currentHP: 100,
     maxHP: 100,
-    currentMana: 75,
+    currentMana: 100,
     maxMana: 100,
-    currentExp: 0,
+    stats: { str: 25, dex: 20, int: 15, sta: 20 },
+    minDamage: 2,
+    maxDamage: 5,
+    currentExp: 1,
     gold: 0,
-    x: 75,
+    abilities: [
+        {name: "Attack", damageMod: 1, manaCost: 0},
+        {name: "Bash", damageMod: 2, manaCost: 50},
+        {name: "Slam", damageMod: 4, manaCost: 100}],
+    x: 70,
     y: 50
 }
