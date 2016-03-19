@@ -2,6 +2,7 @@ var currentEnemy
 
 function beginCombat(enemy) {
     currentEnemy = enemy
+    character.inCombat = true
     document.getElementsByClassName("map")[0].style.display = "none"
     document.getElementById("combatDisplay").style.display = "block"
     var node = document.createElement("Li");
@@ -12,29 +13,42 @@ function beginCombat(enemy) {
 }
 
 function combat(ability) {
-    ability = character.abilities[ability]
-    if (character.currentMana - ability.manaCost >= 0) {        
-        playerAttack(ability)
-        if (currentEnemy.currentHealth > 0) {
-            enemyAttack()
-            updateCombatDisplay()
+    if (character.inCombat === true && character.currentHP > 0) {
+        ability = character.abilities[ability]
+        if (character.currentMana - ability.manaCost >= 0) {
+            playerAttack(ability)
+            if (currentEnemy.currentHealth > 0) {
+                enemyAttack()
+                if (character.currentHP <= 0) {
+                    character.currentHP = 0
+                    var node = document.createElement("Li");
+                    var textnode = document.createTextNode("You have been slain!");
+                    node.appendChild(textnode);
+                    node.style.color = "red"
+                    document.getElementById("combat-log").insertBefore(node, document.getElementById("combat-log").childNodes[0]);
+                }
+                updateCombatDisplay()
+            }
+            else {
+                currentEnemy.currentHealth = 0
+                var node = document.createElement("Li");
+                var textnode = document.createTextNode("You have slain the " + currentEnemy.name + "!");
+                node.appendChild(textnode);
+                document.getElementById("combat-log").insertBefore(node, document.getElementById("combat-log").childNodes[0]);
+                character.expGain(currentEnemy.exp)
+                character.goldGain(currentEnemy.gold)
+                character.checkExp()
+                updateCombatDisplay()
+                character.inCombat = false
+            }
+
         }
         else {
-            currentEnemy.currentHealth = 0
             var node = document.createElement("Li");
-            var textnode = document.createTextNode("You have slain the " + currentEnemy.name + "!");
+            var textnode = document.createTextNode("You need " + ability.manaCost + " mana to use " + ability.name);
             node.appendChild(textnode);
             document.getElementById("combat-log").insertBefore(node, document.getElementById("combat-log").childNodes[0]);
-            expGain(currentEnemy.exp)
-            updateCombatDisplay()            
         }
-       
-    }
-    else {
-        var node = document.createElement("Li");
-        var textnode = document.createTextNode("You need " + ability.manaCost + " mana to use " + ability.name );
-        node.appendChild(textnode);
-        document.getElementById("combat-log").insertBefore(node, document.getElementById("combat-log").childNodes[0]);
     }
 }
 
@@ -77,10 +91,8 @@ function updateCombatDisplay() {
     // Update Enemy Information
     document.getElementById("enemy-name").innerHTML = currentEnemy.name
     document.getElementById("enemy-health-number").innerHTML = currentEnemy.currentHealth + " / " + currentEnemy.health
-    document.getElementById("enemy-health").style.width = (currentEnemy.currentHealth / currentEnemy.health) * 100 + "%"
-
-    // This needs to be fixed. The enemy level div contains the other divs, and replacing the text inside it removes them.
-    //document.getElementById("enemy-level").innerHTML = currentEnemy.level
+    document.getElementById("enemy-health").style.width = (currentEnemy.currentHealth / currentEnemy.health) * 100 + "%"    
+    document.getElementById("enemy-level").innerHTML = "Level " + currentEnemy.level
 }
 
 function flee() {
@@ -90,16 +102,7 @@ function flee() {
 
 function endCombat() {
     document.getElementsByClassName("map")[0].style.display = "block"
-    document.getElementById("combatDisplay").style.display = "none"
-}
-
-function expGain(exp) {
-    var node = document.createElement("Li");
-    var textnode = document.createTextNode("You gained " + exp + " experience!");
-    node.appendChild(textnode);
-    node.style.color = "yellow"
-    document.getElementById("combat-log").insertBefore(node, document.getElementById("combat-log").childNodes[0]);
-    character.currentExp += exp
+    document.getElementById("combatDisplay").style.display = "none"    
 }
 
 function randomBetween(min, max) {

@@ -2,10 +2,13 @@ function updateStatsDisplay() {
     document.getElementById('player-name').innerHTML = character.name
     document.getElementById('stats-health').innerHTML = character.currentHP + '/' + character.maxHP
     document.getElementById('stats-mana').innerHTML = character.currentMana + '/' + character.maxMana
+    document.getElementById('race').innerHTML = character.race
+    document.getElementById('gender').innerHTML = character.gender
+    document.getElementById('gold').innerHTML = character.gold
     document.getElementById('strength').innerHTML = character.stats.str
     document.getElementById('dexterity').innerHTML = character.stats.dex
-    // document.getElementById('').innerHTML = character.stats.int
-    document.getElementById('player-damage').innerHTML = character.minDamage + '/' + character.maxDamage
+    document.getElementById('intelligence').innerHTML = character.stats.int
+    document.getElementById('player-damage').innerHTML = character.minDamage + ' - ' + character.maxDamage
     document.getElementById('stamina').innerHTML = character.stats.sta
     document.getElementById('player-level').innerHTML = character.level
     document.getElementById('exp').innerHTML = character.currentExp + '<br>'
