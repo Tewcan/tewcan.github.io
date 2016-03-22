@@ -15,7 +15,7 @@ function updateStatsDisplay() {
     document.getElementById('exp-bar').style.width = character.currentExp + '%'//not done
     document.getElementById('next-lv').innerHTML = character.level + 1
 }
-var currentRoom = 7
+var currentRoom = 0
 function mapFunction(gameState) {
     updateStatsDisplay()
     var gameLoop = setInterval(function(){
