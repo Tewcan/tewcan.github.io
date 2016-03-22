@@ -35,7 +35,7 @@ body {
 	height: 50px;
 	width: 50px;
 }
-
+.nothing {background-color: pink;}
 .tile {position: absolute;}
 .exit {background: url("../images/exit.png");}
 .fountain {background-color: red;}

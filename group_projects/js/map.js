@@ -15,7 +15,7 @@ function updateStatsDisplay() {
     document.getElementById('exp-bar').style.width = character.currentExp + '%'//not done
     document.getElementById('next-lv').innerHTML = character.level + 1
 }
-var currentRoom = 0
+var currentRoom = 7
 function mapFunction(gameState) {
     updateStatsDisplay()
     var gameLoop = setInterval(function(){
@@ -61,7 +61,7 @@ function mapFunction(gameState) {
                 rooms[currentRoom][i].y <= (input.y + 48 + down)) {
                 if (rooms[currentRoom][i].name === 'entrance') { //Entrance
                     currentRoom = rooms[currentRoom][0].r
-                    if (character.x < 100) {character.x = 590}
+                    if (character.x < 50) {character.x = 590}
                     if (character.x > 595) {character.x = 40}
                     if (character.y > 395) {character.y = 20}
                     if (character.y < 15) {character.y = 390}
@@ -69,11 +69,14 @@ function mapFunction(gameState) {
                     return false    }
                 if(rooms[currentRoom][i].name === 'exit') { //Exit
                     var whichDoor = 1
+                    if (currentRoom === 4) {character.checkPoint = 4}
+                    if (currentRoom === 7) {character.checkPoint = 7}
+                    if (currentRoom === 10) {character.checkPoint = 10}
                     if (rooms[currentRoom][i].type === 'door1') {whichDoor = 1}
                     if (rooms[currentRoom][i].type === 'door2') {whichDoor = 2}
                     if (rooms[currentRoom][i].type === 'door3') {whichDoor = 3}
                     currentRoom = rooms[currentRoom][whichDoor].r
-                    if (character.x < 100) {character.x = 590}
+                    if (character.x < 50) {character.x = 590}
                     if (character.x > 595) {character.x = 40}
                     if (character.y > 395) {character.y = 20}
                     if (character.y < 15) {character.y = 390}
@@ -90,86 +93,85 @@ function mapFunction(gameState) {
                     character.currentHP = character.maxHP
                     character.currentMana = character.maxMana   }
                 if (input.type === 'enemy') { //positioning monster
-                    if (input.x < 50) {input.x += 40}
-                        else {input.x -= 40}
-                    if (input.y < 50) {input.y += 40}
-                        else {input.y -= 40}
+                    if (input.x < 50) {input.x += 60}
+                        else {input.x -= 60}
+                    if (input.y < 50) {input.y += 60}
+                        else {input.y -= 60}
                     collisionFunciton(input,0,0,0,0)    }
                 else {return true}
             }
         }
     }
 
+    function enemyCreation(numberOfEnemys,level) {
+           for (var i = 0; i < rooms[currentRoom].length; i++) { //deletes old enemys
+                if (rooms[currentRoom][i].type === 'enemy') {rooms[currentRoom].splice(i, 3)}}
+            function mob(name,health,damage,exp,gold) {
+                var randomX = Math.floor((Math.random()* 550) + 30)
+                var randomY = Math.floor((Math.random()* 400) + 30)
+                this.type = 'enemy'
+                this.x = randomX
+                this.y = randomY
+                this.w = 50
+                this.h = 50
+                this.name = name
+                collisionFunciton(this,0,0,0,0)
+        //-------------------------------------start of monster stats----------------------------------------------//
+                this.level = level
+                this.health = healthMod * health
+                this.currentHealth = healthMod * health
+                this.damageMax = damageMod * damage
+                this.damageMin = Math.floor(damageMod * damage / 2)
+                this.exp = expMod * exp
+                this.gold = goldMod * gold
+            }
+            var healthMod = 2 * level
+            var damageMod = Math.floor(1.1 * level)
+            var expMod = Math.floor(1.5 * level)
+            var goldMod = Math.floor(1.3 * level)
+            function mobCreation() {
+                var min,max
+                if (rooms[currentRoom][0].tileset === ' forest') {max = 3,min = 1}
+                if (rooms[currentRoom][0].tileset === ' deadforest') {max = 3,min = 7}
+                if (rooms[currentRoom][0].tileset === ' castle') {max = 6,min = 10}
+                if (rooms[currentRoom][0].tileset === ' fireland') {max = 10,min = 14}
+                var typeOf = Math.floor(Math.random() * (max - min + 1)) + min
+                if (typeOf === 1) {rooms[currentRoom].push(new mob ('humanoid',9,10,5,1))}
+                if (typeOf === 2) {rooms[currentRoom].push(new mob ('beast',10,11,6,2))}
+                if (typeOf === 3) {rooms[currentRoom].push(new mob ('slime',11,12,7,3))}
+                if (typeOf === 4) {rooms[currentRoom].push(new mob ('monster1',9,10,5,1))}
+                if (typeOf === 5) {rooms[currentRoom].push(new mob ('monster2',10,11,6,2))}
+                if (typeOf === 6) {rooms[currentRoom].push(new mob ('monster3',11,12,7,3))}
+                if (typeOf === 7) {rooms[currentRoom].push(new mob ('monster4',9,10,5,1))}
+                if (typeOf === 8) {rooms[currentRoom].push(new mob ('monster5',10,11,6,2))}
+                if (typeOf === 9) {rooms[currentRoom].push(new mob ('monster6',11,12,7,3))}
+                if (typeOf === 10) {rooms[currentRoom].push(new mob ('monster7',9,10,5,1))}
+                if (typeOf === 11) {rooms[currentRoom].push(new mob ('monster8',10,11,6,2))}
+                if (typeOf === 12) {rooms[currentRoom].push(new mob ('monster9',11,12,7,3))}
+            }
+        //-------------------------------------end of monster stats----------------------------------------------//
+            for (var j = 1; j <= numberOfEnemys; j++) {mobCreation()}
+        }
 
-function enemyCreation(numberOfEnemys,level) {
-       for (var i = 0; i < rooms[currentRoom].length; i++) { //deletes old enemys
-            if (rooms[currentRoom][i].type === 'enemy') {rooms[currentRoom].splice(i, 3)}}
-        function mob(name,health,damage,exp,gold) {
-            var randomX = Math.floor((Math.random()* 550) + 30)
-            var randomY = Math.floor((Math.random()* 400) + 30)
-            this.type = 'enemy'
-            this.x = randomX
-            this.y = randomY
-            this.w = 50
-            this.h = 50
-            this.name = name
-            collisionFunciton(this,0,0,0,0)
-    //-------------------------------------start of monster stats----------------------------------------------//
-            this.level = level
-            this.health = healthMod * health
-            this.currentHealth = healthMod * health
-            this.damageMax = damageMod * damage
-            this.damageMin = Math.floor(damageMod * damage / 2)
-            this.exp = expMod * exp
-            this.gold = goldMod * gold
+        function mapUpdate() {
+            document.getElementsByClassName('map')[0].className = 'map'
+            document.getElementsByClassName('map')[0].className += rooms[currentRoom][0].tileset
+            var tile = document.getElementsByClassName('tile')
+            var mapDiv = document.getElementsByClassName('map__tiles')[0]
+            while (mapDiv.firstChild) {
+                mapDiv.removeChild(mapDiv.firstChild)}
+            enemyCreation(rooms[currentRoom][0].enemy,rooms[currentRoom][0].level)
+            for (var i = 0; i < rooms[currentRoom].length; i++) {
+                var tileDiv = document.createElement('div')
+                tileDiv.setAttribute('class','tile ')
+                mapDiv.appendChild(tileDiv)
+                tile[i].style.left = rooms[currentRoom][i].x + 'px'
+                tile[i].style.top = rooms[currentRoom][i].y + 'px'
+                tile[i].style.width = rooms[currentRoom][i].w + 'px'
+                tile[i].style.height = rooms[currentRoom][i].h + 'px'
+                var classImage = rooms[currentRoom][i].name
+                tile[i].className += classImage
+            }
         }
-        var healthMod = 2 * level
-        var damageMod = Math.floor(1.1 * level)
-        var expMod = Math.floor(1.5 * level)
-        var goldMod = Math.floor(1.3 * level)
-        function mobCreation() {
-            var min,max
-            if (rooms[currentRoom][0].tileset === ' forest') {max = 3,min = 1}
-            if (rooms[currentRoom][0].tileset === ' deadforest') {max = 3,min = 7}
-            if (rooms[currentRoom][0].tileset === ' castle') {max = 6,min = 10}
-            if (rooms[currentRoom][0].tileset === ' fireland') {max = 10,min = 14}
-            var typeOf = Math.floor(Math.random() * (max - min + 1)) + min
-            if (typeOf === 1) {rooms[currentRoom].push(new mob ('humanoid',9,10,5,1))}
-            if (typeOf === 2) {rooms[currentRoom].push(new mob ('beast',10,11,6,2))}
-            if (typeOf === 3) {rooms[currentRoom].push(new mob ('slime',11,12,7,3))}
-            if (typeOf === 4) {rooms[currentRoom].push(new mob ('monster1',9,10,5,1))}
-            if (typeOf === 5) {rooms[currentRoom].push(new mob ('monster2',10,11,6,2))}
-            if (typeOf === 6) {rooms[currentRoom].push(new mob ('monster3',11,12,7,3))}
-            if (typeOf === 7) {rooms[currentRoom].push(new mob ('monster4',9,10,5,1))}
-            if (typeOf === 8) {rooms[currentRoom].push(new mob ('monster5',10,11,6,2))}
-            if (typeOf === 9) {rooms[currentRoom].push(new mob ('monster6',11,12,7,3))}
-            if (typeOf === 10) {rooms[currentRoom].push(new mob ('monster7',9,10,5,1))}
-            if (typeOf === 11) {rooms[currentRoom].push(new mob ('monster8',10,11,6,2))}
-            if (typeOf === 12) {rooms[currentRoom].push(new mob ('monster9',11,12,7,3))}
-        }
-    //-------------------------------------end of monster stats----------------------------------------------//
-        for (var j = 1; j <= numberOfEnemys; j++) {mobCreation()}
-    }
-
-    function mapUpdate() {
-        document.getElementsByClassName('map')[0].className = 'map'
-        document.getElementsByClassName('map')[0].className += rooms[currentRoom][0].tileset
-        var tile = document.getElementsByClassName('tile')
-        var mapDiv = document.getElementsByClassName('map__tiles')[0]
-        while (mapDiv.firstChild) {
-            mapDiv.removeChild(mapDiv.firstChild)}
-        enemyCreation(rooms[currentRoom][0].enemy,rooms[currentRoom][0].level)
-        for (var i = 0; i < rooms[currentRoom].length; i++) {
-            var tileDiv = document.createElement('div')
-            tileDiv.setAttribute('class','tile ')
-            mapDiv.appendChild(tileDiv)
-            tile[i].style.left = rooms[currentRoom][i].x + 'px'
-            tile[i].style.top = rooms[currentRoom][i].y + 'px'
-            tile[i].style.width = rooms[currentRoom][i].w + 'px'
-            tile[i].style.height = rooms[currentRoom][i].h + 'px'
-            var classImage = rooms[currentRoom][i].name
-            tile[i].className += classImage
-        }
-    }
-if (gameState === 'start') {mapUpdate()}
+    if (gameState === 'start') {mapUpdate()}
 }

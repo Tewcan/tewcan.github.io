@@ -18,8 +18,9 @@
         {name: "Attack", damageMod: 1, manaCost: 0},
         {name: "Bash", damageMod: 2, manaCost: 50},
         {name: "Slam", damageMod: 4, manaCost: 100}],
+    checkPoint: 0,
     x: 70,
-    y: 50,
+    y: 230,
 
     inCombat: false,
 
