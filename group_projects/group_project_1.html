@@ -93,20 +93,34 @@
         </div>
         <div class="creation-display">
         	<h1 class="create-character">Create Your Character</h1>
-        	<div class="gender-name-div">
-        		<div class="create-gender"></div>
-        		<div class="create-name"></div>
-        	</div>
+        		<div class="create-gender">
+                    <div>
+                        <h2>Gender</h2>
+                        <form>
+                            <input type="radio" name="gender" value="male"> Male
+                            <input type="radio" name="gender" value="male"> Female
+                        </form>
+                    </div>      
+                </div>
+        		<div class="create-name">
+                    <h3>Character Name</h3>
+                    <form>
+                        <input type="text"></input>
+                    </form>
+                </div>
         	<div class="race-div">
+                <h2>Race</h2>
         		<button id="human" class="race-button">Human</button>
-        		<button id="elf" class="race-button">Elf</button>
-        		<button id="orc" class="race-button">Orc</button>
+        		<button id="elf" class="race-button under-construction">Elf</button>
+        		<button id="orc" class="race-button under-construction">Orc</button>
         	</div>
         	<div class="class-div">
+                <h2>Class</h2>
         		<button id="warrior" class="race-button">Warrior</button>
-        		<button id="rogue" class="race-button">Rogue</button>
-        		<button id="cleric" class="race-button">Cleric</button>
+        		<button id="rogue" class="race-button under-construction">Rogue</button>
+        		<button id="cleric" class="race-button under-construction">Cleric</button>
         	</div>
+            <button id="create-button">Create Character</button>
         </div>
     </div>
 	<script src="js/combat.js"></script>

@@ -105,6 +105,13 @@ body {
 	font-size: 200%;
 	border-radius: 10px;
 	cursor: pointer;
+	outline: none;
+}
+
+.button:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #enemy-level {
@@ -339,65 +346,96 @@ body {
 .creation-display {
 	height: 500px;
 	width: 700px;
-	background-color: red;
 	position: relative;
 	top: -500px;
 	display: none;
+	background: -webkit-linear-gradient(-45deg, #0029c1 0%,#000207 100%);
+	background: -moz-linear-gradient(-45deg, #0029c1 0%, #000207 100%);
+	background: linear-gradient(135deg, #0029c1 0%,#000207 100%);
+	font-family: Verdana, Geneva, sans-serif;
 }
 
 .create-character {
 	margin: 0px;
-	left: 30%;
+	left: 18%;
 	height: 45px;
-	width: 280px;
-	background-color: green;
+	width: 460px;
+	background-color: #0d0d0d;
+	color: white;
 	position: absolute;
-}
-
-.gender-name-div {
-	position: absolute;
-	width: 250px;
-	height: 320px;
-	background-color: green;
-	margin: 100px 0px 0px 10px;
+	border-radius: 0 0 10px 10px;
+	text-align: center;
 }
 
 .create-gender {
 	position: absolute;
 	width: 200px;
 	height: 120px;
-	background-color: blue;
-	margin: 20px 0px 0px 30px;
+	margin: 13% 0% 0% 5%;
+	text-align: center;
+	border-radius: 5px;
+	font-weight: 600;
+	background: #0d0d0d;
+	color: white;
 }
 
 .create-name {
 	position: absolute;
 	width: 200px;
 	height: 120px;
-	background-color: blue;
-	margin: 0px 0px 20px 30px;
-	bottom: 0px;
+	margin: 34% 0% 0% 5%;
+	border-radius: 5px;
+	text-align: center;
+	background: #0d0d0d;
+	color: white;
 }
 
 .race-button {
 	height: 70px;
 	width: 120px;
 	margin: 5px;
+	border-radius: 5px;
+	outline: none;
+	font-size: 25px;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-style: oblique;
+}
+
+.race-button.under-construction {
+	opacity: 0.4;
 }
 
 .class-div {
 	width: 130px;
-	height: 240px;
-	background-color: green;
+	height: 310px;
+	background-color: #006666;
 	float: right;
-	margin: 100px 10px 0px 0px;
+	margin: 70px 10px 0px 0px;
+	border-radius: 5px;
+	background: #0d0d0d;
+	color: white;
+	text-align: center;
 }
 
 .race-div {
 	width: 130px;
-	height: 240px;
-	background-color: green;
+	height: 310px;
+	background-color: #006666;
 	float: right;
-	margin: 100px 10px 0px 0px;
+	margin: 70px 10px 0px 0px;
+	border-radius: 5px;
+	background: #0d0d0d;
+	color: white;
+	text-align: center;
+}
 
+#create-button {
+	position: absolute;
+	height: 40px;
+	width: 190px;
+	bottom: 10%;	
+	left: 37%;
+	border-radius: 40%;
+	font-weight: 900;
+	outline: none;
 }
