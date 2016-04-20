@@ -1,5 +1,5 @@
 ﻿character = {
-    name: "Test Testerson",
+    name: "",
     level: 1,
     gender: "Male",
     race: "Human",

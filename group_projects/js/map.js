@@ -1,3 +1,10 @@
+function characterCreation() {
+    console.log(document.getElementsByClassName('character-name')[0].value)
+    character.name = document.getElementsByClassName('character-name')[0].value
+    document.getElementsByClassName("creation-display")[0].style.display = "none"
+    document.getElementsByClassName("map")[0].style.display = "block"
+    mapFunction("start")
+}
 function updateStatsDisplay() {
     document.getElementById('player-name').innerHTML = character.name
     document.getElementById('stats-health').innerHTML = character.currentHP + '/' + character.maxHP
@@ -97,6 +104,7 @@ function mapFunction(gameState) {
                         else {input.x -= 60}
                     if (input.y < 50) {input.y += 60}
                         else {input.y -= 60}
+                            // enemyCreation(rooms[currentRoom].enemy,rooms[currentRoom].level)
                     collisionFunciton(input,0,0,0,0)    }
                 else {return true}
             }

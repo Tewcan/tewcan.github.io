@@ -26,6 +26,7 @@ body {
 	width: 700px;
 	float: left;
 	position: absolute;
+	display: none;
 }
 
 .character {
@@ -348,7 +349,7 @@ body {
 	width: 700px;
 	position: relative;
 	top: -500px;
-	display: none;
+	display: block;
 	background: -webkit-linear-gradient(-45deg, #0029c1 0%,#000207 100%);
 	background: -moz-linear-gradient(-45deg, #0029c1 0%, #000207 100%);
 	background: linear-gradient(135deg, #0029c1 0%,#000207 100%);

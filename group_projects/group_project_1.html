@@ -4,7 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="css/group_project_style.css">
 	<title>Group Project 1</title>
 </head>
-<body onload='mapFunction("start")'>
+<!-- onload='characterCreation()' -->
+<body onload="updateStatsDisplay()">
 	<div class="navbar">
 		<a href="../index.html"><img class="logo" src="../images/logo.png"></a>
 	</div>
@@ -100,12 +101,12 @@
                             <input type="radio" name="gender" value="male"> Male
                             <input type="radio" name="gender" value="male"> Female
                         </form>
-                    </div>      
+                    </div>
                 </div>
         		<div class="create-name">
                     <h3>Character Name</h3>
                     <form>
-                        <input type="text"></input>
+                        <input type="text" class="character-name" value="Test Testerson"></input>
                     </form>
                 </div>
         	<div class="race-div">
@@ -120,7 +121,7 @@
         		<button id="rogue" class="race-button under-construction">Rogue</button>
         		<button id="cleric" class="race-button under-construction">Cleric</button>
         	</div>
-            <button id="create-button">Create Character</button>
+            <button id="create-button" onclick="characterCreation()">Create Character</button>
         </div>
     </div>
 	<script src="js/combat.js"></script>
