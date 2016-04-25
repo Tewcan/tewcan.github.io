@@ -2,7 +2,7 @@
 images =[
 	{src:'images/sol_system.png', href:'mike/solar_system.html',name:"Solar System"},
 	{src:'images/loothoard2.png', href:'loothoard.html',name:"LootHoard"},
-	{src:'images/target.png', href:'hyrum/target.html',name:"Targets"}	]
+	{src:'images/target.PNG', href:'hyrum/target.html',name:"Targets"}	]
 var imageSelector = 0
 function featuredControll(input1,input2) {
 	console.log(imageSelector)
