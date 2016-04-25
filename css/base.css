@@ -82,6 +82,8 @@ h1, h2, h3 { color: #ff8c1a }
   width:10%;
   color:white;
   font-size: 2em;
+  user-select: none;
+  cursor: pointer;
 }
 .featured__nav:hover {background:rgba(255, 100, 0,0.9);}
 .featured__title {
