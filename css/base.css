@@ -82,6 +82,10 @@ h1, h2, h3 { color: #ff8c1a }
   width:10%;
   color:white;
   font-size: 2em;
+  line-height: 41px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   cursor: pointer;
 }
