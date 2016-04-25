@@ -4,7 +4,6 @@ var hour = d.getHours()
 function output (text,id) {
 	if (id === undefined) id = 'time__msg'
 	document.getElementsByClassName(id)[0].innerHTML = text
-
 }
 function checkTime (a,b) {
 	return hour >= a && hour < b

@@ -7,25 +7,33 @@
 	<title>Index</title>
 	<style>.background {background-image:url("images/index-background.jpg")}</style>
 </head>
-<body class="background">
-	<div class="navbar">
-		<ul>
-			<li class="pull--right button">People &#9660
-				<ul class="sub-menu">
-					<li><a class="button" href="hyrum/hyrum.html">Hyrum</a></li>
-					<li><a class="button" href="eric/eric.html">Eric</a></li>
-					<li><a class="button" href="mike/mike.html">Mike</a></li>
-					<li><a class="button" href="wil.html">Wil</a></li>	
-				</ul>
-			</li>
-			<li><a style="" href="index.html"><img class="logo" src="images/logo.png"/></a></li>
-			<li class="pull--right"><a class="button projects" href="group_projects/group_project_1.html">Group Project 1</a></li>
-		</ul>
-	</div>
-	<div>
-	    <div class="content">
-	    	<img style="height: 70px;" src="images/full-logo.png">
+<body class="background" onload="changeFeatured()">
+<div class="navbar">
+	<ul>
+		<li class="pull--right button">People &#9660
+			<ul class="sub-menu">
+				<li><a class="button" href="hyrum/hyrum.html">Hyrum</a></li>
+				<li><a class="button" href="eric/eric.html">Eric</a></li>
+				<li><a class="button" href="mike/mike.html">Mike</a></li>
+				<li><a class="button" href="wil.html">Wil</a></li>
+			</ul>
+		</li>
+		<li><a style="" href="index.html"><img class="logo" src="images/logo.png"/></a></li>
+		<li class="pull--right"><a class="button projects" href="group_projects/group_project_1.html">Group Project 1</a></li>
+	</ul>
+</div>
+<!--------------------- Main content div ------------------------>
+<div class="content">
+	<img style="height: 70px;" src="images/full-logo.png">
+	<div class="featured">
+		<a class="featured__link" href=""><img class="featured__image" src=""></a>
+		<div class="featured__container">
+			<div class="featured__nav pull--left" onclick="featuredControll(-1,0)">&#x2039;</div>
+			<div class="featured__nav pull--right" onclick="featuredControll(0,1)">&#x203A;</div>
+			<div class="featured__title"></div>
 		</div>
 	</div>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
