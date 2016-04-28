@@ -7,33 +7,51 @@
 	<title>Hyrum</title>
 	<style>.background {background-image:url("images/hyrum-background.jpg")}</style>
 </head>
-<body class="background">
+<body class="background" onload="changeFeatured()">
 <div class="navbar">
 	<ul>
-		<li><a href="../index.html"><img class="logo" src="../images/logo.png"/></a></li>
 		<li class="pull--right"><a class="button navbar--active" href="hyrum.html">Hyrum</a></li>
 		<li class="pull--right"><a class="button" href="hyrum-js.html">Js Stuff</a></li>
+		<li class="pull--right button no-wrap">Games &#9660
+			<ul class="sub-menu">
+				<li><a class="button" href="target.html">Targets</a></li>
+				<li><a class="button" href="adventure.html">Adventure Game</a></li>
+			</ul>
+		</li>
+		<li class="pull--right button no-wrap">Projects &#9660
+			<ul class="sub-menu">
+				<li><a class="button" href="random.html">Random</a></li>
+			</ul>
+		</li>
+		<li><a href="../index.html"><img class="logo" src="../images/logo.png"/></a></li>
 	</ul>
 </div>
 <div>
-	<div class="opacity">
-		<div class="content flex">
-			<div class="imagediv">
-				<h2>Awwww how cute</h2>
-				<img class="images" src="images/cat.png" alt="Cat">
+	<div class="content">
+		<div class="featured">
+			<div class="featured__header">Pictures</div>
+			<img class="featured__image" src="images/cat.png">
+			<div class="featured__container">
+				<div class="featured__nav" onclick="featuredControll(-1,0)">&#x2039;</div>
+				<div class="featured__nav" onclick="featuredControll(0,1)">&#x203A;</div>
+				<div class="featured__title"></div>
 			</div>
-			<div class="imagediv">
-				<h2>Cool sunrise</h2>
-				<img class="images" src="images/sunrise.png" alt="Sunrise">
-			</div>
-			<div class="imagediv">
-				<h2>All the way across the sky!</h2>
-				<img class="images" src="images/rainbow.png" alt="Rainbow" >
-			</div>
-
 		</div>
+		<!-- <div class="imagediv"> -->
+			<!-- <h2>Awwww how cute</h2> -->
+			<!-- <img class="images" src="images/cat.png" alt="Cat"> -->
+		<!-- </div> -->
+		<!-- <div class="imagediv"> -->
+			<!-- <h2>Cool sunrise</h2> -->
+			<!-- <img class="images" src="images/sunrise.png" alt="Sunrise"> -->
+		<!-- </div> -->
+		<!-- <div class="imagediv"> -->
+			<!-- <h2>All the way across the sky!</h2> -->
+			<!-- <img class="images" src="images/rainbow.png" alt="Rainbow" > -->
+		<!-- </div> -->
 	</div>
 </div>
 </div>
+<script type="text/javascript" src="js/hyrum.js"></script>
 </body>
 </html>

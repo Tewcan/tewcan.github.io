@@ -21,11 +21,12 @@ h1, h2, h3 { color: #ff8c1a }
 .navbar ul { list-style-type: none; }
 .button {
   display: block;
-    padding: 15px;
-    text-decoration: none;
-    color:white;
-    width: 100px;
-    text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  color:white;
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
 }
 .button:hover { background:rgba(255, 102, 0,0.8); }
 
@@ -62,73 +63,3 @@ h1, h2, h3 { color: #ff8c1a }
   align-content: flex-start;
   align-items: flex-start;
 }
-
-.featured {
-  position:absolute;
-  width:450px;
-  height:350px;
-  /*border:1px solid rgba(255, 100, 0,0.5);*/
-  transition:all .6s ease-in-out;
-  margin-left: 40px;
-}
-.featured:hover {transform:scale(1.14); /*border:8px ridge rgba(255, 100, 0,0.9);*/}
-.featured:hover .featured__container {display:block;}
-.featured__image {width:100%; height:100%;}
-.featured__header{
-  opacity: 1;
-  transition: opacity 2s ease-in-out;
-  -moz-transition: opacity 2s ease-in-out;
-  -webkit-transition: opacity 2s ease-in-out;
-  width:100%;
-  height:15%;
-  position:absolute;
-  background:rgba(255, 100, 0,0.6);
-  font-size: 2em;
-  color: white;
-}
-.featured:hover .featured__header {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -webkit-transition: opacity 1s ease-in-out;
-}
-.featured__container {
-  width:100%;
-  height:15%;
-  bottom:0;
-  position:absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -webkit-transition: opacity 1s ease-in-out;
-}
-.featured:hover .featured__container {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -webkit-transition: opacity 1s ease-in-out;
-}
-.featured__nav {
-  height:100%;
-  width:10%;
-  color:white;
-  font-size: 2em;
-  line-height: 41px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-}
-.nav__color {background:rgba(255, 100, 0,0.4);}
-.nav__color:hover {background:rgba(255, 100, 0,0.9);}
-.nav__color2 {background:rgba(100, 100, 100,0.6);}
-.nav__color2:hover {background:rgba(100, 100, 100,0.9);}
-.featured__title {
-  background:rgba(255, 100, 0,0.3);
-  width:100%;
-  height:100%;
-  font-size: 2em;
-  color: white;
-}
-.featured__title:hover {background:rgba(255, 100, 0,0.4);}

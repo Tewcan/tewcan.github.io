@@ -9,11 +9,22 @@
 </head>
 <body class="background">
 <div class="navbar">
-	 <ul>
-        <li><a href="../index.html"><img class="logo" src="../images/logo.png"/></a></li>
+    <ul>
         <li class="pull--right"><a class="button" href="hyrum.html">Hyrum</a></li>
-		<li class="pull--right"><a class="button navbar--active" href="hyrum-js.html">Js Stuff</a></li>
-	</ul>
+        <li class="pull--right"><a class="button navbar--active" href="hyrum-js.html">Js Stuff</a></li>
+        <li class="pull--right button no-wrap">Games &#9660
+            <ul class="sub-menu">
+                <li><a class="button" href="target.html">Targets</a></li>
+                <li><a class="button" href="adventure.html">Adventure Game</a></li>
+            </ul>
+        </li>
+        <li class="pull--right button no-wrap">Projects &#9660
+            <ul class="sub-menu">
+                <li><a class="button" href="random.html">Random</a></li>
+            </ul>
+        </li>
+        <li><a href="../index.html"><img class="logo" src="../images/logo.png"/></a></li>
+    </ul>
 </div>
 <div>
 <div class="content flex">
@@ -115,18 +126,6 @@
                 <button onclick="numberInput('0')" class="calculator__button">0<r/button>
                 <button onclick='operationFunction()' class="calculator__button" style="width: 80px;">=<r/button>
             </div>
-        </div>
-    </div>
-    <div>
-        <div class="halfblock block"> <!--  Adventure Block -->
-            <h2>Adventure Game!</h2>
-            <h3 class="pad">Find and slay the dragon</h3>
-            <button onclick="window.location.href='adventure.html'" class="  block__button">Enter<r/button>
-        </div>
-        <div class="halfblock block"> <!--  Targets Block -->
-            <h2>Shoot the Targets!</h2>
-            <h3 class="pad">Click some circles!</h3>
-            <button onclick="window.location.href='target.html'" class="  block__button">Enter<r/button>
         </div>
     </div>
     <div class="block"> <!--  Text Creator Block -->

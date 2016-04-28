@@ -12,6 +12,113 @@
 	border: 5px solid rgba(0, 77, 77,0.8);
 }
 
+.sub-menu {
+	position: absolute;
+	top: 54px;
+	right: 0px;
+	z-index: -1;
+	opacity: -1;
+	transition: opacity linear 0.15s;
+	background: rgba(0, 0, 0, 0.4);
+}
+ul li:hover ul{
+	z-index: 1;
+	opacity: 1;
+}
+.no-wrap {
+	white-space: nowrap;
+	width: 140px !important;
+	position: relative;
+}
+.sub-menu li a {
+	position: relative;
+	width: 140px;
+}
+.featured {
+  position:absolute;
+  width:450px;
+  height:350px;
+  transition:all .6s ease-in-out;
+  margin-left: 40px;
+  margin-top: 40px;
+}
+.featured:hover {transform:scale(1.14);}
+.featured__image {width:100%; height:100%;}
+.featured__header{
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+  -moz-transition: opacity 2s ease-in-out;
+  -webkit-transition: opacity 2s ease-in-out;
+  width:100%;
+  height:15%;
+  position:absolute;
+  background:rgba(0, 77, 77,0.8);
+  font-size: 2em;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+.featured:hover .featured__header {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+}
+.featured__container {
+  width:100%;
+  height:15%;
+  bottom:0;
+  position:absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+}
+.featured:hover .featured__container {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+}
+.featured__nav {
+  position: relative;
+  height:100%;
+  width:10%;
+  color:white;
+  font-size: 2em;
+  line-height: 41px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+.nav__color {background:rgba(0, 77, 77,0.4);}
+.nav__color:hover {background:rgba(0, 77, 77,0.8);}
+.nav__color2 {background:rgba(100, 100, 100,0.6);}
+.nav__color2:hover {background:rgba(100, 100, 100,0.9);}
+.featured__title {
+  background:rgba(0, 77, 77,0.4);
+  width:100%;
+  height:100%;
+  font-size: 2em;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+@media (max-width: 630px) {
+  .featured {
+    width: 80%;
+    height: 40%;
+  }
+}
+
 /*Targets*/
 #circles {
 	border:black 7px solid;
@@ -54,7 +161,7 @@
 /*Adventure Game*/
 h6 {font-size: 25px; color: #991f00;}
 .display {
-	width: 40%;
+	width: 770px;
  	position: absolute;
  	border:5px lightblue double; 
  	height: 100%;
@@ -140,3 +247,24 @@ h6 {font-size: 25px; color: #991f00;}
 	flex-flow: wrap row;
 	justify-content: space-between;
 }
+/*Random*/
+.colors__div {
+	overflow: hidden;
+	width: 1920px;
+	height: 900px;
+}
+.colors {
+	font-size: 30px;
+	text-align: center;
+	color: white;
+	opacity: 0.8;
+	height: 150px;
+	width: 10%;
+	transition:all .4s ease-in-out;
+}
+.colors:hover,.colors:active {
+	opacity: 1;
+	height: 900px;
+	/*width: 20%;*/
+}
+.colors:
