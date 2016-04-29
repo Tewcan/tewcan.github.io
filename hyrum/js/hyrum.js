@@ -1,7 +1,7 @@
 images =[
 	{src:'images/cat.png', name:"Cat"},
 	{src:'images/sunrise.png', name:"Sunrise"},
-	{src:'images/rainbow.PNG', name:"Rainbow"}	]
+	{src:'images/rainbow.png', name:"Rainbow"}	]
 var imageSelector = 0
 var domNav = document.getElementsByClassName("featured__nav")
 function featuredControll(input1,input2) {
