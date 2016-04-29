@@ -249,22 +249,68 @@ h6 {font-size: 25px; color: #991f00;}
 }
 /*Random*/
 .colors__div {
+	-webkit-user-select: none;
+ 	-moz-user-select: none;
+ 	-ms-user-select: none;
+ 	user-select: none;
+ 	cursor: default;
 	overflow: hidden;
 	width: 1920px;
 	height: 900px;
 }
 .colors {
+	overflow: hidden;
+	float: left;
 	font-size: 30px;
 	text-align: center;
 	color: white;
 	opacity: 0.8;
 	height: 150px;
-	width: 10%;
-	transition:all .4s ease-in-out;
+	width: 200px;
+	transition:all .6s ease-in-out;
 }
-.colors:hover,.colors:active {
+.colors:hover {
 	opacity: 1;
-	height: 900px;
-	/*width: 20%;*/
+	height: 500px;
+	width: 500px;
 }
-.colors:
+.coin {
+	width: 100%;
+	opacity: 0;
+	transition:all 1.5s ease-in-out;
+}
+.div__coin:hover .coin {
+	opacity: 1;
+	display: block;
+}
+.animation {
+	-webkit-animation: spin .3s linear infinite;
+	-moz-animation: spin .3s linear infinite;
+	-ms-animation: spin .3s linear infinite;
+	animation: spin .3s linear infinite;
+}
+@-webkit-keyframes spin {50% {-webkit-transform: rotateY(90deg);}}
+@-moz-keyframes spin {50% {-moz-transform: rotateY(90deg);}}
+@-ms-keyframes spin {50% {-ms-transform: rotateY(90deg);}}
+@keyframes spin {50% {transform: rotateY(90deg);}}
+.coin__image {
+	width: 100px;
+	height: 100px;
+}
+.coin__button {
+	width: 150px;
+	height: 50px;
+}
+.result__image {
+	float: left;
+	width: 80px;
+	height: 80px;
+	-webkit-animation: fadein 2s;
+	-moz-animation: fadein 2s;
+	-ms-animation: fadein 2s;
+	animation: fadein 2s;
+}
+@-webkit-keyframes fadein {0% {opacity: 0}100% {opacity: 1}}
+@-moz-keyframes fadein {0% {opacity: 0}100% {opacity: 1}}
+@-ms-keyframes fadein {0% {opacity: 0}100% {opacity: 1}}
+@keyframes fadein {0% {opacity: 0}100% {opacity: 1}}
