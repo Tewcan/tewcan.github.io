@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="js/main.js"></script>
+	
+</head>
+<body onload="fadeInFunction()">
+	<?php include 'header.html';?>
+	<div class="top-filler-div">
+		<div class="content" style="height: 700px;">
+		</div>
+	</div>
+	<div class="">
+		<div class="content flex">
+			<div class="content-block">
+				<h1>SERVICES</h1>
+				<h4>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</h4>
+				<button class="button-1">More Info</button>
+			</div>
+			<div class="content-block">
+				<h1>PROJECTS</h1>
+				<h4>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</h4>
+				<button class="button-1">More Info</button>
+			</div>
+			<div class="content-block">
+				<h1>CLIENTS</h1>
+				<h4>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</h4>
+				<button class="button-1">More Info</button>
+			</div>
+		</div>
+	</div>
+	<div class="bg-color-3">
+		<div class="content flex-column">
+			<h1 class="large-title color-1">ABOUT US</h1>
+			<h3 class="color-1">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you. <br> <br>
+			This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with the idea for your business and what makes you different from your competitors. </h3>
+			<button class="button-2">Read More</button>
+		</div>
+	</div>
+	<div class="bg-color-1" style="height: 800px;">
+		<div class="content">
+			<h1 class="large-title">CONTACT US</h1>
+		</div>
+	</div>
+	<?php include 'footer.html';?>
+
+</body>
+</html>
