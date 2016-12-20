@@ -21,7 +21,6 @@
 
 
 * {
-	/*opacity: 0;*/
 	/*font-family: "Times New Roman", Times, serif;*/
 	padding: 0;
 	margin: 0;
@@ -122,8 +121,8 @@ a {
 	padding:60px 0 60px 0;
 	margin: 0 auto;
 	width: 1000px;
-	opacity: 0;
-	transition: opacity 2s;
+/*	opacity: 0;
+	transition: opacity 2s;*/
 }
 .content-block{
 	display: -ms-flexbox;
