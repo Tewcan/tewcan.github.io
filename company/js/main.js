@@ -1,6 +1,4 @@
-function fadeInFunction() {
-	setTimeout(function(){ 
-		document.getElementsByClassName('content')[0].style.opacity = "1"
-		console.log('hit')
-	}, 3000);
-}
+$(document).ready(function(){
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+});
