@@ -111,9 +111,6 @@ a {
 	position: fixed;
 	width:100%;
 }
-.header *{
-	text-align: initial;
-}
 .top-filler-div{
 	margin-top:75px; 
 }
